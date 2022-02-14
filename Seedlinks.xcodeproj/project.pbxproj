@@ -24,6 +24,7 @@
 		FF03869327BA99980000A7C9 /* GardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869227BA99980000A7C9 /* GardenView.swift */; };
 		FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869427BAA35A0000A7C9 /* MessageView.swift */; };
 		FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869627BAAEF80000A7C9 /* Tab.swift */; };
+		FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869827BAB6B40000A7C9 /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		FF03869227BA99980000A7C9 /* GardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenView.swift; sourceTree = "<group>"; };
 		FF03869427BAA35A0000A7C9 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		FF03869627BAAEF80000A7C9 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		FF03869827BAB6B40000A7C9 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				FF03869227BA99980000A7C9 /* GardenView.swift */,
 				FF03869427BAA35A0000A7C9 /* MessageView.swift */,
 				FF03869627BAAEF80000A7C9 /* Tab.swift */,
+				FF03869827BAB6B40000A7C9 /* ListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				FF03868127BA653E0000A7C9 /* MapView.swift in Sources */,
 				FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */,
 				FF03869127BA7A210000A7C9 /* Prova.swift in Sources */,
+				FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */,
 				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
 				FF03869327BA99980000A7C9 /* GardenView.swift in Sources */,
 				FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */,
