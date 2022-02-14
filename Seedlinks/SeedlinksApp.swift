@@ -8,6 +8,8 @@
 import SwiftUI
 import Firebase
 
+
+//prova Fra
 @main
 struct SeedlinksApp: App {
     init() { FirebaseApp.configure()
