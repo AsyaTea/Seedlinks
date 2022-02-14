@@ -17,20 +17,26 @@
 		0ACDE5D927BA6EBA004A5930 /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACDE5D827BA6EBA004A5930 /* FirebaseInAppMessagingSwift-Beta */; };
 		0ACDE5DB27BA6EBA004A5930 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACDE5DA27BA6EBA004A5930 /* FirebaseStorage */; };
 		FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03867E27BA653E0000A7C9 /* SeedlinksApp.swift */; };
-		FF03868127BA653E0000A7C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03868027BA653E0000A7C9 /* ContentView.swift */; };
+		FF03868127BA653E0000A7C9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03868027BA653E0000A7C9 /* MapView.swift */; };
 		FF03868327BA65400000A7C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF03868227BA65400000A7C9 /* Assets.xcassets */; };
 		FF03868627BA65400000A7C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF03868527BA65400000A7C9 /* Preview Assets.xcassets */; };
 		FF03869127BA7A210000A7C9 /* Prova.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869027BA7A210000A7C9 /* Prova.swift */; };
+		FF03869327BA99980000A7C9 /* GardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869227BA99980000A7C9 /* GardenView.swift */; };
+		FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869427BAA35A0000A7C9 /* MessageView.swift */; };
+		FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869627BAAEF80000A7C9 /* Tab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0ACDE5C927BA6C97004A5930 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
 		FF03867B27BA653E0000A7C9 /* Seedlinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seedlinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF03867E27BA653E0000A7C9 /* SeedlinksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedlinksApp.swift; sourceTree = "<group>"; };
-		FF03868027BA653E0000A7C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FF03868027BA653E0000A7C9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FF03868227BA65400000A7C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF03868527BA65400000A7C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FF03869027BA7A210000A7C9 /* Prova.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prova.swift; sourceTree = "<group>"; };
+		FF03869227BA99980000A7C9 /* GardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenView.swift; sourceTree = "<group>"; };
+		FF03869427BAA35A0000A7C9 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		FF03869627BAAEF80000A7C9 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +106,10 @@
 		FF03868D27BA659C0000A7C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FF03868027BA653E0000A7C9 /* ContentView.swift */,
+				FF03868027BA653E0000A7C9 /* MapView.swift */,
+				FF03869227BA99980000A7C9 /* GardenView.swift */,
+				FF03869427BAA35A0000A7C9 /* MessageView.swift */,
+				FF03869627BAAEF80000A7C9 /* Tab.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,9 +206,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF03868127BA653E0000A7C9 /* ContentView.swift in Sources */,
+				FF03868127BA653E0000A7C9 /* MapView.swift in Sources */,
 				FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */,
 				FF03869127BA7A210000A7C9 /* Prova.swift in Sources */,
+				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
+				FF03869327BA99980000A7C9 /* GardenView.swift in Sources */,
+				FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +342,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = D8AM3BN85G;
+				DEVELOPMENT_TEAM = 55H4ABU399;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -359,7 +371,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = D8AM3BN85G;
+				DEVELOPMENT_TEAM = 55H4ABU399;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
