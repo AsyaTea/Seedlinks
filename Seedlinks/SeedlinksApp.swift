@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+//prova Fra
 @main
 struct SeedlinksApp: App {
     var body: some Scene {
