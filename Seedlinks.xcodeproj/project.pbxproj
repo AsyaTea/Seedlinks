@@ -16,6 +16,9 @@
 		0ACDE5D727BA6EBA004A5930 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACDE5D627BA6EBA004A5930 /* FirebaseInAppMessaging-Beta */; };
 		0ACDE5D927BA6EBA004A5930 /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACDE5D827BA6EBA004A5930 /* FirebaseInAppMessagingSwift-Beta */; };
 		0ACDE5DB27BA6EBA004A5930 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACDE5DA27BA6EBA004A5930 /* FirebaseStorage */; };
+		413945B527BAB77600F86087 /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413945B427BAB77600F86087 /* NewMessageView.swift */; };
+		41B0DFFE27BAB70600D3E9C6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B0DFFD27BAB70600D3E9C6 /* ViewModel.swift */; };
+		41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B0DFFF27BAB72700D3E9C6 /* Message.swift */; };
 		FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03867E27BA653E0000A7C9 /* SeedlinksApp.swift */; };
 		FF03868127BA653E0000A7C9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03868027BA653E0000A7C9 /* MapView.swift */; };
 		FF03868327BA65400000A7C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF03868227BA65400000A7C9 /* Assets.xcassets */; };
@@ -29,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		0ACDE5C927BA6C97004A5930 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
+		413945B427BAB77600F86087 /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
+		41B0DFFD27BAB70600D3E9C6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		41B0DFFF27BAB72700D3E9C6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		FF03867B27BA653E0000A7C9 /* Seedlinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seedlinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF03867E27BA653E0000A7C9 /* SeedlinksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedlinksApp.swift; sourceTree = "<group>"; };
 		FF03868027BA653E0000A7C9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 				FF03869427BAA35A0000A7C9 /* MessageView.swift */,
 				FF03869627BAAEF80000A7C9 /* Tab.swift */,
 				FF03869827BAB6B40000A7C9 /* ListView.swift */,
+				413945B427BAB77600F86087 /* NewMessageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,7 +127,9 @@
 		FF03868E27BA65B00000A7C9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				41B0DFFD27BAB70600D3E9C6 /* ViewModel.swift */,
 				FF03869027BA7A210000A7C9 /* Prova.swift */,
+				41B0DFFF27BAB72700D3E9C6 /* Message.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -209,13 +218,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				413945B527BAB77600F86087 /* NewMessageView.swift in Sources */,
 				FF03868127BA653E0000A7C9 /* MapView.swift in Sources */,
 				FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */,
 				FF03869127BA7A210000A7C9 /* Prova.swift in Sources */,
 				FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */,
 				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
 				FF03869327BA99980000A7C9 /* GardenView.swift in Sources */,
+				41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */,
 				FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */,
+				41B0DFFE27BAB70600D3E9C6 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
