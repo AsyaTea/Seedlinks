@@ -24,10 +24,12 @@ struct SheetView: View {
     
     @State var message = "" 
     @Binding var showSheetView: Bool
-    @State private var selectedCategory = "Message"
+    @State private var selectedCategory = "message"
     @State private var anonymous = false
     @State private var privat = false
+ 
     var categories = ["Message", "Advice"]
+    @StateObject var dbManager = DatabaseManager()
     
     var body: some View {
         NavigationView {
@@ -67,6 +69,9 @@ struct SheetView: View {
                 .navigationBarItems(trailing: Button(action: {
                     print("Dismissing sheet view...")
                     self.showSheetView = false
+                    dbManager.addMessage(userID: "S4KDQck3S6irvOWLN6g2", author: "Asya", message: message, publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat)
+//                    database.userMessagesQuery()
+
                 }) {
                     Text("Plant")
                 })

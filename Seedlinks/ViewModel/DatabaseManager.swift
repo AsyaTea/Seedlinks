@@ -12,10 +12,16 @@ import CoreLocation
 class DatabaseManager: ObservableObject {
     
     @Published var list = [Message]()
+    let db = Firestore.firestore()              // Reference to the database
+    
+    func formatting(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: date)
+    }
     
     func getData() {
-        
-        let db = Firestore.firestore()  // Reference to the database
+
         
         db.collection("messages").getDocuments { snapshot, error in  // Read document at a specific path
             
@@ -28,13 +34,15 @@ class DatabaseManager: ObservableObject {
                         self.list = snapshot.documents.map { d in
                             
                             return Message(id: d.documentID,
+                                           userID: d["userID"] as? String ?? "",
                                            author: d["author"] as? String ?? "",
-                                           message: d["message"] as? String ?? "",
-                                           publicationDate: d["publicationDate"] as? Date ?? Date.init())
-                            //                                           location: d["location"] as? CLLocation ?? CLLocation.init(),
-                            //                                           category: "Advice",
-                            //                                           anonymous: true,
-                            //                                           privato: true)
+                                           message: d["message"] as? String ?? "",                                           
+                                           publicationDate: d["publicationDate"] as? Date ?? Date.init(),
+                                           dateString: d["dateString"] as? String ?? "",
+                            //             location: d["location"] as? CLLocation ?? CLLocation.init(),
+                                           category: d["category"] as? String ?? "",
+                                           anonymous: d["anonymous"] as? Bool ?? Bool.init(),
+                                           privat: d["private"] as? Bool ?? Bool.init())
                             
                             
                         }
@@ -49,27 +57,63 @@ class DatabaseManager: ObservableObject {
         }
     }
     
-    func addMessage(author: String, message: String, publicationDate: Date) {
+//    func userMessagesQuery() {
+//        db.collection("messages").whereField("userID", isEqualTo: "S4KDQck3S6irvOWLN6g2")
+//            .getDocuments { querySnapshot, error in
+//
+//                if error == nil {
+//                    for d in querySnapshot!.documents {
+//
+//                        print("\(d)")
+//
+//                    }
+//                }
+//            }
+//    }
+    
+    func addMessage(userID: String, author: String, message: String, publicationDate: Date, dateString: String, category: String, anonymous: Bool, privat: Bool) {
         
-        let db = Firestore.firestore()
+     
         
-        db.collection("messages").addDocument(data: ["author": author, "message": message, "publicationDate": publicationDate]) { error in
+        db.collection("messages").addDocument(data: ["userID": "S4KDQck3S6irvOWLN6g2" , "author": author, "message": message, "publicationDate": publicationDate, "dateString": dateString, "category": category, "anonymous": anonymous, "private": privat]) { error in
             
             if error == nil {
                 
                 self.getData()
                 
+            } else {
+                //Handle errors
             }
         }
         
     }
     
-//    func getDateOnly(fromTimeStamp timestamp: TimeInterval) -> String {
-//        let dayTimePeriodFormatter = DateFormatter()
-//        dayTimePeriodFormatter.timeZone = TimeZone.current
-//        dayTimePeriodFormatter.dateFormat = "MMM dd YYYY"
-//        return dayTimePeriodFormatter.string(from: Date(timeIntervalSince1970: timestamp))
-//        
-//    }
+    func deleteMessage(_ messageId: String) {
+        
+       
+        db.collection("messages").document(messageId).delete { error in
+            
+            if error == nil {
+
+                DispatchQueue.main.async {
+
+                    self.list.removeAll { message in
+
+                        return message.id == messageId
+
+                    }
+
+                }
+
+            } else {
+                 // Handle errors
+            }
+        }
+    }
+    
+    
 }
+
+var database = DatabaseManager()
+
 
