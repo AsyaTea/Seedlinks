@@ -13,7 +13,7 @@ struct GardenView: View {
     @State var isOn: Bool = false
     var username : String = "Ivo"
     var body: some View {
-        NavigationView {
+       
         
         VStack(alignment: .leading){
             Text("Welcome back \(username)")
@@ -53,7 +53,7 @@ struct GardenView: View {
             
                 
             //YOUR SEEDS
-            VStack {
+            VStack(alignment: .leading) {
                 Text("Your seeds")
                     .font(.system(size: 22))
                     .fontWeight(.semibold)
@@ -61,12 +61,13 @@ struct GardenView: View {
                 ScrollView{
                     MessageListView()
                 }
-                Spacer()                
+                           
             }
+            Spacer()
         }
         }
         
-    }
+    
     
 }
 

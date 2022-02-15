@@ -22,6 +22,7 @@ struct MessageView: View {
     
     var messageText : String
     var messageAuthor: String
+    var pubblicationDate : Date
     @State var textHeight: CGFloat = 0
     
     var body: some View {
@@ -61,7 +62,7 @@ struct MessageView: View {
 
                 
                 //TIME STAMP
-                Text("2h ago")
+                Text("2H Ago")
                     .foregroundColor(.black)
                     .font(.system(size: 16))
                     .fontWeight(.regular)
@@ -95,17 +96,12 @@ struct MessageView: View {
     
     
 }
-//                List(model.list) { item in
-//                    HStack{
-//                        Text("\(item.author) : \(item.message)")
-//
-//                    }
-//                }
 
 
 
-//struct MessageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MessageView()
-//    }
-//}
+
+struct MessageView_Previews: PreviewProvider {
+    static var previews: some View {
+        MessageView(messageText: "PROVA", messageAuthor: "PROVA", pubblicationDate: Date.now)
+    }
+}
