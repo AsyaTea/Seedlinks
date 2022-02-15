@@ -14,10 +14,14 @@ struct ContentLengthPreference: PreferenceKey {
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
     }
+    
+    
 }
 
 struct MessageView: View {
     
+    var messageText : String
+    var messageAuthor: String
     @State var textHeight: CGFloat = 0
     
     var body: some View {
@@ -36,13 +40,13 @@ struct MessageView: View {
             
             VStack(alignment: .leading){
                 //Nickname
-                Text("Anonymous")
+                Text(messageAuthor)
                     .foregroundColor(.white)
                     .font(.system(size: 16))
                     .fontWeight(.bold)
                 
                 //Message
-                Text("Il decò è un furto, non ci andate !!!!!!dsfdsfdsfsfddsffdsdfdsfdsfdfsfdsfsddsfdsfdsdsfdsfdsfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdssff SDHFJDSFHDSFJHDJSHFJHDSHFHJSDHJFHJDSHJFS")
+                Text(messageText)
                     .foregroundColor(.white)
                     .font(.system(size: 16))
                     .fontWeight(.regular)
@@ -54,6 +58,7 @@ struct MessageView: View {
                                             value: proxy.size.height) // <-- this
                         }
                     )
+
                 
                 //TIME STAMP
                 Text("2h ago")
@@ -70,10 +75,20 @@ struct MessageView: View {
             }
         }
     }
+    
+    
 }
+//                List(model.list) { item in
+//                    HStack{
+//                        Text("\(item.author) : \(item.message)")
+//
+//                    }
+//                }
 
-struct MessageView_Previews: PreviewProvider {
-    static var previews: some View {
-        MessageView()
-    }
-}
+
+
+//struct MessageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MessageView()
+//    }
+//}

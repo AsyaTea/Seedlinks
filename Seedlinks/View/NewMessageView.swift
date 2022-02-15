@@ -32,8 +32,7 @@ struct SheetView: View {
                     self.showSheetView = false
                 }) {
                     HStack {
-                        Image(systemName: "􀆁")
-                        Text("Profile").bold()
+                        Text("< Profile").bold()
                     }
                 })
                 .navigationBarTitle(Text("New seed"), displayMode: .inline)

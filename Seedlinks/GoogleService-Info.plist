@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>484749511297-qms9fol7d9orksbaprsailc0r8j5au6b.apps.googleusercontent.com</string>
+	<string>372888862957-k9fjb1a4im18uldfrl1jt3sa2bojuufg.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.484749511297-qms9fol7d9orksbaprsailc0r8j5au6b</string>
+	<string>com.googleusercontent.apps.372888862957-k9fjb1a4im18uldfrl1jt3sa2bojuufg</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDeNEoOmO0P1qIeZYbYBrlnBYNNPpNyGWQ</string>
+	<string>AIzaSyB-1KYzP4iSMn96xZGK0NxedBt5DS89Opk</string>
 	<key>GCM_SENDER_ID</key>
-	<string>484749511297</string>
+	<string>372888862957</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>it.rc.serio.SeedLinks</string>
+	<string>Ivo.Seedlinks</string>
 	<key>PROJECT_ID</key>
-	<string>seedlinks-1884f</string>
+	<string>seedlinks-67e57</string>
 	<key>STORAGE_BUCKET</key>
-	<string>seedlinks-1884f.appspot.com</string>
+	<string>seedlinks-67e57.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:484749511297:ios:2d65986b38456fb10e1b80</string>
+	<string>1:372888862957:ios:b00584b6632f3fe1ef8ce4</string>
 </dict>
 </plist>

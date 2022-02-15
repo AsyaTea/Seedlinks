@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
-//simport Firebase
+import Firebase
 
 
 //prova Fra
 @main
 struct SeedlinksApp: App {
     
-//    init() { FirebaseApp.configure()
-//    }
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {
