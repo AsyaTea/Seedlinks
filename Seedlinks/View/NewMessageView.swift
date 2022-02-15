@@ -22,11 +22,26 @@ struct NewMessageView: View {
 }
 struct SheetView: View {
     
+    @State var message = ""
     @Binding var showSheetView: Bool
     
     var body: some View {
         NavigationView {
-            Text("Sheet View content")
+                VStack {
+                    Divider()
+                    TextField("Write a text", text: $message)
+                        .textFieldStyle(PlainTextFieldStyle())
+                        .frame(width: 400, height: 300, alignment: .topLeading)
+                    
+                    List {
+                        Text("Ah scemi")
+                        Text("Ah scemi")
+                        Text("Ah scemi")
+                    }
+                    .listStyle(PlainListStyle())
+                    
+                    Spacer()
+                }
                 .navigationBarItems(leading: Button(action: {
                     print("Dismissing sheet view...")
                     self.showSheetView = false
@@ -42,6 +57,7 @@ struct SheetView: View {
                 }) {
                     Text("Publish").bold()
                 })
+            
         }
     }
 }

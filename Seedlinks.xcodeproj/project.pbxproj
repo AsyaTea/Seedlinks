@@ -20,6 +20,7 @@
 		41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B0DFFF27BAB72700D3E9C6 /* Message.swift */; };
 		41DA31A827BBAC4900684C13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41DA31A727BBAC4900684C13 /* GoogleService-Info.plist */; };
 		41DA31AA27BBAFA900684C13 /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DA31A927BBAFA900684C13 /* MessageList.swift */; };
+		41DA31AC27BBBFE100684C13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DA31AB27BBBFE100684C13 /* User.swift */; };
 		FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03867E27BA653E0000A7C9 /* SeedlinksApp.swift */; };
 		FF03868127BA653E0000A7C9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03868027BA653E0000A7C9 /* MapView.swift */; };
 		FF03868327BA65400000A7C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF03868227BA65400000A7C9 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		41B0DFFF27BAB72700D3E9C6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		41DA31A727BBAC4900684C13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41DA31A927BBAFA900684C13 /* MessageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageList.swift; sourceTree = "<group>"; };
+		41DA31AB27BBBFE100684C13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FF03867B27BA653E0000A7C9 /* Seedlinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seedlinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF03867E27BA653E0000A7C9 /* SeedlinksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedlinksApp.swift; sourceTree = "<group>"; };
 		FF03868027BA653E0000A7C9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		FF03868C27BA65930000A7C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				41DA31AB27BBBFE100684C13 /* User.swift */,
 				41B0DFFF27BAB72700D3E9C6 /* Message.swift */,
 			);
 			path = Model;
@@ -229,6 +232,7 @@
 				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
 				FF03869327BA99980000A7C9 /* GardenView.swift in Sources */,
 				41DA31AA27BBAFA900684C13 /* MessageList.swift in Sources */,
+				41DA31AC27BBBFE100684C13 /* User.swift in Sources */,
 				41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */,
 				FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */,
 				41B0DFFE27BAB70600D3E9C6 /* ViewModel.swift in Sources */,
