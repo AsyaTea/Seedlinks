@@ -101,6 +101,7 @@
 		FF03867D27BA653E0000A7C9 /* Seedlinks */ = {
 			isa = PBXGroup;
 			children = (
+				FF7FFE6927BC105B009AE704 /* Firebase */,
 				41DA31A727BBAC4900684C13 /* GoogleService-Info.plist */,
 				FF03867E27BA653E0000A7C9 /* SeedlinksApp.swift */,
 				FF03868E27BA65B00000A7C9 /* ViewModel */,
@@ -150,11 +151,34 @@
 		FF03868E27BA65B00000A7C9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				41B0DFFD27BAB70600D3E9C6 /* DatabaseManager.swift */,
 				0307B11D27BC07AF00A667F8 /* HTML View.swift */,
 				FF03869027BA7A210000A7C9 /* Prova.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FF7FFE6927BC105B009AE704 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				FF7FFE6B27BC1070009AE704 /* Views */,
+				FF7FFE6A27BC1069009AE704 /* ViewModel */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		FF7FFE6A27BC1069009AE704 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				41B0DFFD27BAB70600D3E9C6 /* DatabaseManager.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FF7FFE6B27BC1070009AE704 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
