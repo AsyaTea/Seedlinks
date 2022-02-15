@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GardenView: View {
-    
     @State var isOn: Bool = false
     var username : String = "Ivo"
     var body: some View {
