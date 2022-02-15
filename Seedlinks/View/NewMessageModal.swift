@@ -22,8 +22,12 @@ struct NewMessageView: View {
 }
 struct SheetView: View {
     
-    @State var message = ""
+    @State var message = "" 
     @Binding var showSheetView: Bool
+    @State private var selectedCategory = "Message"
+    @State private var anonymous = false
+    @State private var privat = false
+    var categories = ["Message", "Advice"]
     
     var body: some View {
         NavigationView {
@@ -34,9 +38,15 @@ struct SheetView: View {
                         .frame(width: 400, height: 300, alignment: .topLeading)
                     
                     List {
-                        Text("Ah scemi")
-                        Text("Ah scemi")
-                        Text("Ah scemi")
+                        Toggle("Anonymous", isOn: $anonymous)
+                        Toggle("Private", isOn: $privat)
+                        Picker("Choose a category", selection: $selectedCategory) {
+                                        ForEach(categories, id: \.self) {
+                                            Text($0)
+                                        }
+                        }.pickerStyle(.inline)
+                        
+//
                     }
                     .listStyle(PlainListStyle())
                     
@@ -47,7 +57,10 @@ struct SheetView: View {
                     self.showSheetView = false
                 }) {
                     HStack {
-                        Text("< Profile").bold()
+                        Text("<")
+                            .font(.custom("Times New Roman", size: 18))
+                            .fontWeight(.bold)
+                        Text("Profile")
                     }
                 })
                 .navigationBarTitle(Text("New seed"), displayMode: .inline)
@@ -55,7 +68,7 @@ struct SheetView: View {
                     print("Dismissing sheet view...")
                     self.showSheetView = false
                 }) {
-                    Text("Publish").bold()
+                    Text("Plant")
                 })
             
         }
@@ -67,3 +80,5 @@ struct NewMessageView_Previews: PreviewProvider {
         NewMessageView()
     }
 }
+
+
