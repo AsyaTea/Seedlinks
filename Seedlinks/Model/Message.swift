@@ -13,7 +13,7 @@ struct Message: Identifiable {
     var id: String
     var author: String
     var message: String
-//    var publicationDate: Date
+    var publicationDate: Date
 //    var location: CLLocation
 //    var category: String
 //    var anonymous: Bool
