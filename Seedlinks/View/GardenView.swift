@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GardenView: View {
+    
     @State var isOn: Bool = false
     var username : String = "Ivo"
     var body: some View {
@@ -32,8 +33,7 @@ struct GardenView: View {
             
             Button {
                 isOn = true
-            } label: {
-                
+            } label: {                
                     ZStack{
                         Text("Plant a seed.")
                             .foregroundColor(Color("genericGray"))
@@ -52,18 +52,21 @@ struct GardenView: View {
             
                 
             //YOUR SEEDS
-            Text("Your seeds")
-                .font(.system(size: 22))
-                .fontWeight(.semibold)
-                .padding(.top,20)
-            ScrollView{
-                MessageView()
+            VStack {
+                Text("Your seeds")
+                    .font(.system(size: 22))
+                    .fontWeight(.semibold)
+                    .padding(.top,20)
+                ScrollView{
+                    MessageListView()
+                }
+                Spacer()                
             }
-            Spacer()
         }
         }
         
     }
+    
 }
 
 struct GardenView_Previews: PreviewProvider {

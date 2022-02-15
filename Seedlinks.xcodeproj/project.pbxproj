@@ -20,6 +20,8 @@
 		413945B527BAB77600F86087 /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413945B427BAB77600F86087 /* NewMessageView.swift */; };
 		41B0DFFE27BAB70600D3E9C6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B0DFFD27BAB70600D3E9C6 /* ViewModel.swift */; };
 		41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B0DFFF27BAB72700D3E9C6 /* Message.swift */; };
+		41DA31A827BBAC4900684C13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41DA31A727BBAC4900684C13 /* GoogleService-Info.plist */; };
+		41DA31AA27BBAFA900684C13 /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DA31A927BBAFA900684C13 /* MessageList.swift */; };
 		FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03867E27BA653E0000A7C9 /* SeedlinksApp.swift */; };
 		FF03868127BA653E0000A7C9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03868027BA653E0000A7C9 /* MapView.swift */; };
 		FF03868327BA65400000A7C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF03868227BA65400000A7C9 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 		413945B427BAB77600F86087 /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
 		41B0DFFD27BAB70600D3E9C6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		41B0DFFF27BAB72700D3E9C6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		41DA31A727BBAC4900684C13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41DA31A927BBAFA900684C13 /* MessageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageList.swift; sourceTree = "<group>"; };
 		FF03867B27BA653E0000A7C9 /* Seedlinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seedlinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF03867E27BA653E0000A7C9 /* SeedlinksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedlinksApp.swift; sourceTree = "<group>"; };
 		FF03868027BA653E0000A7C9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -87,7 +91,7 @@
 		FF03867D27BA653E0000A7C9 /* Seedlinks */ = {
 			isa = PBXGroup;
 			children = (
-				0ACDE5C927BA6C97004A5930 /* GoogleService-Info-3.plist */,
+				41DA31A727BBAC4900684C13 /* GoogleService-Info.plist */,
 				FF03867E27BA653E0000A7C9 /* SeedlinksApp.swift */,
 				FF03868E27BA65B00000A7C9 /* ViewModel */,
 				FF03868C27BA65930000A7C9 /* Model */,
@@ -109,6 +113,7 @@
 		FF03868C27BA65930000A7C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				41B0DFFF27BAB72700D3E9C6 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 		FF03868D27BA659C0000A7C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				41DA31A927BBAFA900684C13 /* MessageList.swift */,
 				FF03868027BA653E0000A7C9 /* MapView.swift */,
 				FF03869227BA99980000A7C9 /* GardenView.swift */,
 				FF03869427BAA35A0000A7C9 /* MessageView.swift */,
@@ -132,7 +138,6 @@
 			children = (
 				41B0DFFD27BAB70600D3E9C6 /* ViewModel.swift */,
 				FF03869027BA7A210000A7C9 /* Prova.swift */,
-				41B0DFFF27BAB72700D3E9C6 /* Message.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -209,8 +214,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF03868627BA65400000A7C9 /* Preview Assets.xcassets in Resources */,
-				0ACDE5CA27BA6C97004A5930 /* GoogleService-Info-3.plist in Resources */,
 				FF03868327BA65400000A7C9 /* Assets.xcassets in Resources */,
+				41DA31A827BBAC4900684C13 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +233,7 @@
 				FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */,
 				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
 				FF03869327BA99980000A7C9 /* GardenView.swift in Sources */,
+				41DA31AA27BBAFA900684C13 /* MessageList.swift in Sources */,
 				41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */,
 				03C6875B27BB9F7600F2D641 /* LoginView.swift in Sources */,
 				FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */,
