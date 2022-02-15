@@ -16,8 +16,8 @@ struct RegisterView: View {
     @State var email: String = ""
     @State var password: String = ""
     
-    @State var authenticationDidFail: Bool = false
-    @State var authenticationDidSucceed: Bool = false
+    @State var registrationDidFail: Bool = false
+    @State var registrationDidSucceed: Bool = false
     
     var body: some View {
         VStack {
@@ -29,92 +29,111 @@ struct RegisterView: View {
                 .font(.body)
                 .fontWeight(.regular)
                 .multilineTextAlignment(.center)
-            VStack {
-                Text("Username")
-                    .font(.caption)
-                    .padding(.top, 30.0)
-                    .frame(width: 370, height: 10, alignment: .leading)
-                UsernameTextField(username: $username)
-                Text("E-mail")
-                    .font(.caption)
-                    .padding(.top, 30.0)
-                    .frame(width: 370, height: 10, alignment: .leading)
-                emailTextField(email: $email)
-                Text("Password")
-                    .font(.caption)
-                    .padding(.top, 30.0)
-                    .frame(width: 370, height: 10, alignment: .leading)
-                PasswordSecureField(password: $password)
-                if authenticationDidFail {
-                    Text("Information not correct. Try again.")
-                        .foregroundColor(.red)
-                }
-                
-                Button(action: {
-                    if self.username == storedUsername && self.password == storedPassword {
-                        self.authenticationDidSucceed = true
-                        self.authenticationDidFail = false
-                    } else {
-                        self.authenticationDidFail = true
+            Divider()
+            ScrollView {
+                VStack {
+                    Text("Username")
+                        .font(.caption)
+                        .padding(.top, 30.0)
+                        .frame(width: 370, height: 10, alignment: .leading)
+                    UsernameTextField(username: $username)
+                    Text("E-mail")
+                        .font(.caption)
+                        .padding(.top, 30.0)
+                        .frame(width: 370, height: 10, alignment: .leading)
+                    emailTextField(email: $email)
+                    Text("Password")
+                        .font(.caption)
+                        .padding(.top, 30.0)
+                        .frame(width: 370, height: 10, alignment: .leading)
+                    PasswordSecureField(password: $password)
+                    if registrationDidFail {
+                        Text("You already have an account. Please, sign in instead.")
+                            .foregroundColor(.red)
                     }
-                }) {
-                    RegisterButtonContent()
+                    
+                    Button(action: {
+                        if self.username == storedUsername && self.password == storedPassword {
+                            self.registrationDidSucceed = false
+                            self.registrationDidFail = true
+                        } else {
+                            self.registrationDidFail = false
+                        }
+                    }) {
+                        RegisterButtonContent()
+                    }
                 }
-            }
-            .padding(.bottom, 3.0)
-            HStack{
-                Rectangle()
-                    .frame(width: 50.0, height: 1.0)
-                Text("Or continue with")
-                Rectangle()
-                    .frame(width: 50.0, height: 1.0)
+                .padding(.bottom, 3.0)
+                HStack{
+                    Rectangle()
+                        .frame(width: 50.0, height: 1.0)
+                    Text("Or continue with")
+                    Rectangle()
+                        .frame(width: 50.0, height: 1.0)
+                    
+                }
+                SignInWithAppleButton(
+                    onRequest: { request in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    },
+                    onCompletion: { result in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    }
+                )
+                    .frame(width: 200.0, height: 40.0)
+                    .cornerRadius(10)
+                    .padding()
+                //            Qui da mettere quello di Google
+                SignInWithAppleButton(
+                    onRequest: { request in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    },
+                    onCompletion: { result in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    }
+                )
+                    .frame(width: 200.0, height: 40.0)
+                    .cornerRadius(10)
+                    .padding()
+                //            Qui da mettere quello di Facebook
+                SignInWithAppleButton(
+                    onRequest: { request in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    },
+                    onCompletion: { result in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    }
+                )
+                    .frame(width: 200.0, height: 40.0)
+                    .cornerRadius(10)
+                    .padding()
                 
+                HStack {
+                    Text("Already registered?")
+                    Text("Sign in now!")
+                    //                    .onTapGesture {
+                    //                        <#code#>
+                    //                    }
+                }
+                .padding()
+                HStack {
+                    Text("By registering, you agree to our")
+                    
+                    NavigationLink(destination: PolicyView())
+                    {Text("privacy policy")
+                            .foregroundColor(Color.green)
+                    }
+                }
+                HStack{
+                    Text("and our")
+                    NavigationLink(destination: TTCView())
+                    {Text("terms and conditions.")
+                            .foregroundColor(Color.green)
+                    }
+                }
             }
-            SignInWithAppleButton(
-                onRequest: { request in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                },
-                onCompletion: { result in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                }
-            )
-                .frame(width: 200.0, height: 40.0)
-                .cornerRadius(10)
-                .padding()
-            //            Qui da mettere quello di Google
-            SignInWithAppleButton(
-                onRequest: { request in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                },
-                onCompletion: { result in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                }
-            )
-                .frame(width: 200.0, height: 40.0)
-                .cornerRadius(10)
-                .padding()
-            //            Qui da mettere quello di Facebook
-            SignInWithAppleButton(
-                onRequest: { request in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                },
-                onCompletion: { result in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                }
-            )
-                .frame(width: 200.0, height: 40.0)
-                .cornerRadius(10)
-                .padding()
-            
-            HStack{
-                Text("Already registered?")
-                Text("Sign in now!")
-                //                    .onTapGesture {
-                //                        <#code#>
-                //                    }
-            }
-        }
-        .frame(width: 400.0, height: 600.0)
+        }.frame(width: 400.0, height: 800.0)
+        
         
     }
 }
