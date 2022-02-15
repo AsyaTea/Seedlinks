@@ -68,6 +68,23 @@ struct MessageView: View {
                     self.textHeight = value
                 }
             }
+        } .contextMenu
+        {
+            Button(action: { print("Action 1 triggered") }, label:
+            {
+                HStack{
+                    Text("View on map")
+                    Image(systemName: "map")
+                }
+            })
+            
+            Button(role: .destructive ,action: { print("action 2 triggered")}, label:
+            {
+                HStack{
+                    Text("Delete")
+                    Image(systemName: "trash")
+                }
+            })
         }
     }
 }
