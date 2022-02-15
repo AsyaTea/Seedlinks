@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import CoreLocation
 
-class ViewModel: ObservableObject {
+class DatabaseManager: ObservableObject {
     
     @Published var list = [Message]()
     
@@ -29,12 +29,13 @@ class ViewModel: ObservableObject {
                             
                             return Message(id: d.documentID,
                                            author: d["author"] as? String ?? "",
-                                           message: d["message"] as? String ?? "",
-                                           publicationDate: d["publicationDate"] as? Date ?? Date.init(),
-                                           location: d["location"] as? CLLocation ?? CLLocation.init(),
-                                           category: "Advice",
-                                           anonymous: true,
-                                           privato: true)
+                                           message: d["message"] as? String ?? "")
+//                                           publicationDate: d["publicationDate"] as? Date ?? Date.init(),
+//                                           location: d["location"] as? CLLocation ?? CLLocation.init(),
+//                                           category: "Advice",
+//                                           anonymous: true,
+//                                           privato: true)
+                                           
                             
                         }
                     }
