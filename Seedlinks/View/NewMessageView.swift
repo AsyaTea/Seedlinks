@@ -32,7 +32,7 @@ struct SheetView: View {
                     self.showSheetView = false
                 }) {
                     HStack {
-                        Image(systemName: "􀆁")
+//                        Image(systemName: "􀆁")
                         Text("Profile").bold()
                     }
                 })

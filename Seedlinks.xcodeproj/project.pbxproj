@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03C6875B27BB9F7600F2D641 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6875A27BB9F7600F2D641 /* LoginView.swift */; };
 		0ACDE5CA27BA6C97004A5930 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ACDE5C927BA6C97004A5930 /* GoogleService-Info-3.plist */; };
 		0ACDE5CD27BA6EBA004A5930 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACDE5CC27BA6EBA004A5930 /* FirebaseAnalytics */; };
 		0ACDE5CF27BA6EBA004A5930 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACDE5CE27BA6EBA004A5930 /* FirebaseAuth */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03C6875A27BB9F7600F2D641 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		0ACDE5C927BA6C97004A5930 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
 		413945B427BAB77600F86087 /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
 		41B0DFFD27BAB70600D3E9C6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				FF03869627BAAEF80000A7C9 /* Tab.swift */,
 				FF03869827BAB6B40000A7C9 /* ListView.swift */,
 				413945B427BAB77600F86087 /* NewMessageView.swift */,
+				03C6875A27BB9F7600F2D641 /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
 				FF03869327BA99980000A7C9 /* GardenView.swift in Sources */,
 				41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */,
+				03C6875B27BB9F7600F2D641 /* LoginView.swift in Sources */,
 				FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */,
 				41B0DFFE27BAB70600D3E9C6 /* ViewModel.swift in Sources */,
 			);
