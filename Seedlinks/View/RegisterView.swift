@@ -1,20 +1,19 @@
 //
-//  Login-View.swift
+//  RegisterView.swift
 //  Seedlinks
 //
 //  Created by Francesco Puzone on 15/02/22.
 //
 
+import Foundation
 import SwiftUI
 import AuthenticationServices
 
 
-let storedUsername = "Username"
-let storedPassword = "Password"
-
-struct LoginView: View {
+struct RegisterView: View {
     
     @State var username: String = ""
+    @State var email: String = ""
     @State var password: String = ""
     
     @State var authenticationDidFail: Bool = false
@@ -22,28 +21,34 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            Text("Welcome!")
+            Text("Get started!")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-            Text("You have been missed")
+            Text("Use your email to create an account")
                 .font(.body)
                 .fontWeight(.regular)
                 .multilineTextAlignment(.center)
             VStack {
+                Text("Username")
+                    .font(.caption)
+                    .padding(.top, 30.0)
+                    .frame(width: 370, height: 10, alignment: .leading)
                 UsernameTextField(username: $username)
+                Text("E-mail")
+                    .font(.caption)
+                    .padding(.top, 30.0)
+                    .frame(width: 370, height: 10, alignment: .leading)
+                emailTextField(email: $email)
+                Text("Password")
+                    .font(.caption)
+                    .padding(.top, 30.0)
+                    .frame(width: 370, height: 10, alignment: .leading)
                 PasswordSecureField(password: $password)
                 if authenticationDidFail {
                     Text("Information not correct. Try again.")
-                        .offset(y: -10)
                         .foregroundColor(.red)
                 }
-                Text("Forgotten password?")
-                    .fontWeight(.thin)
-                    .multilineTextAlignment(.trailing)
-                    .frame(width: 390, height: 30, alignment: .trailing)
-                    .onTapGesture {
-                    }
                 
                 Button(action: {
                     if self.username == storedUsername && self.password == storedPassword {
@@ -53,19 +58,10 @@ struct LoginView: View {
                         self.authenticationDidFail = true
                     }
                 }) {
-                    LoginButtonContent()
+                    RegisterButtonContent()
                 }
             }
-            .padding()
-            if authenticationDidSucceed {
-                Text("Login succeeded!")
-                    .font(.headline)
-                    .frame(width: 250, height: 80)
-                    .background(Color.green)
-                    .cornerRadius(10.0)
-                    .foregroundColor(.white)
-                    .animation(Animation.linear(duration: 1), value: 1.5)
-            }
+            .padding(.bottom, 3.0)
             HStack{
                 Rectangle()
                     .frame(width: 50.0, height: 1.0)
@@ -111,8 +107,8 @@ struct LoginView: View {
                 .padding()
             
             HStack{
-                Text("Not a member?")
-                Text("Register now!")
+                Text("Already registered?")
+                Text("Sign in now!")
                 //                    .onTapGesture {
                 //                        <#code#>
                 //                    }
@@ -122,10 +118,22 @@ struct LoginView: View {
         
     }
 }
-
-struct LoginButtonContent : View {
+struct emailTextField : View {
+    
+    @Binding var email: String
+    
     var body: some View {
-        return Text("Sign in")
+        return TextField("name@example.com", text: $email)
+            .textFieldStyle(PlainTextFieldStyle())
+            .padding()
+            .cornerRadius(10.0)
+            .padding(.bottom, 20)
+    }
+}
+
+struct RegisterButtonContent : View {
+    var body: some View {
+        return Text("Register")
             .font(.headline)
             .foregroundColor(.white)
             .padding()
@@ -135,54 +143,8 @@ struct LoginButtonContent : View {
     }
 }
 
-struct UsernameTextField : View {
-    
-    @Binding var username: String
-    
-    var body: some View {
-        return TextField("Username", text: $username)
-            .textFieldStyle(PlainTextFieldStyle())
-            .padding()
-            .cornerRadius(10.0)
-            .padding(.bottom, 20)
-    }
-}
-
-struct PasswordSecureField : View {
-    
-    @Binding var password: String
-    
-    var body: some View {
-        return SecureField("Password", text: $password)
-            .padding()
-            .cornerRadius(10.0)
-    }
-}
-
-//extension UIApplication {
-//    func endEditing() {
-//        sendAction(
-//            #selector(UIResponder.resignFirstResponder),
-//            to: nil,
-//            from: nil,
-//            for: nil
-//        )
-//    }
-//}
-
-struct AppleIdButton: UIViewRepresentable {
-    func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
-        ASAuthorizationAppleIDButton()
-    }
-    
-    func updateUIView(_ uiView: ASAuthorizationAppleIDButton, context: Context) {
-        
-    }
-    
-}
-
-struct ContentView_Previews5: PreviewProvider {
+struct ContentView_Previews6: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        RegisterView()
     }
 }

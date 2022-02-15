@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0307B11627BBD15800A667F8 /* Login-View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307B11527BBD15800A667F8 /* Login-View.swift */; };
+		0307B11827BBEC9900A667F8 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307B11727BBEC9900A667F8 /* RegisterView.swift */; };
 		03C6875B27BB9F7600F2D641 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		03C6875D27BBC2E700F2D641 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		0ACDE5CD27BA6EBA004A5930 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACDE5CC27BA6EBA004A5930 /* FirebaseAnalytics */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		0307B11527BBD15800A667F8 /* Login-View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-View.swift"; sourceTree = "<group>"; };
+		0307B11727BBEC9900A667F8 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		413945B427BAB77600F86087 /* NewMessageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageModal.swift; sourceTree = "<group>"; };
 		41B0DFFD27BAB70600D3E9C6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		41B0DFFF27BAB72700D3E9C6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				FF03869627BAAEF80000A7C9 /* Tab.swift */,
 				FF03869827BAB6B40000A7C9 /* ListView.swift */,
 				0307B11527BBD15800A667F8 /* Login-View.swift */,
+				0307B11727BBEC9900A667F8 /* RegisterView.swift */,
 				413945B427BAB77600F86087 /* NewMessageModal.swift */,
 			);
 			path = View;
@@ -242,6 +245,7 @@
 				41DA31AC27BBBFE100684C13 /* User.swift in Sources */,
 				41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */,
 				03C6875B27BB9F7600F2D641 /* (null) in Sources */,
+				0307B11827BBEC9900A667F8 /* RegisterView.swift in Sources */,
 				FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */,
 				41B0DFFE27BAB70600D3E9C6 /* DatabaseManager.swift in Sources */,
 			);
