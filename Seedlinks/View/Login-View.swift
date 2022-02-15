@@ -30,96 +30,98 @@ struct LoginView: View {
                 .font(.body)
                 .fontWeight(.regular)
                 .multilineTextAlignment(.center)
-            VStack {
-                UsernameTextField(username: $username)
-                PasswordSecureField(password: $password)
-                if authenticationDidFail {
-                    Text("Information not correct. Try again.")
-                        .offset(y: -10)
-                        .foregroundColor(.red)
-                }
-                Text("Forgotten password?")
-                    .fontWeight(.thin)
-                    .multilineTextAlignment(.trailing)
-                    .frame(width: 390, height: 30, alignment: .trailing)
-                    .onTapGesture {
+            Divider()
+            ScrollView {
+                VStack {
+                    UsernameTextField(username: $username)
+                    PasswordSecureField(password: $password)
+                    if authenticationDidFail {
+                        Text("Information not correct. Try again.")
+                            .offset(y: -10)
+                            .foregroundColor(.red)
                     }
-                
-                Button(action: {
-                    if self.username == storedUsername && self.password == storedPassword {
-                        self.authenticationDidSucceed = true
-                        self.authenticationDidFail = false
-                    } else {
-                        self.authenticationDidFail = true
+                    Text("Forgotten password?")
+                        .fontWeight(.thin)
+                        .multilineTextAlignment(.trailing)
+                        .frame(width: 390, height: 30, alignment: .trailing)
+                        .onTapGesture {
+                        }
+                    
+                    Button(action: {
+                        if self.username == storedUsername && self.password == storedPassword {
+                            self.authenticationDidSucceed = true
+                            self.authenticationDidFail = false
+                        } else {
+                            self.authenticationDidFail = true
+                        }
+                    }) {
+                        LoginButtonContent()
                     }
-                }) {
-                    LoginButtonContent()
                 }
-            }
-            .padding()
-            if authenticationDidSucceed {
-                Text("Login succeeded!")
-                    .font(.headline)
-                    .frame(width: 250, height: 80)
-                    .background(Color.green)
-                    .cornerRadius(10.0)
-                    .foregroundColor(.white)
-                    .animation(Animation.linear(duration: 1), value: 1.5)
-            }
-            HStack{
-                Rectangle()
-                    .frame(width: 50.0, height: 1.0)
-                Text("Or continue with")
-                Rectangle()
-                    .frame(width: 50.0, height: 1.0)
+                .padding()
+                if authenticationDidSucceed {
+                    Text("Login succeeded!")
+                        .font(.headline)
+                        .frame(width: 250, height: 80)
+                        .background(Color.green)
+                        .cornerRadius(10.0)
+                        .foregroundColor(.white)
+                        .animation(Animation.linear(duration: 1), value: 1.5)
+                }
+                HStack{
+                    Rectangle()
+                        .frame(width: 50.0, height: 1.0)
+                    Text("Or continue with")
+                    Rectangle()
+                        .frame(width: 50.0, height: 1.0)
+                    
+                }
+                SignInWithAppleButton(
+                    onRequest: { request in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    },
+                    onCompletion: { result in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    }
+                )
+                    .frame(width: 200.0, height: 40.0)
+                    .cornerRadius(10)
+                    .padding()
+                //            Qui da mettere quello di Google
+                SignInWithAppleButton(
+                    onRequest: { request in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    },
+                    onCompletion: { result in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    }
+                )
+                    .frame(width: 200.0, height: 40.0)
+                    .cornerRadius(10)
+                    .padding()
+                //            Qui da mettere quello di Facebook
+                SignInWithAppleButton(
+                    onRequest: { request in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    },
+                    onCompletion: { result in
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    }
+                )
+                    .frame(width: 200.0, height: 40.0)
+                    .cornerRadius(10)
+                    .padding()
                 
+                HStack{
+                    Text("Not a member?")
+                    Text("Register now!")
+                    //                    .onTapGesture {
+                    //                        <#code#>
+                    //                    }
+                }
             }
-            SignInWithAppleButton(
-                onRequest: { request in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                },
-                onCompletion: { result in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                }
-            )
-                .frame(width: 200.0, height: 40.0)
-                .cornerRadius(10)
-                .padding()
-            //            Qui da mettere quello di Google
-            SignInWithAppleButton(
-                onRequest: { request in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                },
-                onCompletion: { result in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                }
-            )
-                .frame(width: 200.0, height: 40.0)
-                .cornerRadius(10)
-                .padding()
-            //            Qui da mettere quello di Facebook
-            SignInWithAppleButton(
-                onRequest: { request in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                },
-                onCompletion: { result in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                }
-            )
-                .frame(width: 200.0, height: 40.0)
-                .cornerRadius(10)
-                .padding()
             
-            HStack{
-                Text("Not a member?")
-                Text("Register now!")
-                //                    .onTapGesture {
-                //                        <#code#>
-                //                    }
-            }
-        }
-        .frame(width: 400.0, height: 600.0)
-        
+        } .frame(width: 400.0, height: 800.0)
     }
 }
 

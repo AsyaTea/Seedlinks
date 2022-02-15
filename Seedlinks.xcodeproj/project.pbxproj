@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0307B11627BBD15800A667F8 /* Login-View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307B11527BBD15800A667F8 /* Login-View.swift */; };
 		0307B11827BBEC9900A667F8 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307B11727BBEC9900A667F8 /* RegisterView.swift */; };
+		0307B11A27BBF7E200A667F8 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307B11927BBF7E200A667F8 /* PrivacyPolicy.swift */; };
+		0307B11C27BC060700A667F8 /* TermsConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307B11B27BC060600A667F8 /* TermsConditions.swift */; };
+		0307B11E27BC07AF00A667F8 /* HTML View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307B11D27BC07AF00A667F8 /* HTML View.swift */; };
 		03C6875B27BB9F7600F2D641 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		03C6875D27BBC2E700F2D641 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		0ACDE5CD27BA6EBA004A5930 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACDE5CC27BA6EBA004A5930 /* FirebaseAnalytics */; };
@@ -39,6 +42,9 @@
 /* Begin PBXFileReference section */
 		0307B11527BBD15800A667F8 /* Login-View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-View.swift"; sourceTree = "<group>"; };
 		0307B11727BBEC9900A667F8 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		0307B11927BBF7E200A667F8 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
+		0307B11B27BC060600A667F8 /* TermsConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditions.swift; sourceTree = "<group>"; };
+		0307B11D27BC07AF00A667F8 /* HTML View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTML View.swift"; sourceTree = "<group>"; };
 		413945B427BAB77600F86087 /* NewMessageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageModal.swift; sourceTree = "<group>"; };
 		41B0DFFD27BAB70600D3E9C6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		41B0DFFF27BAB72700D3E9C6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -134,6 +140,8 @@
 				FF03869827BAB6B40000A7C9 /* ListView.swift */,
 				0307B11527BBD15800A667F8 /* Login-View.swift */,
 				0307B11727BBEC9900A667F8 /* RegisterView.swift */,
+				0307B11927BBF7E200A667F8 /* PrivacyPolicy.swift */,
+				0307B11B27BC060600A667F8 /* TermsConditions.swift */,
 				413945B427BAB77600F86087 /* NewMessageModal.swift */,
 			);
 			path = View;
@@ -143,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				41B0DFFD27BAB70600D3E9C6 /* DatabaseManager.swift */,
+				0307B11D27BC07AF00A667F8 /* HTML View.swift */,
 				FF03869027BA7A210000A7C9 /* Prova.swift */,
 			);
 			path = ViewModel;
@@ -237,6 +246,8 @@
 				FF03868127BA653E0000A7C9 /* MapView.swift in Sources */,
 				FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */,
 				FF03869127BA7A210000A7C9 /* Prova.swift in Sources */,
+				0307B11C27BC060700A667F8 /* TermsConditions.swift in Sources */,
+				0307B11A27BBF7E200A667F8 /* PrivacyPolicy.swift in Sources */,
 				03C6875D27BBC2E700F2D641 /* (null) in Sources */,
 				FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */,
 				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
@@ -245,6 +256,7 @@
 				41DA31AC27BBBFE100684C13 /* User.swift in Sources */,
 				41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */,
 				03C6875B27BB9F7600F2D641 /* (null) in Sources */,
+				0307B11E27BC07AF00A667F8 /* HTML View.swift in Sources */,
 				0307B11827BBEC9900A667F8 /* RegisterView.swift in Sources */,
 				FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */,
 				41B0DFFE27BAB70600D3E9C6 /* DatabaseManager.swift in Sources */,
