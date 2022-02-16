@@ -20,7 +20,8 @@ struct RegisterView: View {
     @State var registrationDidSucceed: Bool = false
     
     var body: some View {
-        VStack {
+        NavigationView{
+            VStack {
             Text("Get started!")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
@@ -132,8 +133,8 @@ struct RegisterView: View {
                     }
                 }
             }
-        }.frame(width: 400.0, height: 800.0)
-        
+        }.frame(width: 400.0, height: 850.0)
+        }
         
     }
 }
