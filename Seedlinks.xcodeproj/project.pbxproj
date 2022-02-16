@@ -25,6 +25,7 @@
 		0ACDE5D927BA6EBA004A5930 /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACDE5D827BA6EBA004A5930 /* FirebaseInAppMessagingSwift-Beta */; };
 		0ACDE5DB27BA6EBA004A5930 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACDE5DA27BA6EBA004A5930 /* FirebaseStorage */; };
 		413945B527BAB77600F86087 /* NewMessageModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413945B427BAB77600F86087 /* NewMessageModal.swift */; };
+		419B2B5827BCF7E900A888D6 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B2B5727BCF7E900A888D6 /* UserInfo.swift */; };
 		41B0DFFE27BAB70600D3E9C6 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B0DFFD27BAB70600D3E9C6 /* DatabaseManager.swift */; };
 		41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B0DFFF27BAB72700D3E9C6 /* Message.swift */; };
 		41DA31A827BBAC4900684C13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41DA31A727BBAC4900684C13 /* GoogleService-Info.plist */; };
@@ -50,6 +51,7 @@
 		0307B11F27BC119800A667F8 /* Policy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Policy.html; sourceTree = "<group>"; };
 		0307B12027BC119800A667F8 /* TTC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TTC.html; sourceTree = "<group>"; };
 		413945B427BAB77600F86087 /* NewMessageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageModal.swift; sourceTree = "<group>"; };
+		419B2B5727BCF7E900A888D6 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		41B0DFFD27BAB70600D3E9C6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		41B0DFFF27BAB72700D3E9C6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		41DA31A727BBAC4900684C13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -129,9 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				41DA31AB27BBBFE100684C13 /* User.swift */,
+				41B0DFFF27BAB72700D3E9C6 /* Message.swift */,
 				0307B11F27BC119800A667F8 /* Policy.html */,
 				0307B12027BC119800A667F8 /* TTC.html */,
-				41B0DFFF27BAB72700D3E9C6 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,7 +168,6 @@
 		FF7FFE6927BC105B009AE704 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				FF7FFE6B27BC1070009AE704 /* Views */,
 				FF7FFE6A27BC1069009AE704 /* ViewModel */,
 			);
 			path = Firebase;
@@ -176,15 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				41B0DFFD27BAB70600D3E9C6 /* DatabaseManager.swift */,
+				419B2B5727BCF7E900A888D6 /* UserInfo.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		FF7FFE6B27BC1070009AE704 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +276,7 @@
 				0307B11C27BC060700A667F8 /* TermsConditions.swift in Sources */,
 				0307B11A27BBF7E200A667F8 /* PrivacyPolicy.swift in Sources */,
 				03C6875D27BBC2E700F2D641 /* (null) in Sources */,
+				419B2B5827BCF7E900A888D6 /* UserInfo.swift in Sources */,
 				FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */,
 				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
 				FF03869327BA99980000A7C9 /* GardenView.swift in Sources */,

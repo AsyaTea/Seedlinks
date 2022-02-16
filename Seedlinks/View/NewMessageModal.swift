@@ -69,7 +69,7 @@ struct SheetView: View {
                 .navigationBarItems(trailing: Button(action: {
                     print("Dismissing sheet view...")
                     self.showSheetView = false
-                    dbManager.addMessage(userID: "S4KDQck3S6irvOWLN6g2", author: "Asya", message: message, publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat)
+                    dbManager.addMessage(userID: "S4KDQck3S6irvOWLN6g2", author: "Asya", message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat)
 //                    database.userMessagesQuery()
 
                 }) {
