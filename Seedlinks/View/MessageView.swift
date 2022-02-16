@@ -20,10 +20,15 @@ struct ContentLengthPreference: PreferenceKey {
 
 struct MessageView: View {
     
+    let messageId: String
     var messageText : String
-    var messageAuthor: String
-    var pubblicationDate : Date
+    let messageAuthor: String
+    let pubblicationDate: Date
+    let dateString: String
+    var category: String
+    var anonymous: Bool
     @State var textHeight: CGFloat = 0
+    @StateObject var dbManager = DatabaseManager()
     
     var body: some View {
         ZStack{
@@ -35,16 +40,30 @@ struct MessageView: View {
                 .blur(radius: 10)
             
             //Rect
+            if category == "advice" {
             RoundedRectangle(cornerRadius:10)
                 .foregroundColor(.green)
                 .frame(width: 333, height: textHeight+65,alignment: .leading)
+            } else if category == "message" {
+                RoundedRectangle(cornerRadius:10)
+                    .foregroundColor(.orange)
+                    .frame(width: 333, height: textHeight+65,alignment: .leading)
+            }
+            
             
             VStack(alignment: .leading){
                 //Nickname
-                Text(messageAuthor)
-                    .foregroundColor(.white)
-                    .font(.system(size: 16))
-                    .fontWeight(.bold)
+                if anonymous == true {
+                    Text("Anonymous")
+                        .foregroundColor(.white)
+                        .font(.system(size: 16))
+                        .fontWeight(.bold)
+                } else {
+                    Text(messageAuthor)
+                        .foregroundColor(.white)
+                        .font(.system(size: 16))
+                        .fontWeight(.bold)
+                }
                 
                 //Message
                 Text(messageText)
@@ -62,7 +81,8 @@ struct MessageView: View {
 
                 
                 //TIME STAMP
-                Text("2H Ago")
+//                Text(DatabaseManager().formatting(date: pubblicationDate))
+                Text(dateString)
                     .foregroundColor(.black)
                     .font(.system(size: 16))
                     .fontWeight(.regular)
@@ -84,7 +104,10 @@ struct MessageView: View {
                 }
             })
             
-            Button(role: .destructive ,action: { print("action 2 triggered")}, label:
+            Button(role: .destructive ,action: {
+                print("action 2 triggered")
+                dbManager.deleteMessage(messageId)
+            }, label:
             {
                 HStack{
                     Text("Delete")
@@ -93,15 +116,12 @@ struct MessageView: View {
             })
         }
     }
-    
-    
+   
 }
 
 
-
-
-struct MessageView_Previews: PreviewProvider {
-    static var previews: some View {
-        MessageView(messageText: "PROVA", messageAuthor: "PROVA", pubblicationDate: Date.now)
-    }
-}
+//struct MessageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MessageView(message: Message?, messageText: "PROVA", messageAuthor: "PROVA", pubblicationDate: Date.now, dateString: "MOBASTA", category: "message", anonymous: true)
+//    }
+//}
