@@ -101,9 +101,9 @@
 		FF03867D27BA653E0000A7C9 /* Seedlinks */ = {
 			isa = PBXGroup;
 			children = (
-				FF7FFE6927BC105B009AE704 /* Firebase */,
 				41DA31A727BBAC4900684C13 /* GoogleService-Info.plist */,
 				FF03867E27BA653E0000A7C9 /* SeedlinksApp.swift */,
+				FF7FFE6927BC105B009AE704 /* Firebase */,
 				FF03868E27BA65B00000A7C9 /* ViewModel */,
 				FF03868C27BA65930000A7C9 /* Model */,
 				FF03868D27BA659C0000A7C9 /* View */,
@@ -139,10 +139,6 @@
 				FF03869427BAA35A0000A7C9 /* MessageView.swift */,
 				FF03869627BAAEF80000A7C9 /* Tab.swift */,
 				FF03869827BAB6B40000A7C9 /* ListView.swift */,
-				0307B11527BBD15800A667F8 /* Login-View.swift */,
-				0307B11727BBEC9900A667F8 /* RegisterView.swift */,
-				0307B11927BBF7E200A667F8 /* PrivacyPolicy.swift */,
-				0307B11B27BC060600A667F8 /* TermsConditions.swift */,
 				413945B427BAB77600F86087 /* NewMessageModal.swift */,
 			);
 			path = View;
@@ -177,6 +173,10 @@
 		FF7FFE6B27BC1070009AE704 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0307B11B27BC060600A667F8 /* TermsConditions.swift */,
+				0307B11927BBF7E200A667F8 /* PrivacyPolicy.swift */,
+				0307B11727BBEC9900A667F8 /* RegisterView.swift */,
+				0307B11527BBD15800A667F8 /* Login-View.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
