@@ -11,12 +11,14 @@ import CoreLocation
 struct Message: Identifiable {
     
     var id: String
+    var userID: String 
     var author: String
     var message: String
     var publicationDate: Date
 //    var location: CLLocation
-//    var category: String
-//    var anonymous: Bool
-//    var privato: Bool
+    var dateString: String
+    var category: String
+    var anonymous: Bool
+    var privat: Bool
     
 }
