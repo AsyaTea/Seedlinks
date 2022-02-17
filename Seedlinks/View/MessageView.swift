@@ -28,25 +28,33 @@ struct MessageView: View {
     var category: String
     var anonymous: Bool
     @State var textHeight: CGFloat = 0
-    @StateObject var dbManager = DatabaseManager()
+   // @StateObject var dbManager = DatabaseManager()
+   @ObservedObject var dbManager : DatabaseManager
+//    @ObservedObject var dbManager = DatabaseManager()
+    
     
     var body: some View {
         ZStack{
             //Shadow
             RoundedRectangle(cornerRadius:10)
-                .foregroundColor(.black)
+                .foregroundColor(.gray)
                 .opacity(0.2)
                 .frame(width: 333, height: textHeight+65,alignment: .leading)
                 .blur(radius: 10)
             
             //Rect
-            if category == "advice" {
+            if category == "Advice" {
             RoundedRectangle(cornerRadius:10)
                 .foregroundColor(.green)
                 .frame(width: 333, height: textHeight+65,alignment: .leading)
-            } else if category == "message" {
+            } else if category == "Message" {
                 RoundedRectangle(cornerRadius:10)
                     .foregroundColor(.orange)
+                    .frame(width: 333, height: textHeight+65,alignment: .leading)
+            }
+            else{
+                RoundedRectangle(cornerRadius:10)
+                    .foregroundColor(.black)
                     .frame(width: 333, height: textHeight+65,alignment: .leading)
             }
             
@@ -105,7 +113,7 @@ struct MessageView: View {
             })
             
             Button(role: .destructive ,action: {
-                print("action 2 triggered")
+                print("Deleting from db")
                 dbManager.deleteMessage(messageId)
             }, label:
             {

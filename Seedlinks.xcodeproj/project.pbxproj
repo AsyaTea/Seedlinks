@@ -139,10 +139,10 @@
 		FF03868D27BA659C0000A7C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				41DA31A927BBAFA900684C13 /* MessageList.swift */,
-				FF03868027BA653E0000A7C9 /* MapView.swift */,
 				FF03869227BA99980000A7C9 /* GardenView.swift */,
+				41DA31A927BBAFA900684C13 /* MessageList.swift */,
 				FF03869427BAA35A0000A7C9 /* MessageView.swift */,
+				FF03868027BA653E0000A7C9 /* MapView.swift */,
 				FF03869627BAAEF80000A7C9 /* Tab.swift */,
 				FF03869827BAB6B40000A7C9 /* ListView.swift */,
 				413945B427BAB77600F86087 /* NewMessageModal.swift */,

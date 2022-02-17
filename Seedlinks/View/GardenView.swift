@@ -11,6 +11,9 @@ import SwiftUI
 struct GardenView: View {
     @State var isOn: Bool = false
     var username : String = "Ivo"
+   
+   // @ObservedObject var dbManager : dbManager
+    @StateObject var dbManager = DatabaseManager()
     var body: some View {
        
         
@@ -47,7 +50,7 @@ struct GardenView: View {
                             .frame(width: 333, height: 44)
                     }.padding(.top,10)
                 }.sheet(isPresented: $isOn) {
-                    SheetView(showSheetView: self.$isOn)
+                    SheetView(showSheetView: self.$isOn,dbManager: dbManager)
                 }
             
                 
@@ -58,7 +61,7 @@ struct GardenView: View {
                     .fontWeight(.semibold)
                     .padding(.top,20)
                 ScrollView{
-                    MessageListView()
+                    MessageListView(dbManager: dbManager)
                 }
                            
             }

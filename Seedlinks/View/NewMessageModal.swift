@@ -7,29 +7,29 @@
 
 import SwiftUI
 
-struct NewMessageView: View {
-    @State var showSheetView = false
-        
-        var body: some View {
-            Button(action: {
-                self.showSheetView.toggle()
-            }) {
-                Text("Show Sheet View")
-            }.sheet(isPresented: $showSheetView) {
-                SheetView(showSheetView: self.$showSheetView)
-            }
-        }
-}
+//struct NewMessageView: View {
+//    @State var showSheetView = false
+//
+//        var body: some View {
+//            Button(action: {
+//                self.showSheetView.toggle()
+//            }) {
+//                Text("Show Sheet View")
+//            }.sheet(isPresented: $showSheetView) {
+//                SheetView(showSheetView: self.$showSheetView)
+//            }
+//        }
+//}
 struct SheetView: View {
     
     @State var message = "" 
     @Binding var showSheetView: Bool
-    @State private var selectedCategory = "message"
+    @State private var selectedCategory = ""
     @State private var anonymous = false
     @State private var privat = false
  
     var categories = ["Message", "Advice"]
-    @StateObject var dbManager = DatabaseManager()
+    @ObservedObject var dbManager : DatabaseManager
     
     var body: some View {
         NavigationView {
@@ -38,7 +38,6 @@ struct SheetView: View {
                     TextField("Write a text", text: $message)
                         .textFieldStyle(PlainTextFieldStyle())
                         .frame(width: 400, height: 300, alignment: .topLeading)
-                    
                     List {
                         Toggle("Anonymous", isOn: $anonymous)
                         Toggle("Private", isOn: $privat)
@@ -55,35 +54,34 @@ struct SheetView: View {
                     Spacer()
                 }
                 .navigationBarItems(leading: Button(action: {
-                    print("Dismissing sheet view...")
                     self.showSheetView = false
                 }) {
                     HStack {
                         Text("<")
                             .font(.custom("Times New Roman", size: 18))
                             .fontWeight(.bold)
-                        Text("Profile")
+                        Text("Garden")
                     }
                 })
                 .navigationBarTitle(Text("New seed"), displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
-                    print("Dismissing sheet view...")
                     self.showSheetView = false
                     dbManager.addMessage(userID: "S4KDQck3S6irvOWLN6g2", author: "Asya", message: message, publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat)
 //                    database.userMessagesQuery()
 
                 }) {
                     Text("Plant")
-                })
+                }.disabled(self.message.isEmpty || self.selectedCategory.isEmpty)
+                )
             
         }
     }
 }
 
-struct NewMessageView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewMessageView()
-    }
-}
+//struct NewMessageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewMessageView()
+//    }
+//}
 
 
