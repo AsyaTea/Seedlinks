@@ -63,21 +63,42 @@ struct MapView: View {
             }).ignoresSafeArea()
             VStack{
                 Spacer()
-                VStack(alignment: .trailing, spacing: 24) {
-                    Button("Aro stong?") {
-                        locationManager.getRegion()
-                    }
+                HStack{
+                    Spacer()
+                    ButtonPosition()
+                        .onTapGesture {
+                            locationManager.getRegion()
+                        }
                 }
-                .padding(40)
-            }
+                .padding(25)
             .onAppear{
                 //Prende la posizione corrente appena apri l'app (se hai dato il consenso)
                 locationManager.getRegion()
+            }
             }
         }
     }
 }
 
+struct ButtonPosition : View {
+    
+    var body: some View {
+        ZStack{
+            Circle()
+                .foregroundColor(.gray)
+                .opacity(0.2)
+                .frame(width: 50, height: 50)
+                .blur(radius: 10)
+            Circle()
+                .foregroundColor(.white)
+                .frame(width: 50, height: 50)
+        Image("locationIcon")
+                .resizable()
+                .frame(width: 40, height: 40)
+           
+        }
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
