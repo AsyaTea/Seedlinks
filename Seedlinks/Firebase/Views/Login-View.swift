@@ -115,6 +115,7 @@ struct LoginView: View {
                 HStack{
                     Text("Not a member?")
                     Text("Register now!")
+                        .foregroundColor(Color("AccentColor"))
                     //                    .onTapGesture {
                     //                        <#code#>
                     //                    }

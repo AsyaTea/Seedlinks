@@ -111,9 +111,21 @@ class DatabaseManager: ObservableObject {
         }
     }
     
+//    func registerUser(_ username: String,_ email: String, _ password: String) {
+//
+//        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+//
+//            if error == nil {
+//
+//            } else {
+//
+//            }
+//        }
+//    }
+    
     
 }
 
-var database = DatabaseManager()
+
 
 

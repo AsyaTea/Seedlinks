@@ -66,7 +66,7 @@ struct SheetView: View {
                 .navigationBarTitle(Text("New seed"), displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
                     self.showSheetView = false
-                    dbManager.addMessage(userID: "S4KDQck3S6irvOWLN6g2", author: "Asya", message: message, publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat)
+                    dbManager.addMessage(userID: "S4KDQck3S6irvOWLN6g2", author: "Asya", message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat)
 //                    database.userMessagesQuery()
 
                 }) {
