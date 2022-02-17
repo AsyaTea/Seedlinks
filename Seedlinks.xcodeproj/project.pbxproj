@@ -39,6 +39,8 @@
 		FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869427BAA35A0000A7C9 /* MessageView.swift */; };
 		FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869627BAAEF80000A7C9 /* Tab.swift */; };
 		FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869827BAB6B40000A7C9 /* ListView.swift */; };
+		FF900AD527BE671700D7B5E7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD427BE671700D7B5E7 /* ProfileView.swift */; };
+		FF900AD827BE678F00D7B5E7 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD727BE678F00D7B5E7 /* UserSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		FF03869427BAA35A0000A7C9 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		FF03869627BAAEF80000A7C9 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		FF03869827BAB6B40000A7C9 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		FF900AD427BE671700D7B5E7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FF900AD727BE678F00D7B5E7 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 				FF03869627BAAEF80000A7C9 /* Tab.swift */,
 				FF03869827BAB6B40000A7C9 /* ListView.swift */,
 				413945B427BAB77600F86087 /* NewMessageModal.swift */,
+				FF900AD427BE671700D7B5E7 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				41B0DFFD27BAB70600D3E9C6 /* DatabaseManager.swift */,
+				FF900AD727BE678F00D7B5E7 /* UserSession.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 				413945B527BAB77600F86087 /* NewMessageModal.swift in Sources */,
 				4187DB4427BE60590044A5BF /* RegisterView.swift in Sources */,
 				FF03868127BA653E0000A7C9 /* MapView.swift in Sources */,
+				FF900AD827BE678F00D7B5E7 /* UserSession.swift in Sources */,
 				FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */,
 				FF03869127BA7A210000A7C9 /* Prova.swift in Sources */,
 				03C6875D27BBC2E700F2D641 /* (null) in Sources */,
@@ -293,6 +300,7 @@
 				41DA31AA27BBAFA900684C13 /* MessageList.swift in Sources */,
 				41DA31AC27BBBFE100684C13 /* User.swift in Sources */,
 				4187DB4027BE5FEB0044A5BF /* Login-View.swift in Sources */,
+				FF900AD527BE671700D7B5E7 /* ProfileView.swift in Sources */,
 				4187DB4827BE60950044A5BF /* TermsConditions.swift in Sources */,
 				41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */,
 				4187DB4627BE607B0044A5BF /* PrivacyPolicy.swift in Sources */,
