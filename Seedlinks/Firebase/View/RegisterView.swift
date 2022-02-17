@@ -15,8 +15,9 @@ struct RegisterView: View {
     
     
     @StateObject var dbManager = DatabaseManager()
-   
- 
+    @ObservedObject var userSession : UserSession
+    
+    
     @State var username: String = ""
     @State var email: String = ""
     @State var password: String = ""
@@ -64,41 +65,39 @@ struct RegisterView: View {
                             RegisterButtonContent()
                         }
                     }
-                    .padding(.bottom, 3.0)
-                    HStack{
-                        Rectangle()
-                            .frame(width: 50.0, height: 1.0)
-                        Text("Or continue with")
-                        Rectangle()
-                            .frame(width: 50.0, height: 1.0)
-                        
-                    }
-                    
-                    //            Qui da mettere quello di Facebook
-                    SignInWithAppleButton(
-                        onRequest: { request in
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                        },
-                        onCompletion: { result in
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                        }
-                    )
-                        .frame(width: 200.0, height: 40.0)
-                        .cornerRadius(10)
-                        .padding()
-                    
-                    HStack {
-                        Text("Already registered?")
-                        Text("Sign in now!")
-                            .foregroundColor(Color("AccentColor"))
-                        //                    .onTapGesture {
-                        //                        <#code#>
-                        //                    }
-                    }
-                    .padding()
+//                    .padding(.bottom, 3.0)
+//                    HStack{
+//                        Rectangle()
+//                            .frame(width: 50.0, height: 1.0)
+//                        Text("Or continue with")
+//                        Rectangle()
+//                            .frame(width: 50.0, height: 1.0)
+//
+//                    }
+//
+//                    //            Qui da mettere quello di Facebook
+//                    SignInWithAppleButton(
+//                        onRequest: { request in
+//                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+//                        },
+//                        onCompletion: { result in
+//                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+//                        }
+//                    )
+//                        .frame(width: 200.0, height: 40.0)
+//                        .cornerRadius(10)
+//                        .padding()
+//
+//                    HStack {
+//                        Text("Already registered?")
+//                        NavigationLink(destination: SignInView(userSession: userSession))
+//                        {Text("Sign in now!")
+//                                .foregroundColor(.accentColor)
+//                        }
+//                    }
+//                    .padding()
                     HStack {
                         Text("By registering, you agree to our")
-                        
                         NavigationLink(destination: PolicyView())
                         {Text("privacy policy")
                                 .foregroundColor(Color("AccentColor"))
@@ -113,13 +112,14 @@ struct RegisterView: View {
                     }
                 }
             }.frame(width: 400.0, height: 850.0)
-        }//.navigationBarBackButtonHidden(true)
+        }
+//                .navigationBarBackButtonHidden(true)
         
     }
     
-
     
-
+    
+    
     
     private func createNewAccount() {
         
@@ -133,7 +133,7 @@ struct RegisterView: View {
             print("Successfully created user: \(userID)")
             dbManager.addUser(userID: userID, username: username, email: email)
             registrationDidSucceed = true
- 
+            
         }
     }
     
@@ -163,8 +163,8 @@ struct RegisterButtonContent : View {
     }
 }
 
-struct ContentView_Previews6: PreviewProvider {
-    static var previews: some View {
-        RegisterView()
-    }
-}
+//struct ContentView_Previews6: PreviewProvider {
+//    static var previews: some View {
+//        RegisterView()
+//    }
+//}
