@@ -11,8 +11,7 @@ import CoreLocation
 import SwiftUI
 
 class DatabaseManager: ObservableObject {
-    
-    
+        
     @Published var list = [Message]()
     @Published var userList = [Message]()
     @Published var user = User(id: "" ,username: "", email: "")
@@ -28,7 +27,6 @@ class DatabaseManager: ObservableObject {
     }
     
     func getData() {
-
         
         db.collection("messages").getDocuments { snapshot, error in  // Read document at a specific path
             

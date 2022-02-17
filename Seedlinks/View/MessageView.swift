@@ -43,11 +43,11 @@ struct MessageView: View {
                 .blur(radius: 10)
             
             //Rect
-            if category == "Advice" {
+            if category == "advice" {
             RoundedRectangle(cornerRadius:10)
                 .foregroundColor(.green)
                 .frame(width: 333, height: textHeight+65,alignment: .leading)
-            } else if category == "Message" {
+            } else if category == "message" {
                 RoundedRectangle(cornerRadius:10)
                     .foregroundColor(.orange)
                     .frame(width: 333, height: textHeight+65,alignment: .leading)
