@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct MessageListView: View {
-    @EnvironmentObject var userSession : UserSession
-    @StateObject var dbManager = DatabaseManager()
+    @StateObject var userSession : UserSession
+   // @StateObject var dbManager = DatabaseManager()
+    //@StateObject var dbManager = DatabaseManager()
+    @ObservedObject var dbManager : DatabaseManager
     var body: some View {
-        ForEach(dbManager.userList) { item in
-            MessageView(messageId: item.id, messageText: item.message, messageAuthor: item.author, pubblicationDate: item.publicationDate, dateString: item.dateString, category: item.category, anonymous: item.anonymous)
+        ForEach(dbManager.list, id: \.self) { item in
+            MessageView(messageId: item.id, messageText: item.message, messageAuthor: item.author, pubblicationDate: item.publicationDate, dateString: item.dateString, category: item.category, anonymous: item.anonymous,dbManager: dbManager)
         }.onAppear{
             dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)
         }
@@ -21,8 +23,8 @@ struct MessageListView: View {
     }
 }
 
-struct MessageList_Previews: PreviewProvider {
-    static var previews: some View {
-        MessageListView()
-    }
-}
+//struct MessageList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MessageListView()
+//    }
+//}
