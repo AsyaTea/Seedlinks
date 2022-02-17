@@ -16,7 +16,7 @@ struct GardenView: View {
     var username : String = "Ivo"
    
    // @ObservedObject var dbManager : dbManager
-    @StateObject var dbManager = DatabaseManager()
+   // @StateObject var dbManager = DatabaseManager()
     var body: some View {
        
         
@@ -72,7 +72,7 @@ struct GardenView: View {
                     .fontWeight(.semibold)
                     .padding(.top,20)
                 ScrollView{
-                    MessageListView(dbManager: dbManager)
+                    MessageListView(userSession: userSession, dbManager: dbManager)
                 }
                            
             }

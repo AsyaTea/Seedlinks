@@ -3,4 +3,22 @@
    uuid = "A13D5429-D5DC-47B1-B3A7-CD92AA0D5801"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E58B70E-B25F-47DA-B1C6-D9DAD1EBAE23"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../var/folders/_d/dd2brx_50cbd64cbf5lnngz00000gq/T/xcode/scm/Seedlinks/96e1cded1e126a5c335e3119d2ab8a628447ad5e/Seedlinks/Firebase/Views/TermsConditions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "previews"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
