@@ -11,8 +11,7 @@ import CoreLocation
 import SwiftUI
 
 class DatabaseManager: ObservableObject {
-    
-    
+        
     @Published var list = [Message]()
     @Published var userList = [Message]()
     @Published var user = User(id: "" ,username: "", email: "")
@@ -28,7 +27,6 @@ class DatabaseManager: ObservableObject {
     }
     
     func getData() {
-
         
         db.collection("messages").getDocuments { snapshot, error in  // Read document at a specific path
             
@@ -69,6 +67,8 @@ class DatabaseManager: ObservableObject {
             .getDocuments { querySnapshot, error in
 
                 if error == nil {
+                    
+                    DispatchQueue.main.async {
                     for d in querySnapshot!.documents {
 
                         print("\(d)")
@@ -83,6 +83,7 @@ class DatabaseManager: ObservableObject {
                                                 anonymous: d["anonymous"] as? Bool ?? Bool.init(),
                                                 privat: d["private"] as? Bool ?? Bool.init()))
 
+                    }
                     }
                 }
             }
