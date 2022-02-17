@@ -8,10 +8,17 @@
 import Foundation
 import Firebase
 import CoreLocation
+import SwiftUI
 
 class DatabaseManager: ObservableObject {
     
+    
     @Published var list = [Message]()
+    @Published var userList = [Message]()
+    @Published var user = User(id: "" ,username: "", email: "")
+    @Published var username: String = ""
+    @StateObject var userSession  = UserSession()
+    
     let db = Firestore.firestore()              // Reference to the database
     
     func formatting(date: Date) -> String {
@@ -57,25 +64,35 @@ class DatabaseManager: ObservableObject {
         }
     }
     
-//    func userMessagesQuery() {
-//        db.collection("messages").whereField("userID", isEqualTo: "S4KDQck3S6irvOWLN6g2")
-//            .getDocuments { querySnapshot, error in
-//
-//                if error == nil {
-//                    for d in querySnapshot!.documents {
-//
-//                        print("\(d)")
-//
-//                    }
-//                }
-//            }
-//    }
+    func userMessagesQuery(userID: String) {
+        db.collection("messages").whereField("userID", isEqualTo: userID)
+            .getDocuments { querySnapshot, error in
+
+                if error == nil {
+                    for d in querySnapshot!.documents {
+
+                        print("\(d)")
+                        self.userList.append(Message(id: d.documentID,
+                                                userID: d["userID"] as? String ?? "",
+                                                author: d["author"] as? String ?? "",
+                                                message: d["message"] as? String ?? "",
+                                                publicationDate: d["publicationDate"] as? Date ?? Date.init(),
+                                                dateString: d["dateString"] as? String ?? "",
+
+                                                category: d["category"] as? String ?? "",
+                                                anonymous: d["anonymous"] as? Bool ?? Bool.init(),
+                                                privat: d["private"] as? Bool ?? Bool.init()))
+
+                    }
+                }
+            }
+    }
     
     func addMessage(userID: String, author: String, message: String, publicationDate: Date, dateString: String, category: String, anonymous: Bool, privat: Bool) {
         
      
         
-        db.collection("messages").addDocument(data: ["userID": "S4KDQck3S6irvOWLN6g2" , "author": author, "message": message, "publicationDate": publicationDate, "dateString": dateString, "category": category, "anonymous": anonymous, "private": privat]) { error in
+        db.collection("messages").addDocument(data: ["userID": userID , "author": author, "message": message, "publicationDate": publicationDate, "dateString": dateString, "category": category, "anonymous": anonymous, "private": privat]) { error in
             
             if error == nil {
                 
@@ -100,31 +117,47 @@ class DatabaseManager: ObservableObject {
                     self.list.removeAll { message in
 
                         return message.id == messageId
-
                     }
-
                 }
-
             } else {
                  // Handle errors
             }
         }
     }
     
-//    func registerUser(_ username: String,_ email: String, _ password: String) {
-//
-//        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-//
+    func addUser(userID: String, username: String, email: String) {
+        db.collection("user").addDocument(data: ["userID": userID, "username": username, email: email]) { error in
+            
+            if error == nil {                
+                self.getData()
+                
+            } else {
+                //Handle errors
+            }
+        }
+    }
+    
+//    func getUsername(userID: String)  {
+//        
+//        db.collection("user").whereField("userID", isEqualTo: userID) .getDocuments { querySnapshot, error in
+//            
 //            if error == nil {
+//                for d in querySnapshot!.documents {
 //
-//            } else {
-//
+//                
+//                    print(User(id: userID,
+//                                username: ["username"] as? String ?? "",
+//                                email: ["email"] as? String ?? ""))
+//                }
+//                
 //            }
 //        }
 //    }
     
     
+    
 }
+
 
 
 

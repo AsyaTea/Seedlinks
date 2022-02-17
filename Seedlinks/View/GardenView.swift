@@ -9,8 +9,11 @@ import SwiftUI
     
 
 struct GardenView: View {
+   
+    @ObservedObject var userSession : UserSession
+    @ObservedObject var dbManager : DatabaseManager
     @State var isOn: Bool = false
-    var username : String = "Ivo"
+    var username : String = ""
     var body: some View {
        
         
@@ -47,8 +50,15 @@ struct GardenView: View {
                             .frame(width: 333, height: 44)
                     }.padding(.top,10)
                 }.sheet(isPresented: $isOn) {
-                    SheetView(showSheetView: self.$isOn)
+                    SheetView(userSession: userSession, showSheetView: self.$isOn)
                 }
+            
+            Button(action: {
+             
+                
+            }, label: {
+                Text("LOG OUT")
+            })
             
                 
             //YOUR SEEDS
@@ -63,6 +73,8 @@ struct GardenView: View {
                            
             }
             Spacer()
+        }.onAppear{
+//            dbManager.getUsername(userID: userSession.userAuthenticatedId)
         }
         }
         
@@ -70,8 +82,8 @@ struct GardenView: View {
     
 }
 
-struct GardenView_Previews: PreviewProvider {
-    static var previews: some View {
-        GardenView()
-    }
-}
+//struct GardenView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GardenView()
+//    }
+//}

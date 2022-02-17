@@ -10,8 +10,13 @@ import SwiftUI
 import AuthenticationServices
 
 
+
 struct RegisterView: View {
     
+    
+    @StateObject var dbManager = DatabaseManager()
+   
+ 
     @State var username: String = ""
     @State var email: String = ""
     @State var password: String = ""
@@ -54,12 +59,7 @@ struct RegisterView: View {
                         }
                         
                         Button(action: {
-                            if self.username == storedUsername && self.password == storedPassword {
-                                self.registrationDidSucceed = false
-                                self.registrationDidFail = true
-                            } else {
-                                self.registrationDidFail = false
-                            }
+                            createNewAccount()
                         }) {
                             RegisterButtonContent()
                         }
@@ -138,6 +138,27 @@ struct RegisterView: View {
         }
         
     }
+    
+
+    
+
+    
+    private func createNewAccount() {
+        
+        FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
+            if let err = err {
+                print("Failed to create user:", err)
+                registrationDidFail = true
+                return
+            }
+            let userID = result?.user.uid ?? ""
+            print("Successfully created user: \(userID)")
+            dbManager.addUser(userID: userID, username: username, email: email)
+            registrationDidSucceed = true
+ 
+        }
+    }
+    
 }
 struct emailTextField : View {
     

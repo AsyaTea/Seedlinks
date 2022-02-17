@@ -7,21 +7,22 @@
 
 import SwiftUI
 
-struct NewMessageView: View {
-    @State var showSheetView = false
-        
-        var body: some View {
-            Button(action: {
-                self.showSheetView.toggle()
-            }) {
-                Text("Show Sheet View")
-            }.sheet(isPresented: $showSheetView) {
-                SheetView(showSheetView: self.$showSheetView)
-            }
-        }
-}
+//struct NewMessageView: View {
+//    @State var showSheetView = false
+//
+//        var body: some View {
+//            Button(action: {
+//                self.showSheetView.toggle()
+//            }) {
+//                Text("Show Sheet View")
+//            }.sheet(isPresented: $showSheetView) {
+//                SheetView(showSheetView: self.$showSheetView)
+//            }
+//        }
+//}
 struct SheetView: View {
     
+    @ObservedObject var userSession: UserSession
     @State var message = "" 
     @Binding var showSheetView: Bool
     @State private var selectedCategory = "message"
@@ -69,7 +70,7 @@ struct SheetView: View {
                 .navigationBarItems(trailing: Button(action: {
                     print("Dismissing sheet view...")
                     self.showSheetView = false
-                    dbManager.addMessage(userID: "S4KDQck3S6irvOWLN6g2", author: "Asya", message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat)
+                    dbManager.addMessage(userID: userSession.userAuthenticatedId, author: "Asya", message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat)
 //                    database.userMessagesQuery()
 
                 }) {
@@ -80,10 +81,10 @@ struct SheetView: View {
     }
 }
 
-struct NewMessageView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewMessageView()
-    }
-}
+//struct NewMessageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewMessageView()
+//    }
+//}
 
 

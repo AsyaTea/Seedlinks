@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct MessageListView: View {
+    @EnvironmentObject var userSession : UserSession
     @StateObject var dbManager = DatabaseManager()
     var body: some View {
-        ForEach(dbManager.list) { item in
+        ForEach(dbManager.userList) { item in
             MessageView(messageId: item.id, messageText: item.message, messageAuthor: item.author, pubblicationDate: item.publicationDate, dateString: item.dateString, category: item.category, anonymous: item.anonymous)
         }.onAppear{
-            dbManager.getData()
+            dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)
         }
         //chiamare la funzione nella main view e passare il parametro
         
