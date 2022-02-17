@@ -73,29 +73,7 @@ struct RegisterView: View {
                             .frame(width: 50.0, height: 1.0)
                         
                     }
-                    SignInWithAppleButton(
-                        onRequest: { request in
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                        },
-                        onCompletion: { result in
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                        }
-                    )
-                        .frame(width: 200.0, height: 40.0)
-                        .cornerRadius(10)
-                        .padding()
-                    //            Qui da mettere quello di Google
-                    SignInWithAppleButton(
-                        onRequest: { request in
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                        },
-                        onCompletion: { result in
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                        }
-                    )
-                        .frame(width: 200.0, height: 40.0)
-                        .cornerRadius(10)
-                        .padding()
+                    
                     //            Qui da mettere quello di Facebook
                     SignInWithAppleButton(
                         onRequest: { request in
@@ -135,7 +113,7 @@ struct RegisterView: View {
                     }
                 }
             }.frame(width: 400.0, height: 850.0)
-        }
+        }//.navigationBarBackButtonHidden(true)
         
     }
     

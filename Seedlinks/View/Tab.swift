@@ -8,30 +8,6 @@
 import SwiftUI
 import Firebase
 
-class FirebaseManager: NSObject {
-
-    let auth: Auth
-
-    public var isLogged: Bool = false
-    public var userAuthenticatedId: String = ""
-
-    static let shared = FirebaseManager()
-
-    override init() {
-        
-
-        self.auth = Auth.auth()
-
-        super.init()
-    }
-}
-
-class UserSession: ObservableObject {
-    @Published var isLogged: Bool = false
-    @Published var userAuthenticatedId: String = ""
-    
-}
-
 
 struct Tab: View {
     
@@ -52,26 +28,17 @@ struct Tab: View {
                     Text("Seeds")
                 }
             
-            if userSession.isLogged {
-                GardenView(userSession: userSession, dbManager: dbManager,username: userSession.userAuthenticatedId)
+           
+            GardenView(dbManager: dbManager, userSession: userSession)
                     .tabItem {
                         Image("garden")
                             .renderingMode(.template)
                         Text("Garden")
                     }
-            } else {
-                LoginView(userSession: userSession)
-                    .tabItem {
-                        Image("garden")
-                            .renderingMode(.template)
-                        Text("Garden")
-                    }
-                    
             }
                 
         }
-        .environmentObject(userSession)
+       // .environmentObject(userSession)
     }
-}
 
 

@@ -185,11 +185,11 @@ struct SignInView: View {
                 
                 HStack{
                     Text("Not a member?")
-                    Text("Register now!")
-                        .foregroundColor(Color("AccentColor"))
-                    //                    .onTapGesture {
-                    //                        <#code#>
-                    //                    }
+                    NavigationLink(destination: RegisterView()) {
+                        Text("Register now!")
+                            .foregroundColor(.accentColor)
+                        }
+                    
                 }
             }
             

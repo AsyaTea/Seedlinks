@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MessageListView: View {
-    @StateObject var userSession : UserSession
+    @ObservedObject var userSession : UserSession
    // @StateObject var dbManager = DatabaseManager()
     //@StateObject var dbManager = DatabaseManager()
     @ObservedObject var dbManager : DatabaseManager
