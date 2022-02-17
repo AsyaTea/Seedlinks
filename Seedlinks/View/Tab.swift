@@ -29,16 +29,15 @@ struct Tab: View {
                 }
             
            
-            GardenView(dbManager: dbManager, userSession: userSession)
+            GardenView( dbManager: dbManager, userSession: userSession)
                     .tabItem {
                         Image("garden")
                             .renderingMode(.template)
                         Text("Garden")
                     }
             }
-                
         }
        // .environmentObject(userSession)
-    }
+}
 
 
