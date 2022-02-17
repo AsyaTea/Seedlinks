@@ -10,7 +10,7 @@ import SwiftUI
 struct MessageListView: View {
     @StateObject var userSession : UserSession
    // @StateObject var dbManager = DatabaseManager()
-    //@StateObject var dbManager = DatabaseManager()
+
     @ObservedObject var dbManager : DatabaseManager
     var body: some View {
         ForEach(dbManager.list, id: \.self) { item in
@@ -19,9 +19,11 @@ struct MessageListView: View {
             dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)
         }
         //chiamare la funzione nella main view e passare il parametro
-        
+           
     }
-}
+ }
+   
+
 
 //struct MessageList_Previews: PreviewProvider {
 //    static var previews: some View {

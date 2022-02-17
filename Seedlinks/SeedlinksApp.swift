@@ -21,7 +21,7 @@ struct SeedlinksApp: App {
     var body: some Scene {
         WindowGroup {
             
-            
+//            RegisterView()
             Tab()
 
         }

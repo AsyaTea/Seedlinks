@@ -69,6 +69,8 @@ class DatabaseManager: ObservableObject {
             .getDocuments { querySnapshot, error in
 
                 if error == nil {
+                    
+                    DispatchQueue.main.async {
                     for d in querySnapshot!.documents {
 
                         print("\(d)")
@@ -83,6 +85,7 @@ class DatabaseManager: ObservableObject {
                                                 anonymous: d["anonymous"] as? Bool ?? Bool.init(),
                                                 privat: d["private"] as? Bool ?? Bool.init()))
 
+                    }
                     }
                 }
             }
