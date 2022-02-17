@@ -12,8 +12,8 @@ import Firebase
 struct Tab: View {
     
     init() {
-        
-       UITabBar.appearance().barTintColor = UIColor(named: "genericGray")
+    
+        UITabBar.appearance().barTintColor = UIColor(.white)
     }
     @StateObject var dbManager = DatabaseManager()
     @StateObject var userSession = UserSession()

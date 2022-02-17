@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     @ObservedObject var userSession : UserSession
     @ObservedObject var dbManager : DatabaseManager
+    @StateObject var locationManager = LocationManager()
     @State var isOn: Bool = false
     var username : String = ""
    
@@ -49,7 +50,7 @@ struct ProfileView: View {
                             .frame(width: 333, height: 44)
                     }.padding(.top,10)
                 }.sheet(isPresented: $isOn) {
-                    SheetView(userSession: userSession, showSheetView: self.$isOn,dbManager: dbManager)
+                    SheetView(userSession: userSession, showSheetView: self.$isOn,dbManager: dbManager, locationManager: locationManager)
                   
                 }
             

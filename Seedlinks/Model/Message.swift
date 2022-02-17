@@ -19,8 +19,8 @@ struct Message: Identifiable,Hashable {
     var category: String
     var anonymous: Bool
     var privat: Bool
-//    var longitude : String
-//    var latitude : String
-//    var coordinate: CLLocationCoordinate2D{CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0)}
-//    
+    var longitude : String
+    var latitude : String
+    var coordinate: CLLocationCoordinate2D{CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0)}
+    
 }

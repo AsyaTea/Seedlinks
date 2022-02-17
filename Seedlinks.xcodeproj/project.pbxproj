@@ -34,13 +34,13 @@
 		FF03868127BA653E0000A7C9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03868027BA653E0000A7C9 /* MapView.swift */; };
 		FF03868327BA65400000A7C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF03868227BA65400000A7C9 /* Assets.xcassets */; };
 		FF03868627BA65400000A7C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF03868527BA65400000A7C9 /* Preview Assets.xcassets */; };
-		FF03869127BA7A210000A7C9 /* Prova.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869027BA7A210000A7C9 /* Prova.swift */; };
 		FF03869327BA99980000A7C9 /* GardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869227BA99980000A7C9 /* GardenView.swift */; };
 		FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869427BAA35A0000A7C9 /* MessageView.swift */; };
 		FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869627BAAEF80000A7C9 /* Tab.swift */; };
 		FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869827BAB6B40000A7C9 /* ListView.swift */; };
 		FF900AD527BE671700D7B5E7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD427BE671700D7B5E7 /* ProfileView.swift */; };
 		FF900AD827BE678F00D7B5E7 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD727BE678F00D7B5E7 /* UserSession.swift */; };
+		FF900ADA27BE8A9300D7B5E7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,13 +62,13 @@
 		FF03868027BA653E0000A7C9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FF03868227BA65400000A7C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF03868527BA65400000A7C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FF03869027BA7A210000A7C9 /* Prova.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prova.swift; sourceTree = "<group>"; };
 		FF03869227BA99980000A7C9 /* GardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenView.swift; sourceTree = "<group>"; };
 		FF03869427BAA35A0000A7C9 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		FF03869627BAAEF80000A7C9 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		FF03869827BAB6B40000A7C9 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		FF900AD427BE671700D7B5E7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FF900AD727BE678F00D7B5E7 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				0307B11D27BC07AF00A667F8 /* HTML View.swift */,
-				FF03869027BA7A210000A7C9 /* Prova.swift */,
+				FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -292,7 +292,6 @@
 				FF03868127BA653E0000A7C9 /* MapView.swift in Sources */,
 				FF900AD827BE678F00D7B5E7 /* UserSession.swift in Sources */,
 				FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */,
-				FF03869127BA7A210000A7C9 /* Prova.swift in Sources */,
 				03C6875D27BBC2E700F2D641 /* (null) in Sources */,
 				FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */,
 				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
@@ -301,6 +300,7 @@
 				41DA31AC27BBBFE100684C13 /* User.swift in Sources */,
 				4187DB4027BE5FEB0044A5BF /* Login-View.swift in Sources */,
 				FF900AD527BE671700D7B5E7 /* ProfileView.swift in Sources */,
+				FF900ADA27BE8A9300D7B5E7 /* LocationManager.swift in Sources */,
 				4187DB4827BE60950044A5BF /* TermsConditions.swift in Sources */,
 				41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */,
 				4187DB4627BE607B0044A5BF /* PrivacyPolicy.swift in Sources */,
@@ -438,9 +438,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = MYPTJXP3NK;
+				DEVELOPMENT_TEAM = 55H4ABU399;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationUsageDescription = "SAMPLE TESTO PROVA 1 21232131";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "You need to enable the localization";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -467,9 +469,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = MYPTJXP3NK;
+				DEVELOPMENT_TEAM = 55H4ABU399;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationUsageDescription = "SAMPLE TESTO PROVA 1 21232131";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "You need to enable the localization";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 //struct NewMessageView: View {
 //    @State var showSheetView = false
@@ -28,11 +29,17 @@ struct SheetView: View {
     @State private var selectedCategory = ""
     @State private var anonymous = false
     @State private var privat = false
+    
+    
  
     var categories = ["Message", "Advice"]
     @ObservedObject var dbManager : DatabaseManager
+    @ObservedObject var locationManager : LocationManager
     
     var body: some View {
+        
+        let coordinate : CLLocationCoordinate2D = self.locationManager.lastLocation!.coordinate
+        
         NavigationView {
                 VStack {
                     Divider()
@@ -67,7 +74,7 @@ struct SheetView: View {
                 .navigationBarTitle(Text("New seed"), displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
                     self.showSheetView = false
-                    dbManager.addMessage(userID: userSession.userAuthenticatedId, author: "Asya", message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat)
+                    dbManager.addMessage(userID: userSession.userAuthenticatedId, author: "Asya", message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat, latitude:String(coordinate.latitude) ,longitude:String(coordinate.longitude))
 //                    database.userMessagesQuery()
 
                 }) {
