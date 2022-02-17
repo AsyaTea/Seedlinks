@@ -11,8 +11,7 @@ import CoreLocation
 import SwiftUI
 
 class DatabaseManager: ObservableObject {
-    
-    
+        
     @Published var list = [Message]()
     @Published var userList = [Message]()
     @Published var user = User(id: "" ,username: "", email: "")
@@ -73,6 +72,8 @@ class DatabaseManager: ObservableObject {
             .getDocuments { querySnapshot, error in
                 
                 if error == nil {
+                    
+                    DispatchQueue.main.async {
                     for d in querySnapshot!.documents {
                         
                         print("\(d)")
@@ -89,6 +90,7 @@ class DatabaseManager: ObservableObject {
                                              longitude: d["longitude"] as? String ?? "",
                                              latitude: d["latitude"] as? String ?? ""))
                         
+                    }
                     }
                 }
             }

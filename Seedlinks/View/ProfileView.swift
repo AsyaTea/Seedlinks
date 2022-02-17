@@ -55,7 +55,8 @@ struct ProfileView: View {
                 }
             
             Button(action: {
-             
+                userSession.isLogged = false
+                userSession.userAuthenticatedId = ""
                 
             }, label: {
                 Text("LOG OUT")

@@ -139,61 +139,65 @@ struct SignInView: View {
                         .foregroundColor(.white)
                         .animation(Animation.linear(duration: 1), value: 1.5)
                 }
-                HStack{
-                    Rectangle()
-                        .frame(width: 50.0, height: 1.0)
-                    Text("Or continue with")
-                    Rectangle()
-                        .frame(width: 50.0, height: 1.0)
-                    
-                }
-                SignInWithAppleButton(
-                    onRequest: { request in
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                    },
-                    onCompletion: { result in
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                    }
-                )
-                    .frame(width: 200.0, height: 40.0)
-                    .cornerRadius(10)
-                    .padding()
-                //            Qui da mettere quello di Google
-                SignInWithAppleButton(
-                    onRequest: { request in
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                    },
-                    onCompletion: { result in
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                    }
-                )
-                    .frame(width: 200.0, height: 40.0)
-                    .cornerRadius(10)
-                    .padding()
-                //            Qui da mettere quello di Facebook
-                SignInWithAppleButton(
-                    onRequest: { request in
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                    },
-                    onCompletion: { result in
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                    }
-                )
-                    .frame(width: 200.0, height: 40.0)
-                    .cornerRadius(10)
-                    .padding()
+//                HStack{
+//                    Rectangle()
+//                        .frame(width: 50.0, height: 1.0)
+//                    Text("Or continue with")
+//                    Rectangle()
+//                        .frame(width: 50.0, height: 1.0)
+//
+//                }
+//                SignInWithAppleButton(
+//                    onRequest: { request in
+//                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+//                    },
+//                    onCompletion: { result in
+//                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+//                    }
+//                )
+//                    .frame(width: 200.0, height: 40.0)
+//                    .cornerRadius(10)
+//                    .padding()
+//                //            Qui da mettere quello di Google
+//                SignInWithAppleButton(
+//                    onRequest: { request in
+//                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+//                    },
+//                    onCompletion: { result in
+//                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+//                    }
+//                )
+//                    .frame(width: 200.0, height: 40.0)
+//                    .cornerRadius(10)
+//                    .padding()
+//                //            Qui da mettere quello di Facebook
+//                SignInWithAppleButton(
+//                    onRequest: { request in
+//                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+//                    },
+//                    onCompletion: { result in
+//                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+//                    }
+//                )
+//                    .frame(width: 200.0, height: 40.0)
+//                    .cornerRadius(10)
+//                    .padding()
                 
                 HStack{
                     Text("Not a member?")
-                    NavigationLink(destination: RegisterView()) {
+                    NavigationLink(destination: RegisterView(userSession: userSession)) {
                         Text("Register now!")
                             .foregroundColor(.accentColor)
                         }
-                    
+//                    .navigationTitle("Sign in")
                 }
             }
-            
-        } .frame(width: 400.0, height: 800.0)
+//            NavigationLink(destination: FolderList(id: workFolder.id)) {
+//                Label("Work Folder", systemImage: "folder")
+//            }
+        }
+//        .navigationBarBackButtonHidden(true)
+        .frame(width: 400.0, height: 800.0)
         
     }
     
