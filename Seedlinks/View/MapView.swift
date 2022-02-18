@@ -12,7 +12,7 @@ import CoreLocation
 struct MapView: View {
     
     @ObservedObject var locationManager = LocationManager()
-    @ObservedObject var firebaseManager = DatabaseManager()
+    @ObservedObject var dbManager = DatabaseManager()
     
     @State var clickedMessage: Message?
     
@@ -22,18 +22,18 @@ struct MapView: View {
         let myCoord = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
         let genericCoord = CLLocation(latitude: bLat, longitude: bLong)
         let distanceInMeters = myCoord.distance(from: genericCoord)
-        print("DISTANZA IN METRI" ,distanceInMeters)
+       // print("DISTANZA IN METRI" ,distanceInMeters)
         return distanceInMeters
     }
     
     init() {
         locationManager.requestAuthorization()
-        firebaseManager.getData()
+        dbManager.getData()
     }
     
     var body: some View {
         ZStack{
-            Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: firebaseManager.list, annotationContent: { message in
+            Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: dbManager.list, annotationContent: { message in
                 MapAnnotation(
                     coordinate: message.coordinate,
                     content: {
@@ -42,7 +42,16 @@ struct MapView: View {
                             didTapOnPin = true
                             clickedMessage = message
                         } label: {
-                            Circle().foregroundColor(.brown).frame(width: 10, height: 10).padding(20)
+                           //CAMBIARE ASPETTO QUANDO IL BOTTONE E' DISABLED
+                            ZStack{
+                                Circle()
+                                    .foregroundColor(.green)
+                                    .frame(width: 25, height: 25)
+                                   //    .padding(20)
+                                Image("sprout")
+                                    .resizable()
+                                    .frame(width: 15, height: 15)
+                            }
                         }
                         .disabled(getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 300.0)
                         .sheet(isPresented: $didTapOnPin) {
@@ -61,6 +70,7 @@ struct MapView: View {
                     }
                 )
             }).ignoresSafeArea()
+                .accentColor(.blue)
             VStack{
                 Spacer()
                 HStack{
@@ -71,10 +81,11 @@ struct MapView: View {
                         }
                 }
                 .padding(25)
-            .onAppear{
-                //Prende la posizione corrente appena apri l'app (se hai dato il consenso)
-                locationManager.getRegion()
-            }
+                .onAppear{
+                    //Prende la posizione corrente appena apri l'app (se hai dato il consenso)
+                    locationManager.getRegion()
+                   
+                }
             }
         }
     }
@@ -92,10 +103,10 @@ struct ButtonPosition : View {
             Circle()
                 .foregroundColor(.white)
                 .frame(width: 50, height: 50)
-        Image("locationIcon")
+            Image("locationIcon")
                 .resizable()
-                .frame(width: 40, height: 40)
-           
+                .frame(width: 45, height: 40)
+            
         }
     }
 }

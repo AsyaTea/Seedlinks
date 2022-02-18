@@ -18,7 +18,7 @@ struct ProfileView: View {
        
         
         VStack(alignment: .leading){
-            Text("Welcome back \(username)")
+            Text("Welcome back" + String(dbManager.user?.username ?? " default"))
                 .fontWeight(.semibold)
                 .font(.system(size: 28))
                 .padding(.top,30)
@@ -75,9 +75,10 @@ struct ProfileView: View {
                            
             }
             Spacer()
-        }.onAppear{
-//            dbManager.getUsername(userID: userSession.userAuthenticatedId)
         }
+//        .onAppear{
+//            dbManager.fetchCurrentUser()
+//        }
         }
 }
 
