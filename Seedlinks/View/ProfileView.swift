@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var userSession : UserSession
-    @ObservedObject var dbManager : DatabaseManager
+    @StateObject var dbManager = DatabaseManager()
     @StateObject var locationManager = LocationManager()
     @State var isOn: Bool = false
     var username : String = ""
@@ -57,7 +57,7 @@ struct ProfileView: View {
             Button(action: {
                 userSession.isLogged = false
                 userSession.userAuthenticatedId = ""
-                
+                dbManager.userList.removeAll()
             }, label: {
                 Text("LOG OUT")
             })

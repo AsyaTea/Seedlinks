@@ -78,10 +78,12 @@ struct RegisterView: View {
                     }
                     
                     Button(action: {
+//                        guard !email.isEmpty(email: email, password: password)
                         createNewAccount()
                     }) {
                         RegisterButtonContent()
                     }
+//                    .disabled()
                 }
                 Spacer()
                 //                    .padding(.bottom, 3.0)
