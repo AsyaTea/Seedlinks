@@ -12,18 +12,18 @@ import AuthenticationServices
 struct LoginView: View {
     
     @ObservedObject var userSession : UserSession
-    
+    @ObservedObject var dbManager : DatabaseManager
     var body: some View {
         NavigationView {
             
-            SignInView(userSession: userSession)
+            SignInView(dbManager: dbManager, userSession: userSession)
         }
     }
 }
 
 struct SignInView: View {
     
-    
+    @ObservedObject var dbManager : DatabaseManager
     @ObservedObject var userSession : UserSession
     @State var email: String = ""
     @State var password: String = ""
@@ -42,8 +42,8 @@ struct SignInView: View {
             print("Successfully logged in as user: \(userID)")
             authenticationDidSucceed = true
             userSession.isLogged = true
-            
             userSession.userAuthenticatedId = userID
+            dbManager.getUsername(userID: userID)
             
         }
     }

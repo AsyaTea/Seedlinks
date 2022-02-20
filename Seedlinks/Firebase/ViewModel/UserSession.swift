@@ -14,6 +14,7 @@ class FirebaseManager: NSObject {
 
     public var isLogged: Bool = false
     public var userAuthenticatedId: String = ""
+   
 
     static let shared = FirebaseManager()
 
@@ -29,5 +30,6 @@ class FirebaseManager: NSObject {
 class UserSession: ObservableObject {
     @Published var isLogged: Bool = false
     @Published var userAuthenticatedId: String = ""
+    @Published var userAuthUsername = ""
     
 }

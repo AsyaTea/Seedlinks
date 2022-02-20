@@ -8,19 +8,6 @@
 import SwiftUI
 import MapKit
 
-//struct NewMessageView: View {
-//    @State var showSheetView = false
-//
-//        var body: some View {
-//            Button(action: {
-//                self.showSheetView.toggle()
-//            }) {
-//                Text("Show Sheet View")
-//            }.sheet(isPresented: $showSheetView) {
-//                SheetView(showSheetView: self.$showSheetView)
-//            }
-//        }
-//}
 struct SheetView: View {
     
     @ObservedObject var userSession: UserSession
@@ -74,7 +61,7 @@ struct SheetView: View {
                 .navigationBarTitle(Text("New seed"), displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
                     self.showSheetView = false
-                    dbManager.addMessage(userID: userSession.userAuthenticatedId, author: dbManager.user?.username ?? "Asyaaa", message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat, latitude:String(coordinate.latitude) ,longitude:String(coordinate.longitude))
+                    dbManager.addMessage(userID: userSession.userAuthenticatedId, author: dbManager.user?.username ?? userSession.userAuthUsername, message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat, latitude:String(coordinate.latitude) ,longitude:String(coordinate.longitude))
 //                    database.userMessagesQuery()
 
                 }) {

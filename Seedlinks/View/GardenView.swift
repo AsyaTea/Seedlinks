@@ -19,7 +19,7 @@ struct GardenView: View {
             ProfileView(userSession: userSession, dbManager: dbManager)
         }
         else{
-            LoginView(userSession: userSession)
+            LoginView(userSession: userSession, dbManager: dbManager)
         }
       
         }

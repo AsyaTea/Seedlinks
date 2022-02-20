@@ -28,9 +28,10 @@ struct MessageView: View {
     var category: String
     var anonymous: Bool
     @State var textHeight: CGFloat = 0
-   // @StateObject var dbManager = DatabaseManager()
+
    @ObservedObject var dbManager : DatabaseManager
-//    @ObservedObject var dbManager = DatabaseManager()
+    @ObservedObject var userSession : UserSession
+
     
     
     var body: some View {
@@ -67,7 +68,7 @@ struct MessageView: View {
                         .font(.system(size: 16))
                         .fontWeight(.bold)
                 } else {
-                    Text(messageAuthor)
+                    Text(dbManager.username)
                         .foregroundColor(.white)
                         .font(.system(size: 16))
                         .fontWeight(.bold)

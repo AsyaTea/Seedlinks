@@ -17,8 +17,8 @@ class DatabaseManager: ObservableObject {
     @Published var userList = [Message]()
     //  @Published var user = User(id: "" ,username: "", email: "")
     @Published var user : User?
-  //  @Published var username: String = ""
-    @StateObject var userSession  = UserSession()
+    @Published var username: String = ""
+//    @Published var userSession  = UserSession()
     @Published var errorMessage = ""
     
     let db = Firestore.firestore()              // Reference to the database
@@ -52,7 +52,6 @@ class DatabaseManager: ObservableObject {
                                            message: d["message"] as? String ?? "",
                                            publicationDate: d["publicationDate"] as? Date ?? Date.init(),
                                            dateString: d["dateString"] as? String ?? "",
-                                           //             location: d["location"] as? CLLocation ?? CLLocation.init(),
                                            category: d["category"] as? String ?? "",
                                            anonymous: d["anonymous"] as? Bool ?? Bool.init(),
                                            privat: d["private"] as? Bool ?? Bool.init(),
@@ -81,6 +80,9 @@ class DatabaseManager: ObservableObject {
                 if error == nil {
                     
                     DispatchQueue.main.async {
+                        
+                        self.userList = [Message]()
+                        
                         for d in querySnapshot!.documents {
                             
                             print("\(d)")
@@ -90,7 +92,6 @@ class DatabaseManager: ObservableObject {
                                                          message: d["message"] as? String ?? "",
                                                          publicationDate: d["publicationDate"] as? Date ?? Date.init(),
                                                          dateString: d["dateString"] as? String ?? "",
-                                                         
                                                          category: d["category"] as? String ?? "",
                                                          anonymous: d["anonymous"] as? Bool ?? Bool.init(),
                                                          privat: d["private"] as? Bool ?? Bool.init(),
@@ -152,20 +153,17 @@ class DatabaseManager: ObservableObject {
         }
     }
     
-//    func getUsername(userID: String)  {
-//        
-//        db.collection("user").whereField("userID", isEqualTo: userID) .getDocuments { querySnapshot, error in
-//            
-//            //            if error == nil {
-//            //                for d in querySnapshot!.documents {
-//            //
-//            //
-//            //                    print(User(id: userID,
-//            //                               username: ["username"] as? String ?? "",
-//            //                               email: ["email"] as? String ?? ""))
-//            //                }
-//            //
-//            //            }
+    func getUsername(userID: String)  {
+        
+        db.collection("user").whereField("userID", isEqualTo: userID) .getDocuments { querySnapshot, error in
+            
+                        if error == nil {
+                            
+                            self.username = (querySnapshot?.documents[0]["username"] as? String ?? "")
+                                    
+                        }
+        }
+    }
 //            if let error = error {
 //                self.errorMessage = "Failed to fetch current user: \(error)"
 //                print("Failed to fetch current user:", error)
