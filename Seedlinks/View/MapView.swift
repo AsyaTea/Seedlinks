@@ -51,6 +51,10 @@ struct MapView: View {
                                 Image("sprout")
                                     .resizable()
                                     .frame(width: 15, height: 15)
+                                //PROVE CON MESSAGGI
+//                                MapMessage()
+//                                    .padding()
+//                                    .opacity(didTapOnPin ? 1 : 0)
                             }
                         }
                         .disabled(getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 300.0)

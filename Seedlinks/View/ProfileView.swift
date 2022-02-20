@@ -43,12 +43,21 @@ struct ProfileView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 16, height: 18)
-                    //INSERT CURRENT LOCATION
-                    Text("Via Nicolangelo Protopisani 21")
+                    if(locationManager.streetName.isEmpty){
+                    Text(locationManager.cityName)
                         .foregroundColor(Color("genericGray"))
                         .font(.system(size: 16))
                         .fontWeight(.medium)
-                }.padding(.top,-15)
+                    }
+                    else{
+                        Text(locationManager.streetName)
+                            .foregroundColor(Color("genericGray"))
+                            .font(.system(size: 16))
+                            .fontWeight(.medium)
+                        
+                    }
+                    Spacer()
+                }.padding(.top,-10)
                 
                 Button {
                     isOn = true
@@ -87,6 +96,9 @@ struct ProfileView: View {
                 }
                 Spacer()
             }.navigationBarHidden(true)
+                .onAppear{
+                    locationManager.reverseGeo(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
+                }
                 .padding()
         }
     }
