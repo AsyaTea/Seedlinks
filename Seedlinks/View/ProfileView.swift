@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
     @ObservedObject var userSession : UserSession
     @StateObject var dbManager = DatabaseManager()
     @StateObject var locationManager = LocationManager()
@@ -15,10 +16,9 @@ struct ProfileView: View {
     var username : String = ""
    
     var body: some View {
-       
-        
+               
         VStack(alignment: .leading){
-            Text("Welcome back" + String(dbManager.user?.username ?? " default"))
+            Text("Welcome back" + String(dbManager.user?.username ?? dbManager.username))
                 .fontWeight(.semibold)
                 .font(.system(size: 28))
                 .padding(.top,30)

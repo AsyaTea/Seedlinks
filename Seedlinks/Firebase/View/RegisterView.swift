@@ -36,6 +36,7 @@ struct RegisterView: View {
             let userID = result?.user.uid ?? ""
             print("Successfully created user: \(userID)")
             dbManager.addUser(userID: userID, username: username, email: email)
+            
             registrationDidSucceed = true
             
         }
