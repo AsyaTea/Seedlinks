@@ -14,10 +14,9 @@ struct LoginView: View {
     @ObservedObject var userSession : UserSession
     @ObservedObject var dbManager : DatabaseManager
     var body: some View {
-        NavigationView {
+       
             
             SignInView(dbManager: dbManager, userSession: userSession)
-        }
     }
 }
 
@@ -49,7 +48,7 @@ struct SignInView: View {
     }
     
     var body: some View {
-        NavigationView{
+       
         VStack {
             Text("Welcome back")
                 .font(.system(size: 40))
@@ -138,7 +137,6 @@ struct SignInView: View {
         //        .navigationBarBackButtonHidden(true)
         //  .frame(width: 400.0, height: 800.0)
         
-    }
     }
     
     

@@ -14,29 +14,45 @@ struct ProfileView: View {
     @StateObject var locationManager = LocationManager()
     @State var isOn: Bool = false
     var username : String = ""
-   
+    
     var body: some View {
-               
         VStack(alignment: .leading){
-            Text("Welcome back" + String(dbManager.user?.username ?? dbManager.username))
-                .fontWeight(.semibold)
-                .font(.system(size: 28))
-                .padding(.top,30)
             HStack{
-                Image("mapsymbols")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 16, height: 18)
-                //INSERT CURRENT LOCATION
-                Text("Via Nicolangelo Protopisani 21")
-                    .foregroundColor(Color("genericGray"))
-                    .font(.system(size: 16))
+                Text("Welcome back ")
                     .fontWeight(.medium)
-            }.padding(.top,-15)
+                    .font(.system(size: 28))
+                  //  .padding(.top,30)
+                Text(dbManager.user?.username ?? dbManager.username)
+                    .fontWeight(.semibold)
+                    .font(.system(size: 28))
+                   // .padding(.top,30)
+                Spacer()
+                NavigationLink(destination: SettingsView(isDarkMode: true, dbManager: dbManager,userSession: userSession),
+                    label:{
+                        Image(systemName: "gearshape.fill")
+                            .resizable()
+                            .foregroundColor(.accentColor)
+                            .frame(width: 25, height: 25)
+                    })
+            }.padding()
             
-            Button {
-                isOn = true
-            } label: {
+            VStack{
+                
+                HStack{
+                    Image("mapsymbols")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 16, height: 18)
+                    //INSERT CURRENT LOCATION
+                    Text("Via Nicolangelo Protopisani 21")
+                        .foregroundColor(Color("genericGray"))
+                        .font(.system(size: 16))
+                        .fontWeight(.medium)
+                }.padding(.top,-15)
+                
+                Button {
+                    isOn = true
+                } label: {
                     ZStack{
                         Text("Plant a seed.")
                             .foregroundColor(Color("genericGray"))
@@ -49,37 +65,31 @@ struct ProfileView: View {
                             .foregroundColor(.white)
                             .frame(width: 333, height: 44)
                     }.padding(.top,10)
+                        .frame(alignment:.center)
                 }.sheet(isPresented: $isOn) {
                     SheetView(userSession: userSession, showSheetView: self.$isOn,dbManager: dbManager, locationManager: locationManager)
-                  
+                    
                 }
-            
-            Button(action: {
-                userSession.isLogged = false
-                userSession.userAuthenticatedId = ""
-                dbManager.userList.removeAll()
-            }, label: {
-                Text("LOG OUT")
-            })
-            
+                                
                 
-            //YOUR SEEDS
-            VStack(alignment: .leading) {
-                Text("Your seeds")
-                    .font(.system(size: 22))
-                    .fontWeight(.semibold)
-                    .padding(.top,20)
-                ScrollView{
-                    MessageListView(userSession: userSession, dbManager: dbManager)
+                //YOUR SEEDS
+                VStack(alignment: .leading) {
+                    Text("Your seeds")
+                        .font(.system(size: 22))
+                        .fontWeight(.semibold)
+                        .padding(.top,20)
+                    ScrollView{
+                        MessageListView(userSession: userSession, dbManager: dbManager)
+                            .frame(alignment:.center)
+                            
+                    }
+                    
                 }
-                           
-            }
-            Spacer()
+                Spacer()
+            }.navigationBarHidden(true)
+                .padding()
         }
-//        .onAppear{
-//            dbManager.fetchCurrentUser()
-//        }
-        }
+    }
 }
 
 //struct ProfileView_Previews: PreviewProvider {
