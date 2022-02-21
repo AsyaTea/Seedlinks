@@ -10,9 +10,9 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @State var isDarkMode : Bool
-   @ObservedObject var dbManager : DatabaseManager
+    @ObservedObject var dbManager : DatabaseManager
     @ObservedObject var userSession : UserSession
+    @AppStorage("isDarkMode") private var isDarkMode = false
     
     var body: some View {
         
@@ -59,22 +59,22 @@ struct SettingsView: View {
                 
                 Section{
                     Button(role:.destructive,action: {
-                                      userSession.isLogged = false
-                                      userSession.userAuthenticatedId = ""
-                                      dbManager.userList.removeAll()
-                                  }, label: {
-                                      Text("Log out")
-                                  })
+                        userSession.isLogged = false
+                        userSession.userAuthenticatedId = ""
+                        dbManager.userList.removeAll()
+                    }, label: {
+                        Text("Log out")
+                    })
                 }header: {
                     Text("User")
                 }
-               
-                                    
+                
+                
                 
             }.listStyle(.inset)
             Text("Version 1.0")
                 .padding()
-
+            
             
         }  .navigationTitle("Settings")
         

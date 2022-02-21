@@ -17,6 +17,7 @@ struct MapView: View {
     @State var clickedMessage: Message?
     
     @State var didTapOnPin: Bool = false
+    @State var prova : Bool = false
     
     func getRadius(bLat : Double, bLong: Double) -> Double {
         let myCoord = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
@@ -31,6 +32,17 @@ struct MapView: View {
         dbManager.getData()
     }
     
+    var buttonColor: Color {
+          return prova ? .green : .gray
+      }
+    
+//    func messageIsClicked(bLat : Double, bLong: Double) -> Bool {
+//        var distanceInMeters = getRadius(bLat: bLat, bLong: bLat)
+//        if (distanceInMeters >= 300) {return true}
+//        else {return false}
+//    }
+
+    
     var body: some View {
         ZStack{
             Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: dbManager.list, annotationContent: { message in
@@ -42,7 +54,6 @@ struct MapView: View {
                             didTapOnPin = true
                             clickedMessage = message
                         } label: {
-                           //CAMBIARE ASPETTO QUANDO IL BOTTONE E' DISABLED
                             ZStack{
                                 Circle()
                                     .foregroundColor(.green)
@@ -57,7 +68,7 @@ struct MapView: View {
 //                                    .opacity(didTapOnPin ? 1 : 0)
                             }
                         }
-                        .disabled(getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 300.0)
+                        .disabled(getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 300.0 )
                         .sheet(isPresented: $didTapOnPin) {
                             didTapOnPin = false
                         } content: {

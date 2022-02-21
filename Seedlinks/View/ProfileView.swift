@@ -27,7 +27,7 @@ struct ProfileView: View {
                     .font(.system(size: 28))
                    // .padding(.top,30)
                 Spacer()
-                NavigationLink(destination: SettingsView(isDarkMode: true, dbManager: dbManager,userSession: userSession),
+                NavigationLink(destination: SettingsView(dbManager: dbManager,userSession: userSession),
                     label:{
                         Image(systemName: "gearshape.fill")
                             .resizable()

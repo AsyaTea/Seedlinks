@@ -12,11 +12,14 @@ import Firebase
 struct Tab: View {
     
     init() {
-        
-        UITabBar.appearance().backgroundColor = .white
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().isTranslucent = true
+        UITabBar.appearance().backgroundColor = UIColor(named: "TabBar")
     }
     @StateObject var dbManager = DatabaseManager()
     @StateObject var userSession = UserSession()
+    @AppStorage("isDarkMode") private var isDarkMode = false
    
     var body: some View {
                      
@@ -35,7 +38,7 @@ struct Tab: View {
                             .renderingMode(.template)
                         Text("Garden")
                     }
-            }
+            }.preferredColorScheme(isDarkMode ? .dark : .light)
         }
        // .environmentObject(userSession)
 }

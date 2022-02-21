@@ -184,8 +184,8 @@ extension View {
         self
             .padding(.vertical, 10)
             .overlay(Rectangle().frame(height: 2).padding(.top, 35))
-            .foregroundColor(.black)
-            .background(.white)
+            .foregroundColor(Color("Inverso"))
+            .background(Color("TabBar"))
             .padding(10)
     }
 }
