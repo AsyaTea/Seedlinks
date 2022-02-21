@@ -18,12 +18,12 @@ struct ProfileView: View {
     var body: some View {
         VStack(alignment: .leading){
             HStack{
-                Text("Welcome back ")
+                Text("Welcome back")
                     .fontWeight(.medium)
                     .font(.system(size: 28))
                   //  .padding(.top,30)
                 Text(dbManager.user?.username ?? dbManager.username)
-                    .fontWeight(.semibold)
+                    .fontWeight(.medium)
                     .font(.system(size: 28))
                    // .padding(.top,30)
                 Spacer()
