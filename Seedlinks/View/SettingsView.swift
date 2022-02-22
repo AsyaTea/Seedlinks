@@ -65,6 +65,16 @@ struct SettingsView: View {
                     }, label: {
                         Text("Log out")
                     })
+                    Button(role:.destructive,action: {
+                        userSession.isLogged = false
+                        userSession.userAuthenticatedId = ""
+                        dbManager.userList.removeAll()
+//                      dbManager.deleteAllUserMessages(userID: userSession.userAuthenticatedId)   da fixare
+                        userSession.deleteUser(userID: userSession.userAuthenticatedId)
+                       
+                    }, label: {
+                        Text("Delete Account")
+                    })
                 }header: {
                     Text("User")
                 }

@@ -90,6 +90,8 @@ class DatabaseManager: ObservableObject {
                                                          latitude: d["latitude"] as? String ?? ""))
                             
                         }
+                        
+                       
                     }
                 }
             }
@@ -113,8 +115,7 @@ class DatabaseManager: ObservableObject {
     }
     
     func deleteMessage(_ messageId: String) {
-        
-        
+      
         db.collection("messages").document(messageId).delete { error in
             
             if error == nil {
@@ -130,6 +131,33 @@ class DatabaseManager: ObservableObject {
                 // Handle errors
             }
         }
+    }
+    
+    func deleteAllUserMessages(userID : String) {
+        
+        db.collection("messages").whereField("userID", isEqualTo: userID)
+            .getDocuments { querySnapshot, error in
+                
+                if error == nil {
+                    
+                    DispatchQueue.main.async {
+                       
+                        for _ in querySnapshot!.documents {
+                            
+                            self.db.collection("messages").document().delete() { error in
+                                if error == nil {
+                                    
+                                } else {
+                                    //errors diocannn
+                                }
+                                
+                            }
+                           
+                        }
+                    }
+                }
+            }
+        
     }
     
     func addUser(userID: String, username: String, email: String) {
@@ -186,11 +214,13 @@ private func fetchCurrentUser() {
     
     func getMessageIDquery(messageID: String)  {
 
-        for i in list {
+        for i in self.list {
             if i.id == messageID {
+                print(message)
                return message = i
+               
             } else {
-               //errors
+               print("è andato male")
             }
         }
     }
