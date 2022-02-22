@@ -48,6 +48,17 @@ class UserSession: ObservableObject {
         }
     }
     
+    func passwordReset(email: String) {
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if error == nil {
+                print("success")
+            } else {
+                
+            }
+        }
+    }
+    
 }
 
 

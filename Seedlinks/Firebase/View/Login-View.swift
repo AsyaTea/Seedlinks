@@ -15,8 +15,9 @@ struct LoginView: View {
     @ObservedObject var dbManager : DatabaseManager
     var body: some View {
        
-            
+        
             SignInView(dbManager: dbManager, userSession: userSession)
+    
     }
 }
 
@@ -48,6 +49,7 @@ struct SignInView: View {
     }
     
     var body: some View {
+      
        
         VStack {
             Text("Welcome back")
@@ -71,12 +73,16 @@ struct SignInView: View {
                         .offset(y: -10)
                         .foregroundColor(.red)
                 }
-                Text("Forgotten password?")
+                NavigationLink(destination: PasswordRecovery(userSession: userSession)){
+                    Text("Forgotten password?")
                     .fontWeight(.thin)
                     .multilineTextAlignment(.trailing)
                     .frame(width: 390, height: 30, alignment: .trailing)
                     .onTapGesture {
                     }
+                }
+            
+                
                 
                 Button(action: {
                     guard !email.isEmpty, !password.isEmpty else {
@@ -137,6 +143,7 @@ struct SignInView: View {
         //        .navigationBarBackButtonHidden(true)
         //  .frame(width: 400.0, height: 800.0)
         
+    
     }
     
     
@@ -187,6 +194,25 @@ extension View {
             .foregroundColor(Color("Inverso"))
             .background(Color("TabBar"))
             .padding(10)
+    }
+}
+
+struct PasswordRecovery: View {
+    @ObservedObject var userSession : UserSession
+    @State var email = ""
+    var body: some View {
+        
+        VStack {
+            Text("Email por favor")
+            emailTextField(email: $email)
+            Button(action: {
+                userSession.passwordReset(email: email)
+            }, label: {
+                Text("Send reset password")
+            })
+        
+        }
+        
     }
 }
 
