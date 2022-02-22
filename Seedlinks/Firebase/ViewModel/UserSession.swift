@@ -28,6 +28,14 @@ class FirebaseManager: NSObject {
         super.init()
     }
     
+   
+}
+
+class UserSession: ObservableObject {
+    @Published var isLogged: Bool = false
+    @Published var userAuthenticatedId: String = ""
+    @Published var userAuthUsername = ""
+    
     func deleteUser(userID: String) {
         let user = Auth.auth().currentUser
 
@@ -39,12 +47,6 @@ class FirebaseManager: NSObject {
           }
         }
     }
-}
-
-class UserSession: ObservableObject {
-    @Published var isLogged: Bool = false
-    @Published var userAuthenticatedId: String = ""
-    @Published var userAuthUsername = ""
     
 }
 

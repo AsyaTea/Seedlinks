@@ -53,9 +53,10 @@ struct MapView: View {
                         //Se la distanza tra me e il bottone singolo è < 2km -> abilitalo
                         Button {
                             
-                            dbManager.getMessageIDquery(messageID: messageID)
+                            dbManager.getMessageIDquery(messageID: message.id)
                             didTapOnPin = true
-                            clickedMessage = message
+                            clickedMessage = dbManager.message
+                     
                         } label: {
                             ZStack{
                                 Circle()
