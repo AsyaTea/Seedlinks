@@ -78,7 +78,7 @@ struct MapView: View {
                                     Text(clickedMessage.author)
                                 }else{
                                     //Loader
-                                    Text("Caricamento...")
+                                    Text("Loading...")
                                 }
                             }
                         }

@@ -119,18 +119,24 @@ struct RegisterView: View {
                 //                    }
                 //                    .padding()
                 
-                HStack {
+                HStack{
                     Text("By registering, you agree to our")
+                        .font(.footnote)
                     NavigationLink(destination: PolicyView())
                     {Text("privacy policy")
                             .foregroundColor(Color("AccentColor"))
+                            .font(.footnote)
+
                     }
                 }
                 HStack{
                     Text("and our")
+                        .font(.footnote)
                     NavigationLink(destination: TTCView())
-                    {Text("terms and conditions.")
+                    {Text("terms of service.")
                             .foregroundColor(Color("AccentColor"))
+                            .font(.footnote)
+
                     }
                     
                 }

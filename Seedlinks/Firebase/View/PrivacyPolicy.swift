@@ -12,7 +12,7 @@ import SwiftUI
 struct PolicyView: View {
     var body: some View {
         HTMLView(htmlFileName: "Policy")
-            .frame(width: 400.0, height: 700.0)
+            .frame(width: 400.0, height: 770.0)
         }
 }
 struct ContentView_Previews7: PreviewProvider {
