@@ -61,7 +61,7 @@ struct MapView: View {
                         Button {
                             
                             dbManager.getMessageIDquery(messageID: message.id)
-                            //                            didTapOnPin = true
+//                            didTapOnPin = true
                             clickedMessage = dbManager.message
                             
                         } label: {
