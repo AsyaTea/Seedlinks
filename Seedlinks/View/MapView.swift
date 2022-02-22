@@ -15,7 +15,7 @@ struct MapView: View {
     @ObservedObject var dbManager = DatabaseManager()
     
     @State var clickedMessage: Message?
-    
+    @State var messageID : String = ""
     @State var didTapOnPin: Bool = false
     @State var prova : Bool = false
     
@@ -30,6 +30,7 @@ struct MapView: View {
     init() {
         locationManager.requestAuthorization()
         dbManager.getData()
+        
     }
     
     var buttonColor: Color {
@@ -51,6 +52,8 @@ struct MapView: View {
                     content: {
                         //Se la distanza tra me e il bottone singolo è < 2km -> abilitalo
                         Button {
+                            
+                            dbManager.getMessageIDquery(messageID: messageID)
                             didTapOnPin = true
                             clickedMessage = message
                         } label: {

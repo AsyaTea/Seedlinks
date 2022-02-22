@@ -18,16 +18,10 @@ class DatabaseManager: ObservableObject {
     //  @Published var user = User(id: "" ,username: "", email: "")
     @Published var user : User?
     @Published var username: String = ""
-//    @Published var userSession  = UserSession()
+    @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "")
     @Published var errorMessage = ""
     
     let db = Firestore.firestore()              // Reference to the database
-    
-    func formatting(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter.string(from: date)
-    }
     
     init() {
         fetchCurrentUser()
@@ -57,10 +51,7 @@ class DatabaseManager: ObservableObject {
                                            privat: d["private"] as? Bool ?? Bool.init(),
                                            longitude: d["longitude"] as? String ?? "",
                                            latitude: d["latitude"] as? String ?? "" )
-                            
-                            
-                            
-                            
+
                         }
                     }
                     
@@ -153,6 +144,8 @@ class DatabaseManager: ObservableObject {
         }
     }
     
+ 
+    
     func getUsername(userID: String)  {
         
         db.collection("user").whereField("userID", isEqualTo: userID) .getDocuments { querySnapshot, error in
@@ -164,27 +157,6 @@ class DatabaseManager: ObservableObject {
                         }
         }
     }
-//            if let error = error {
-//                self.errorMessage = "Failed to fetch current user: \(error)"
-//                print("Failed to fetch current user:", error)
-//                return
-//            }
-//            guard let data = querySnapshot?.data() else {
-//                self.errorMessage = "No data found"
-//                return
-//            }
-//            
-//            let id = data["userID"] as? String ?? ""
-//            let username = data["username"] as? String ?? ""
-//            let email = data["email"] as? String ?? ""
-//            
-//            self.user = User(id: id,username: username, email: email)
-//            
-//            
-//            
-//        }
-//    }
-    
     
 private func fetchCurrentUser() {
     guard let id = Auth.auth().currentUser?.uid else {
@@ -212,10 +184,28 @@ private func fetchCurrentUser() {
         }
     }
     
-    
-    
-}
+    func getMessageIDquery(messageID: String)  {
 
+        for i in list {
+            if i.id == messageID {
+               return message = i
+            } else {
+               //errors
+            }
+        }
+    }
+    
+    func getRadiusMessagesQuery() {  //Takes user position and returns every message in a certain radius
+        
+    }
+    
+    func formatting(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: date)
+    }
+}
+        
 
 
 
