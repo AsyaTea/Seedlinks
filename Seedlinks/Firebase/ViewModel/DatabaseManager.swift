@@ -23,12 +23,6 @@ class DatabaseManager: ObservableObject {
     
     let db = Firestore.firestore()              // Reference to the database
     
-    func formatting(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter.string(from: date)
-    }
-    
     init() {
         fetchCurrentUser()
     }
@@ -150,6 +144,8 @@ class DatabaseManager: ObservableObject {
         }
     }
     
+ 
+    
     func getUsername(userID: String)  {
         
         db.collection("user").whereField("userID", isEqualTo: userID) .getDocuments { querySnapshot, error in
@@ -194,9 +190,19 @@ private func fetchCurrentUser() {
             if i.id == messageID {
                return message = i
             } else {
-                
+               //errors
             }
         }
+    }
+    
+    func getRadiusMessagesQuery() {  //Takes user position and returns every message in a certain radius
+        
+    }
+    
+    func formatting(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: date)
     }
 }
         
