@@ -9,14 +9,10 @@ import Foundation
 import SwiftUI
 import AuthenticationServices
 
-
-
 struct RegisterView: View {
-    
     
     @StateObject var dbManager = DatabaseManager()
     @ObservedObject var userSession : UserSession
-    
     
     @State var username: String = ""
     @State var email: String = ""
@@ -39,17 +35,12 @@ struct RegisterView: View {
             let userID = result?.user.uid ?? ""
             print("Successfully created user: \(userID)")
             dbManager.addUser(userID: userID, username: username, email: email)
-            
             registrationDidSucceed = true
-            
         }
     }
     
-    
     var body: some View {
-        
         VStack {
-            
             Text("Get started!")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
@@ -94,19 +85,17 @@ struct RegisterView: View {
             Button("Ok", role: .cancel) { }
         }
         
-        
         VStack {
-            Text("By registering, you agree to our")
+            Text("By clicking on the button above, you agree to our")
                 .font(.footnote)
+        }
+        Spacer()
+        HStack{
             NavigationLink(destination: PolicyView())
             {Text("privacy policy")
                     .font(.footnote)
                     .foregroundColor(Color("AccentColor"))
-             
             }
-        }
-        Spacer()
-        HStack{
             Text("and our")
                 .font(.footnote)
             NavigationLink(destination: TTCView())
@@ -114,15 +103,11 @@ struct RegisterView: View {
                     .font(.footnote)
                     .foregroundColor(Color("AccentColor"))
             }
-            
         }
         Spacer()
     }//.frame(width: 400.0, height: 850.0)
-    
     //                .navigationBarBackButtonHidden(true)
-    
 }
-
 
 struct RegisterButtonContent : View {
     var body: some View {
@@ -137,14 +122,11 @@ struct RegisterButtonContent : View {
 }
 
 struct UsernameTextField : View {
-    
     @Binding var username: String
-    
     var body: some View {
         TextField("Username", text: $username)
             .cornerRadius(10.0)
             .underlineTextField()
-        
     }
 }
 
