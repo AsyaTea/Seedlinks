@@ -6,25 +6,26 @@
 //
 
 import SwiftUI
-    
+
 
 struct GardenView: View {
-   
+    
     @ObservedObject var dbManager : DatabaseManager
     @ObservedObject var userSession : UserSession
-   
-    var body: some View {
-        NavigationView{
-        if userSession.isLogged{
-            ProfileView(userSession: userSession, dbManager: dbManager)
-        }
-        else{
-            LoginView(userSession: userSession, dbManager: dbManager)
-        }
-        }
-        }
-        
     
+    var body: some View {
+        NavigationView
+        {
+            if userSession.isLogged
+            {
+                ProfileView(userSession: userSession, dbManager: dbManager)
+            }
+            else
+            {
+                LoginView(userSession: userSession, dbManager: dbManager)
+            }
+        }
+    }
     
 }
 

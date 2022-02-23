@@ -14,9 +14,9 @@ struct LoginView: View {
     @ObservedObject var userSession : UserSession
     @ObservedObject var dbManager : DatabaseManager
     var body: some View {
-       
-            
-            SignInView(dbManager: dbManager, userSession: userSession)
+        
+        
+        SignInView(dbManager: dbManager, userSession: userSession)
     }
 }
 
@@ -50,7 +50,7 @@ struct SignInView: View {
     }
     
     var body: some View {
-       
+        
         VStack {
             Text("Welcome back")
                 .font(.system(size: 40))
@@ -62,7 +62,7 @@ struct SignInView: View {
                 .multilineTextAlignment(.center)
                 .padding(.top,5)
             Spacer()
-     //       Divider()
+            //       Divider()
             
             VStack {
                 Text("  ")
@@ -73,12 +73,16 @@ struct SignInView: View {
                         .offset(y: -10)
                         .foregroundColor(.red)
                 }
-                Text("Forgotten password?")
-                    .fontWeight(.thin)
-                    .multilineTextAlignment(.trailing)
-                    .frame(width: 390, height: 30, alignment: .trailing)
-                    .onTapGesture {
-                    }
+                
+                NavigationLink(destination: RecoveryPassword(userSession: userSession)){
+                    Text("Forgotten password?")
+                        .fontWeight(.thin)
+                        .multilineTextAlignment(.trailing)
+                        .frame(width: 390, height: 30, alignment: .trailing)
+                }
+                         
+            }
+                
                 
                 Button(action: {
                     guard !email.isEmpty, !password.isEmpty else {
@@ -90,7 +94,6 @@ struct SignInView: View {
                 }) {
                     LoginButtonContent()
                 }
-            }
             .padding()
             if authenticationDidSucceed {
                 Text("Login succeeded!")
@@ -101,26 +104,6 @@ struct SignInView: View {
                     .foregroundColor(.white)
                     .animation(Animation.linear(duration: 1), value: 1.5)
             }
-            //                HStack{
-            //                    Rectangle()
-            //                        .frame(width: 50.0, height: 1.0)
-            //                    Text("Or continue with")
-            //                    Rectangle()
-            //                        .frame(width: 50.0, height: 1.0)
-            //
-            //                }
-            //                SignInWithAppleButton(
-            //                    onRequest: { request in
-            //                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-            //                    },
-            //                    onCompletion: { result in
-            //                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-            //                    }
-            //                )
-            //                    .frame(width: 200.0, height: 40.0)
-            //                    .cornerRadius(10)
-            //                    .padding()
-            
             HStack{
                 Text("Not a member?")
                 NavigationLink(destination: RegisterView(userSession: userSession)) {
@@ -132,13 +115,7 @@ struct SignInView: View {
             }
             Spacer()
         }
-        //            NavigationLink(destination: FolderList(id: workFolder.id)) {
-        //                Label("Work Folder", systemImage: "folder")
-        //            }
-        
-        //        .navigationBarBackButtonHidden(true)
-        //  .frame(width: 400.0, height: 800.0)
-        
+    
     }
     
     
@@ -163,10 +140,10 @@ struct emailTextField : View {
     @Binding var email: String
     
     var body: some View {
-      
-            TextField("name@example.com", text: $email)
+        
+        TextField("name@example.com", text: $email)
             .cornerRadius(10)
-                .underlineTextField()
+            .underlineTextField()
     }
 }
 
