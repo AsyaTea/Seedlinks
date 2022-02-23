@@ -13,6 +13,7 @@ struct MapView: View {
     
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject var dbManager = DatabaseManager()
+    @ObservedObject var userSession = UserSession()
     
     @State var clickedMessage: Message?
     

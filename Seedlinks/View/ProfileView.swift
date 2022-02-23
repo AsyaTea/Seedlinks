@@ -88,7 +88,7 @@ struct ProfileView: View {
                         .fontWeight(.semibold)
                         .padding(.top,20)
                     ScrollView{
-                        MessageListView(userSession: userSession, dbManager: dbManager)
+                        MessageListView(userSession: userSession, dbManager: dbManager, locationManager: locationManager)
                             .frame(alignment:.center)
                             
                     }

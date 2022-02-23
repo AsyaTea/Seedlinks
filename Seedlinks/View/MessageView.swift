@@ -27,9 +27,12 @@ struct MessageView: View {
     let dateString: String
     var category: String
     var anonymous: Bool
+    let longitude: String
+    let latitude: String
     @State var textHeight: CGFloat = 0
 
    @ObservedObject var dbManager : DatabaseManager
+    @ObservedObject var locationManager : LocationManager
     @ObservedObject var userSession : UserSession
 
     
@@ -105,7 +108,17 @@ struct MessageView: View {
             }
         } .contextMenu
         {
-            Button(action: { print("Action 1 triggered") }, label:
+            Button(action: {
+                
+                //Devo fare una navigation e settare le coordinate attuali a quelli del messaggio
+                //DEVO PROBABILMENTE FARE UN RETRIEVE DELLE COORDINATE DEL MEX DAL DB E POI SETTARLE
+                //PROBLEMA MESSAGE ID
+              //  locationManager.setRegion(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0)
+              //  print(latitude, longitude)
+                print("Action 1 triggered")
+                
+            }
+                   , label:
             {
                 HStack{
                     Text("View on map")

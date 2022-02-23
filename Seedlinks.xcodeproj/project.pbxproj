@@ -71,6 +71,7 @@
 		FF03869427BAA35A0000A7C9 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		FF03869627BAAEF80000A7C9 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		FF03869827BAB6B40000A7C9 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		FF366DD827C3B46B00DA7300 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF900AD427BE671700D7B5E7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FF900AD727BE678F00D7B5E7 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -264,6 +265,7 @@
 				en,
 				Base,
 				it,
+				ru,
 			);
 			mainGroup = FF03867227BA653E0000A7C9;
 			packageReferences = (
@@ -333,6 +335,7 @@
 			children = (
 				039B2A3827C3AA70008D46A0 /* it */,
 				039B2A3A27C3AC4D008D46A0 /* en */,
+				FF366DD827C3B46B00DA7300 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

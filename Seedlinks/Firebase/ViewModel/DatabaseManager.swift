@@ -18,7 +18,7 @@ class DatabaseManager: ObservableObject {
     //  @Published var user = User(id: "" ,username: "", email: "")
     @Published var user : User?
     @Published var username: String = ""
-//    @Published var userSession  = UserSession()
+    //    @Published var userSession  = UserSession()
     @Published var errorMessage = ""
     
     let db = Firestore.firestore()              // Reference to the database
@@ -72,6 +72,7 @@ class DatabaseManager: ObservableObject {
             }
         }
     }
+    //func coordinatesMessageQuery(userID: String, message:)
     
     func userMessagesQuery(userID: String) {
         db.collection("messages").whereField("userID", isEqualTo: userID)
@@ -86,18 +87,19 @@ class DatabaseManager: ObservableObject {
                         for d in querySnapshot!.documents {
                             
                             print("\(d)")
-                            self.userList.append(Message(id: d.documentID,
-                                                         userID: d["userID"] as? String ?? "",
-                                                         author: d["author"] as? String ?? "",
-                                                         message: d["message"] as? String ?? "",
-                                                         publicationDate: d["publicationDate"] as? Date ?? Date.init(),
-                                                         dateString: d["dateString"] as? String ?? "",
-                                                         category: d["category"] as? String ?? "",
-                                                         anonymous: d["anonymous"] as? Bool ?? Bool.init(),
-                                                         privat: d["private"] as? Bool ?? Bool.init(),
-                                                         longitude: d["longitude"] as? String ?? "",
-                                                         latitude: d["latitude"] as? String ?? ""))
-                            
+                            self.userList.append(
+                                Message(id: d.documentID,
+                                userID: d["userID"] as? String ?? "",
+                                author: d["author"] as? String ?? "",
+                                message: d["message"] as? String ?? "",
+                                publicationDate: d["publicationDate"] as? Date ?? Date.init(),
+                                dateString: d["dateString"] as? String ?? "",
+                                category: d["category"] as? String ?? "",
+                                anonymous: d["anonymous"] as? Bool ?? Bool.init(),
+                                privat: d["private"] as? Bool ?? Bool.init(),
+                                longitude: d["longitude"] as? String ?? "",
+                                latitude: d["latitude"] as? String ?? "")
+                            )
                         }
                     }
                 }
@@ -157,41 +159,41 @@ class DatabaseManager: ObservableObject {
         
         db.collection("user").whereField("userID", isEqualTo: userID) .getDocuments { querySnapshot, error in
             
-                        if error == nil {
-                            
-                            self.username = (querySnapshot?.documents[0]["username"] as? String ?? "")
-                                    
-                        }
+            if error == nil {
+                
+                self.username = (querySnapshot?.documents[0]["username"] as? String ?? "")
+                
+            }
         }
     }
-//            if let error = error {
-//                self.errorMessage = "Failed to fetch current user: \(error)"
-//                print("Failed to fetch current user:", error)
-//                return
-//            }
-//            guard let data = querySnapshot?.data() else {
-//                self.errorMessage = "No data found"
-//                return
-//            }
-//            
-//            let id = data["userID"] as? String ?? ""
-//            let username = data["username"] as? String ?? ""
-//            let email = data["email"] as? String ?? ""
-//            
-//            self.user = User(id: id,username: username, email: email)
-//            
-//            
-//            
-//        }
-//    }
+    //            if let error = error {
+    //                self.errorMessage = "Failed to fetch current user: \(error)"
+    //                print("Failed to fetch current user:", error)
+    //                return
+    //            }
+    //            guard let data = querySnapshot?.data() else {
+    //                self.errorMessage = "No data found"
+    //                return
+    //            }
+    //
+    //            let id = data["userID"] as? String ?? ""
+    //            let username = data["username"] as? String ?? ""
+    //            let email = data["email"] as? String ?? ""
+    //
+    //            self.user = User(id: id,username: username, email: email)
+    //
+    //
+    //
+    //        }
+    //    }
     
     
-private func fetchCurrentUser() {
-    guard let id = Auth.auth().currentUser?.uid else {
+    private func fetchCurrentUser() {
+        guard let id = Auth.auth().currentUser?.uid else {
             self.errorMessage = "Could not find firebase uid"
             return
         }
-    db.collection("user").document(id).getDocument { querySnapshot, error in
+        db.collection("user").document(id).getDocument { querySnapshot, error in
             
             if let error = error {
                 self.errorMessage = "Failed to fetch current user: \(error)"
