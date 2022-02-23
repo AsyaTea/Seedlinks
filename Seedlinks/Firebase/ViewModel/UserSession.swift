@@ -7,6 +7,8 @@
 
 import Foundation
 import Firebase
+import Combine
+import SwiftUI
 
 class FirebaseManager: NSObject {
 
@@ -25,6 +27,8 @@ class FirebaseManager: NSObject {
 
         super.init()
     }
+    
+   
 }
 
 class UserSession: ObservableObject {
@@ -32,4 +36,18 @@ class UserSession: ObservableObject {
     @Published var userAuthenticatedId: String = ""
     @Published var userAuthUsername = ""
     
+    func deleteUser(userID: String) {
+        let user = Auth.auth().currentUser
+
+        user?.delete { error in
+          if error == nil {
+            print("Successful deleting")
+          } else {
+            print("Failed deleting")
+          }
+        }
+    }
+    
 }
+
+
