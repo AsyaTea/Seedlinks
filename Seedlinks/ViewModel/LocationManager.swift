@@ -91,6 +91,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    func setRegion(latitude : Double, longitude : Double){
+       
+        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+    }
+    
     func requestAuthorization() {
         locationManager.requestWhenInUseAuthorization()
         self.getRegion()

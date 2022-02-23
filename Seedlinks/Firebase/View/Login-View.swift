@@ -27,6 +27,7 @@ struct SignInView: View {
     @ObservedObject var userSession : UserSession
     @State var email: String = ""
     @State var password: String = ""
+    @State var errorString : String = ""
     
     @State var authenticationDidFail: Bool = false
     @State var authenticationDidSucceed: Bool = false
@@ -36,6 +37,7 @@ struct SignInView: View {
             if let err = err {
                 print("Failed to login user:", err)
                 authenticationDidFail = true
+                errorString = err.localizedDescription
                 return
             }
             let userID = result?.user.uid ?? ""
@@ -69,7 +71,7 @@ struct SignInView: View {
                 emailTextField(email: $email)
                 PasswordSecureField(password: $password)
                 if authenticationDidFail {
-                    Text("Information not correct. Try again.")
+                    Text(errorString)
                         .offset(y: -10)
                         .foregroundColor(.red)
                 }
