@@ -11,6 +11,7 @@ import SwiftUI
 struct GardenView: View {
     
     @ObservedObject var dbManager : DatabaseManager
+    @ObservedObject var locationManager = LocationManager()
     @ObservedObject var userSession : UserSession
     
     var body: some View {
@@ -19,6 +20,9 @@ struct GardenView: View {
             if userSession.isLogged
             {
                 ProfileView(userSession: userSession, dbManager: dbManager)
+                    .task{
+                            locationManager.reverseGeo(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
+                        }
             }
             else
             {

@@ -23,7 +23,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     // Reverse geolocation
     @Published var streetName : String = ""
-    @Published var cityName : String = ""
+    @Published var cityName : String = "Searching for current location"
     let geoCoder = CLGeocoder()
     
     func reverseGeo(latitude : Double, longitude : Double ) {

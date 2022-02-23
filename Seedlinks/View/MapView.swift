@@ -213,8 +213,8 @@ struct CustomButton: Identifiable{
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MapView()
+//    }
+//}
