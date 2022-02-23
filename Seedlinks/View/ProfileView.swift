@@ -20,7 +20,9 @@ struct ProfileView: View {
             HStack{
                 Text("Welcome back")
                     .fontWeight(.medium)
-                    .font(.system(size: 28))
+                   // .font(.system(size: 28))
+                    .font(.system(size: 500))
+                    .minimumScaleFactor(0.01)
                   //  .padding(.top,30)
                 Text(dbManager.user?.username ?? dbManager.username)
                     .fontWeight(.medium)
@@ -106,6 +108,10 @@ struct ProfileView: View {
 
 //struct ProfileView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ProfileView()
+//        ProfileView(
+//            userSession: UserSession(isLogged:true,userAuthenticatedId: "",userAuthUsername: "Default")
+//            
+//            )
+//            
 //    }
 //}
