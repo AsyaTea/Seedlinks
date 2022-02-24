@@ -22,7 +22,6 @@ class FirebaseManager: NSObject {
 
     override init() {
         
-
         self.auth = Auth.auth()
 
         super.init()
@@ -32,6 +31,16 @@ class FirebaseManager: NSObject {
 }
 
 class UserSession: ObservableObject {
+       
+    
+    init() {
+        
+        authAssigner()
+    }
+    
+    
+    let db = Firestore.firestore()
+    
     @Published var isLogged: Bool = false
     @Published var userAuthenticatedId: String = ""
     @Published var userAuthUsername = ""
@@ -59,6 +68,37 @@ class UserSession: ObservableObject {
         }
     }
     
+    func sendSignInEmail(email: String) {
+        
+        let actionCodeSettings = ActionCodeSettings()
+        actionCodeSettings.url = URL(string: "https://www.example.com")
+        actionCodeSettings.handleCodeInApp = true
+        actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
+        
+        Auth.auth().sendSignInLink(toEmail: email, actionCodeSettings: actionCodeSettings) { error in
+            
+            if error == nil {
+                UserDefaults.standard.set(email, forKey: "Email")
+                   print("success")
+            } else {
+              print("error")
+                     return
+            }
+        }
+    }
+    
+    func authAssigner() {
+
+        Auth.auth().addStateDidChangeListener { auth, user in
+
+            if let user = user {
+
+                self.userAuthenticatedId = user.uid
+                self.isLogged = true
+        }
+    }
+    
+}
 }
 
 

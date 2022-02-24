@@ -45,7 +45,7 @@ struct SignInView: View {
             authenticationDidSucceed = true
             userSession.isLogged = true
             userSession.userAuthenticatedId = userID
-            dbManager.getUsername(userID: userID)
+  
             
         }
     }

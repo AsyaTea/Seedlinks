@@ -63,7 +63,7 @@ class DatabaseManager: ObservableObject {
             }
         }
     }
-    //func coordinatesMessageQuery(userID: String, message:)
+   
     
     func userMessagesQuery(userID: String) {
         db.collection("messages").whereField("userID", isEqualTo: userID)
@@ -236,6 +236,8 @@ private func fetchCurrentUser() {
         formatter.dateStyle = .medium
         return formatter.string(from: date)
     }
+    
+   
 }
         
 

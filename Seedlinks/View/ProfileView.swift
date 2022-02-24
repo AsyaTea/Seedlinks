@@ -100,8 +100,11 @@ struct ProfileView: View {
                     locationManager.reverseGeo(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
                 }
                 .padding()
+        }.onAppear {
+            dbManager.getUsername(userID: userSession.userAuthenticatedId)
         }
     }
+        
 }
 
 //struct ProfileView_Previews: PreviewProvider {

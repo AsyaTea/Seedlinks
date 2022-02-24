@@ -15,12 +15,19 @@ struct GardenView: View {
    
     var body: some View {
         NavigationView{
+            
+            
         if userSession.isLogged{
+            
             ProfileView(userSession: userSession, dbManager: dbManager)
+          
+            
         }
         else{
             LoginView(userSession: userSession, dbManager: dbManager)
+                
         }
+        
         }
         }
         
