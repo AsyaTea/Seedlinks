@@ -141,6 +141,7 @@ struct MessageView: View {
                     Image(systemName: "trash")
                 }
             })
+          
         }
     }
    

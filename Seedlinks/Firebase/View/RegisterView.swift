@@ -23,22 +23,22 @@ struct RegisterView: View {
     @State var errorString : String = ""
     @State var showingAlert = false
     
-    private func createNewAccount() {
-        
-        FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
-            if let err = err {
-                print("Failed to create user:", err)
-                errorString = err.localizedDescription
-                registrationDidFail = true
-                return
-            }
-            let userID = result?.user.uid ?? ""
-            print("Successfully created user: \(userID)")
-            dbManager.addUser(userID: userID, username: username, email: email)
-            registrationDidSucceed = true
-        }
-    }
-    
+//    private func createNewAccount() {
+//
+//        FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
+//            if let err = err {
+//                print("Failed to create user:", err)
+//                errorString = err.localizedDescription
+//                registrationDidFail = true
+//                return
+//            }
+//            let userID = result?.user.uid ?? ""
+//            print("Successfully created user: \(userID)")
+//            dbManager.addUser(userID: userID, username: username, email: email)
+//            registrationDidSucceed = true
+//        }
+//    }
+//
     var body: some View {
         VStack {
             Text("Get started!")
@@ -75,7 +75,7 @@ struct RegisterView: View {
             
             Button(action: {
                 //                        guard !email.isEmpty(email: email, password: password)
-                createNewAccount()
+                userSession.createNewAccount(email: email, password: password, username: username)
             }) {
                 RegisterButtonContent()
             }

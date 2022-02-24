@@ -66,11 +66,10 @@ struct SettingsView: View {
                         Text("Log out")
                     })
                     Button(role:.destructive,action: {
-                        
-                        
                         dbManager.userList.removeAll()
-                        dbManager.deleteUserDatabase(userID: userSession.userAuthenticatedId)
-//                      dbManager.deleteAllUserMessages(userID: userSession.userAuthenticatedId)   da fixare
+                        print(userSession.userAuthenticatedId)
+                        dbManager.deleteUserDatabase(userID: dbManager.userDocumentID)
+                        dbManager.deleteAllUserMessages(userID: userSession.userAuthenticatedId)   
                         userSession.deleteUser(userID: userSession.userAuthenticatedId)
                         userSession.isLogged = false
                        

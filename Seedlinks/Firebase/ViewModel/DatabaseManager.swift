@@ -18,9 +18,9 @@ class DatabaseManager: ObservableObject {
     //  @Published var user = User(id: "" ,username: "", email: "")
     @Published var user : User?
     @Published var username: String = "Default"
-    @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "")
-    @Published var messageUser = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "")
-    
+    @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "",  reportCount: 0)
+    @Published var messageUser = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "",  reportCount: 0)
+    @Published var userDocumentID = ""
     
     @Published var errorMessage = ""
     
@@ -98,7 +98,7 @@ class DatabaseManager: ObservableObject {
                                     
                             )
                         }
-//                        self.userList.so
+//                        self.userList.sorted ???
                         
                        
                     }
@@ -106,7 +106,7 @@ class DatabaseManager: ObservableObject {
             }
     }
     
-    func addMessage(userID: String, author: String, message: String, publicationDate: Date, dateString: String, category: String, anonymous: Bool, privat: Bool, latitude : String, longitude : String) {
+    func addMessage(userID: String, author: String, message: String, publicationDate: Date, dateString: String, category: String, anonymous: Bool, privat: Bool, latitude : String, longitude : String, reportCount: Int) {
         
         
         
@@ -117,7 +117,7 @@ class DatabaseManager: ObservableObject {
                 self.getData()
                 
             } else {
-                //Handle errors
+                print(error)
             }
         }
         
@@ -143,27 +143,26 @@ class DatabaseManager: ObservableObject {
     }
     
     func deleteAllUserMessages(userID : String) {
-        
+                
         db.collection("messages").whereField("userID", isEqualTo: userID)
             .getDocuments { querySnapshot, error in
                 
+                
                 if error == nil {
-                    
-                    DispatchQueue.main.async {
-                       
-                        for _ in querySnapshot!.documents {
-                            
-                            self.db.collection("messages").document().delete() { error in
+                                                        
+                        for d in querySnapshot!.documents {
+                                                        
+                            self.db.collection("messages").document(d.documentID).delete() { error in
                                 if error == nil {
+                                    print("Success on deleting user messages")
                                     
                                 } else {
-                                    //errors diocannn
+                                    print("error")
                                 }
-                                
+
                             }
-                           
                         }
-                    }
+                    
                 }
             }
         
@@ -201,6 +200,8 @@ class DatabaseManager: ObservableObject {
             if error == nil {
                 
                 self.username = (querySnapshot?.documents[0]["username"] as? String ?? "")
+                self.userDocumentID = (querySnapshot?.documents[0].documentID ?? "")
+            } else {
                 
             }
         }
@@ -240,7 +241,7 @@ private func fetchCurrentUser() {
                return message = i
                
             } else {
-               print("è andato male")
+               
             }
         }
     }
@@ -268,7 +269,50 @@ private func fetchCurrentUser() {
         return formatter.string(from: date)
     }
     
-   
+    func reportedMessage(messageID: String) {
+        
+        let reportedMessage = db.collection("messages").document(messageID)
+       
+            if self.message.reportCount >= 5 {
+                
+                reportedMessage.addSnapshotListener { documentSnapshot, error in
+                    if error == nil {
+                        
+                        DispatchQueue.main.async {
+                            if let document = documentSnapshot?.data() {
+                                
+                                self.db.collection("reportedMessages").addDocument(data: document) { error in
+                                    
+                                    if error == nil {
+                                        print("success on spostare collection")
+                                        self.getData()
+                                        
+                                    } else {
+                                        print("error")
+                                    }
+                                }
+                            }
+                        }
+                        
+                    } else {
+                        print("error")
+                    }
+                }
+                reportedMessage.delete()
+                
+            } else {
+                                
+                reportedMessage.updateData(["reportCount": message.reportCount])  { error in
+                    
+                    if error == nil {
+                        print("Successfully increased")
+                        
+                    } else {
+                        print("Didn't increase report count")
+                    }
+                }
+            }
+    }
 }
         
 

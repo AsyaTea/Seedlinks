@@ -13,9 +13,10 @@ import SwiftUI
 class FirebaseManager: NSObject {
 
     let auth: Auth
-
+   
     public var isLogged: Bool = false
     public var userAuthenticatedId: String = ""
+
    
 
     static let shared = FirebaseManager()
@@ -25,9 +26,7 @@ class FirebaseManager: NSObject {
         self.auth = Auth.auth()
 
         super.init()
-    }
-    
-   
+    }   
 }
 
 class UserSession: ObservableObject {
@@ -44,6 +43,15 @@ class UserSession: ObservableObject {
     @Published var isLogged: Bool = false
     @Published var userAuthenticatedId: String = ""
     @Published var userAuthUsername = ""
+    
+//    @Published var email: String = ""
+//    @Published var password: String = ""
+//
+    @Published var registrationDidFail: Bool = false
+    @Published var registrationDidSucceed: Bool = false
+    @Published var errorString : String = ""
+    @Published var showingAlert = false
+    @ObservedObject var dbManager = DatabaseManager()
         
     func deleteUser(userID: String) {
         
@@ -57,6 +65,22 @@ class UserSession: ObservableObject {
           } else {
             print("Failed deleting")
           }
+        }
+    }
+    
+    func createNewAccount(email: String, password: String, username: String) {
+        
+        FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { [self] result, err in
+            if let err = err {
+                print("Failed to create user:", err)
+                self.errorString = err.localizedDescription
+                self.registrationDidFail = true
+                return
+            }
+            let userID = result?.user.uid ?? ""
+            print("Successfully created user: \(userID)")
+            self.dbManager.addUser(userID: userID, username: username, email: email)
+            self.registrationDidSucceed = true
         }
     }
     

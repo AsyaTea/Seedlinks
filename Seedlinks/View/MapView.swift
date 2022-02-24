@@ -48,7 +48,7 @@ struct MapView: View {
                     content: {
                         if  clickedMessage == message {
                             
-                            PlaceAnnotationView(title : clickedMessage?.message ?? "default")
+                            PlaceAnnotationView(dbManager: dbManager, title : clickedMessage?.message ?? "default", messageID: message.id)
                         
                             
                         }
@@ -134,7 +134,9 @@ struct ButtonPosition : View {
     }
 }
 struct PlaceAnnotationView: View {
+    @ObservedObject var dbManager : DatabaseManager
     let title: String
+    let messageID : String
    // @State var didTapOnPin: Bool = false
     
     //    let id :  String
@@ -149,6 +151,19 @@ struct PlaceAnnotationView: View {
             
         }
         .frame(width: 300, height: 80)
+        .contextMenu{
+            Button(role: .destructive ,action: {
+                print("reporting message")
+                dbManager.message.reportCount += 1
+                dbManager.reportedMessage(messageID: messageID)
+            }, label:
+            {
+                HStack{
+                    Text("Report")
+                    Image(systemName: "exclamationmark.bubble.fill")
+                }
+            })
+        }
     }
 }
 struct CustomButton: Identifiable{
