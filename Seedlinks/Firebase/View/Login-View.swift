@@ -85,6 +85,8 @@ struct SignInView: View {
                     return
                 }
                 loginUser()
+                userSession.sendSignInEmail(email: email)
+                
                 
                 
             }) {

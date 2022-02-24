@@ -18,7 +18,7 @@ class DatabaseManager: ObservableObject {
     //  @Published var user = User(id: "" ,username: "", email: "")
     @Published var user : User?
     @Published var username: String = "Default"
-    @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "")
+    @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "", reportCount: 0)
     @Published var errorMessage = ""
     
     let db = Firestore.firestore()              // Reference to the database
@@ -50,7 +50,8 @@ class DatabaseManager: ObservableObject {
                                            anonymous: d["anonymous"] as? Bool ?? Bool.init(),
                                            privat: d["private"] as? Bool ?? Bool.init(),
                                            longitude: d["longitude"] as? String ?? "",
-                                           latitude: d["latitude"] as? String ?? "" )
+                                           latitude: d["latitude"] as? String ?? "",
+                                           reportCount: d["reportCount"] as? Int ?? 0)
 
                         }
                     }
@@ -89,9 +90,12 @@ class DatabaseManager: ObservableObject {
                                 anonymous: d["anonymous"] as? Bool ?? Bool.init(),
                                 privat: d["private"] as? Bool ?? Bool.init(),
                                 longitude: d["longitude"] as? String ?? "",
-                                latitude: d["latitude"] as? String ?? "")
+                                latitude: d["latitude"] as? String ?? "",
+                                reportCount: d["reportCount"] as? Int ?? 0)
+                                    
                             )
                         }
+//                        self.userList.so
                         
                        
                     }
@@ -103,7 +107,7 @@ class DatabaseManager: ObservableObject {
         
         
         
-        db.collection("messages").addDocument(data: ["userID": userID , "author": author, "message": message, "publicationDate": publicationDate, "dateString": dateString, "category": category, "anonymous": anonymous, "private": privat, "latitude" : latitude,"longitude" :longitude]) { error in
+        db.collection("messages").addDocument(data: ["userID": userID , "author": author, "message": message, "publicationDate": publicationDate, "dateString": dateString, "category": category, "anonymous": anonymous, "private": privat, "latitude" : latitude,"longitude" :longitude, "reportCount" : 0]) { error in
             
             if error == nil {
                 

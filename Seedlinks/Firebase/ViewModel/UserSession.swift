@@ -46,9 +46,12 @@ class UserSession: ObservableObject {
     @Published var userAuthUsername = ""
         
     func deleteUser(userID: String) {
+        
         let user = Auth.auth().currentUser
 
         user?.delete { error in
+            
+            dump(user)
           if error == nil {
             print("Successful deleting")
           } else {
@@ -71,7 +74,7 @@ class UserSession: ObservableObject {
     func sendSignInEmail(email: String) {
         
         let actionCodeSettings = ActionCodeSettings()
-        actionCodeSettings.url = URL(string: "https://www.example.com")
+        actionCodeSettings.url = URL(string: "https://www.seedlinks-67e57.firebaseapp.com")
         actionCodeSettings.handleCodeInApp = true
         actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
         
@@ -81,7 +84,7 @@ class UserSession: ObservableObject {
                 UserDefaults.standard.set(email, forKey: "Email")
                    print("success")
             } else {
-              print("error")
+              print("erroreeeeee")
                      return
             }
         }
@@ -91,11 +94,18 @@ class UserSession: ObservableObject {
 
         Auth.auth().addStateDidChangeListener { auth, user in
 
-            if let user = user {
+            
+            if Auth.auth().currentUser != nil {
+                if let user = user {
 
-                self.userAuthenticatedId = user.uid
-                self.isLogged = true
-        }
+                    self.userAuthenticatedId = user.uid
+                    self.isLogged = true
+                }
+            } else {
+                self.isLogged = false
+                self.userAuthenticatedId = ""
+            }
+            
     }
     
 }
