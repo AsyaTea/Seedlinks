@@ -163,26 +163,6 @@ extension View {
     }
 }
 
-struct PasswordRecovery: View {
-    @ObservedObject var userSession : UserSession
-    @State var email = ""
-    var body: some View {
-        
-        VStack {
-            Text("Email por favor")
-            emailTextField(email: $email)
-            Button(action: {
-                userSession.passwordReset(email: email)
-            }, label: {
-                Text("Send reset password")
-            })
-        
-        }
-        
-    }
-}
-
-
 //struct ContentView_Previews5: PreviewProvider {
 //    static var previews: some View {
 //        LoginView()

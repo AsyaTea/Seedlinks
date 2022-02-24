@@ -44,18 +44,7 @@ class UserSession: ObservableObject {
     @Published var isLogged: Bool = false
     @Published var userAuthenticatedId: String = ""
     @Published var userAuthUsername = ""
-    
-    func passwordReset(email: String){
-        Auth.auth().sendPasswordReset(withEmail: email){ error in
-            if error == nil {
-                print("success")
-            }
-            else{
-                
-            }
-        }
-    }
-    
+        
     func deleteUser(userID: String) {
         let user = Auth.auth().currentUser
 

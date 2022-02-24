@@ -174,6 +174,17 @@ class DatabaseManager: ObservableObject {
         }
     }
     
+    func deleteUserDatabase(userID: String) {
+        db.collection("user").document(userID).delete() { error in
+            
+            if error == nil {
+                print("User deleted on Database!")
+            } else {
+                print("Something went wrong!")
+            }
+        }
+    }
+    
  
     
     func getUsername(userID: String)  {
