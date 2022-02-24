@@ -117,7 +117,7 @@ class DatabaseManager: ObservableObject {
                 self.getData()
                 
             } else {
-                print(error)
+                print("error")
             }
         }
         

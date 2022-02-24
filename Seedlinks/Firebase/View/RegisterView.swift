@@ -27,25 +27,23 @@ struct RegisterView: View {
     @State var errorString : String = ""
     @State var showingAlert = false
     
-//    private func createNewAccount() {
-//
-//        FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
-//            if let err = err {
-//                print("Failed to create user:", err)
-//                errorString = err.localizedDescription
-//                registrationDidFail = true
-//                return
-//            }
-//            let userID = result?.user.uid ?? ""
-//            print("Successfully created user: \(userID)")
-//            dbManager.addUser(userID: userID, username: username, email: email)
-//            registrationDidSucceed = true
-//        }
-//    }
-//
+    var body: some View {
+        VStack {
+            Text("Get started!")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
+            Text("Use your email to create an account")
+                .font(.body)
+                .fontWeight(.regular)
+                .multilineTextAlignment(.center)
+                .padding(.top,2)
+            Spacer()
+            VStack {
+                Text("Username")
+                    .font(.caption)
                     .padding(.top, 30.0)
                     .frame(width: 370, height: 10, alignment: .leading)
-                UsernameTextField(username: $username)
                 Text("E-mail")
                     .font(.caption)
                     .padding(.top, 30.0)
