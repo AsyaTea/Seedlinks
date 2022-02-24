@@ -13,7 +13,7 @@ struct TTCView: View {
     var body: some View {
         HTMLView(htmlFileName: "TTC")
             .frame(width: 400.0, height: 770.0)
-        }
+    }
 }
 struct ContentView_Previ: PreviewProvider {
     static var previews: some View {

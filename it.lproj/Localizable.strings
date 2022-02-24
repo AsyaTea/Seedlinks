@@ -20,6 +20,9 @@
 "Delete" = "Elimina";
 
 /* No comment provided by engineer. */
+"Failed to create user!" = "Errore nella creazione dell'account!";
+
+/* No comment provided by engineer. */
 "Forgotten password?" = "Password dimenticata?";
 
 /* No comment provided by engineer. */
@@ -78,6 +81,9 @@
 
 /* No comment provided by engineer. */
 "Register now!" = "Registrati ora!";
+
+/* No comment provided by engineer. */
+"Registration completed" = "Registrazione completata";
 
 /* No comment provided by engineer. */
 "Seeds" = "Semi";

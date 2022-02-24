@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 import AuthenticationServices
 
+let failedToCreate: String = "Failed to create user!"
+let successfulCreate: String = "Successfully created user: "
+let regiCompleted: String = "Registration completed"
+
 struct RegisterView: View {
     
     @StateObject var dbManager = DatabaseManager()
@@ -27,13 +31,13 @@ struct RegisterView: View {
         
         FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
             if let err = err {
-                print("Failed to create user:", err)
+                print(NSLocalizedString(failedToCreate, comment: ""), err)
                 errorString = err.localizedDescription
                 registrationDidFail = true
                 return
             }
             let userID = result?.user.uid ?? ""
-            print("Successfully created user: \(userID)")
+            print(NSLocalizedString(failedToCreate, comment: "") + "\(userID)")
             dbManager.addUser(userID: userID, username: username, email: email)
             registrationDidSucceed = true
         }
@@ -81,7 +85,7 @@ struct RegisterView: View {
             }
             //                    .disabled()
             Spacer()
-        }.alert("Registration completed", isPresented: $registrationDidSucceed) {
+        }.alert(NSLocalizedString(regiCompleted, comment: ""), isPresented: $registrationDidSucceed) {
             Button("Ok", role: .cancel) { }
         }
         
