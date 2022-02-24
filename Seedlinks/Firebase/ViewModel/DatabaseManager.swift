@@ -17,7 +17,7 @@ class DatabaseManager: ObservableObject {
     @Published var userList = [Message]()
     //  @Published var user = User(id: "" ,username: "", email: "")
     @Published var user : User?
-    @Published var username: String = ""
+    @Published var username: String = "Default"
     @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "")
     @Published var errorMessage = ""
     

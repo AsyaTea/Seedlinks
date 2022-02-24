@@ -43,23 +43,23 @@ struct MessageView: View {
             RoundedRectangle(cornerRadius:10)
                 .foregroundColor(.gray)
                 .opacity(0.2)
-                .frame(width: 333, height: textHeight+65,alignment: .leading)
+                .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
                 .blur(radius: 10)
             
             //Rect
             if category == "Advice" {
             RoundedRectangle(cornerRadius:10)
                 .foregroundColor(.green)
-                .frame(width: 333, height: textHeight+65,alignment: .leading)
+                .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
             } else if category == "Message" {
                 RoundedRectangle(cornerRadius:10)
                     .foregroundColor(.orange)
-                    .frame(width: 333, height: textHeight+65,alignment: .leading)
+                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
             }
             else{
                 RoundedRectangle(cornerRadius:10)
                     .foregroundColor(.black)
-                    .frame(width: 333, height: textHeight+65,alignment: .leading)
+                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
             }
             
             
@@ -100,7 +100,7 @@ struct MessageView: View {
                     .fontWeight(.regular)
                     .padding(.top,-5)
                 
-            }.frame(width: 300,alignment: .leading)
+            }.frame(width: UIScreen.main.bounds.width * 0.85,alignment: .leading)
             .onPreferenceChange(ContentLengthPreference.self) { value in // <-- this
                 DispatchQueue.main.async {
                     self.textHeight = value
