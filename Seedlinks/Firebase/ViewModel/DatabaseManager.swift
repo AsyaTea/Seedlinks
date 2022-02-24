@@ -18,7 +18,10 @@ class DatabaseManager: ObservableObject {
     //  @Published var user = User(id: "" ,username: "", email: "")
     @Published var user : User?
     @Published var username: String = "Default"
-    @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "", reportCount: 0)
+    @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "")
+    @Published var messageUser = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "")
+    
+    
     @Published var errorMessage = ""
     
     let db = Firestore.firestore()              // Reference to the database
@@ -235,6 +238,19 @@ private func fetchCurrentUser() {
             if i.id == messageID {
                 print(message)
                return message = i
+               
+            } else {
+               print("è andato male")
+            }
+        }
+    }
+    
+    func getMessageIdUserQuery(messageID: String)  {
+
+        for i in self.userList {
+            if i.id == messageID {
+                print(messageUser)
+                return messageUser = i
                
             } else {
                print("è andato male")
