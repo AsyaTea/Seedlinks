@@ -113,16 +113,21 @@ struct MessageView: View {
                 //Devo fare una navigation e settare le coordinate attuali a quelli del messaggio
                 //DEVO PROBABILMENTE FARE UN RETRIEVE DELLE COORDINATE DEL MEX DAL DB E POI SETTARLE
                 //PROBLEMA MESSAGE ID
-              //  locationManager.setRegion(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0)
-              //  print(latitude, longitude)
+                dbManager.getMessageIdUserQuery(messageID: messageId)
+                locationManager.setRegion(latitude: Double(dbManager.messageUser.latitude) ?? 0.0, longitude: Double(dbManager.messageUser.longitude) ?? 0.0)
+                print(dbManager.messageUser.latitude,dbManager.messageUser.longitude)
+
                 print("Action 1 triggered")
                 
             }
                    , label:
             {
+                NavigationLink(destination: MapView(locationManager: locationManager,dbManager: dbManager, userSession:userSession)){
                 HStack{
+                   
                     Text("View on map")
                     Image(systemName: "map")
+                }
                 }
             })
             

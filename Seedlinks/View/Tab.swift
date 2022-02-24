@@ -19,12 +19,13 @@ struct Tab: View {
     }
     @StateObject var dbManager = DatabaseManager()
     @StateObject var userSession = UserSession()
+    @StateObject var locationManager = LocationManager()
     @AppStorage("isDarkMode") private var isDarkMode = false
    
     var body: some View {
                      
         TabView {
-            MapView()
+            MapView(locationManager: locationManager, dbManager: dbManager, userSession: userSession)
                 .tabItem {
                     Image("seed")
                         .renderingMode(.template)
@@ -32,7 +33,7 @@ struct Tab: View {
                 }
             
            
-            GardenView( dbManager: dbManager, userSession: userSession)
+            GardenView( dbManager: dbManager, locationManager:locationManager, userSession: userSession)
                     .tabItem {
                         Image("garden")
                             .renderingMode(.template)

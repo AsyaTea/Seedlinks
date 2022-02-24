@@ -89,11 +89,13 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         if let location = self.lastLocation {
             region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
         }
+        print(#function )
     }
     
     func setRegion(latitude : Double, longitude : Double){
        
         region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+        print(#function)
     }
     
     func requestAuthorization() {
@@ -108,7 +110,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         lastLocation = location
-        // print(#function, location)
+        print(#function, location)
     }
 }
 
