@@ -58,7 +58,7 @@ struct ProfileView: View {
                 Spacer()
             }
             .padding(.top,-5)
-           
+            
             //Plant a seed
             Button {
                 isOn = true
@@ -102,7 +102,7 @@ struct ProfileView: View {
             dbManager.getUsername(userID: userSession.userAuthenticatedId)
             
         }
-    
+        
     }
 }
 

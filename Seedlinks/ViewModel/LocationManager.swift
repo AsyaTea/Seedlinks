@@ -9,6 +9,7 @@ import CoreLocation
 import Foundation
 import MapKit
 
+let currLocation: String = "Searching for current location"
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
@@ -23,7 +24,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     // Reverse geolocation
     @Published var streetName : String = ""
-    @Published var cityName : String = "Searching for current location"
+    @Published var cityName : String = NSLocalizedString(currLocation, comment: "")
     let geoCoder = CLGeocoder()
     
     func reverseGeo(latitude : Double, longitude : Double ) {
@@ -93,7 +94,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func setRegion(latitude : Double, longitude : Double){
-       
+        
         region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
         print(#function)
     }

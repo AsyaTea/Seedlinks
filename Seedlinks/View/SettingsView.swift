@@ -13,6 +13,9 @@ struct SettingsView: View {
     @ObservedObject var dbManager : DatabaseManager
     @ObservedObject var userSession : UserSession
     @AppStorage("isDarkMode") private var isDarkMode = false
+    @State var isOn: Bool = false
+    @State var isOn2: Bool = false
+    
     
     var body: some View {
         
@@ -56,7 +59,20 @@ struct SettingsView: View {
                 }header: {
                     Text("General")
                 }
-                
+                Section{
+                    Button("Terms of Service"){
+                        isOn2 = true
+                    } .sheet(isPresented: $isOn2) {
+                        TTCView()
+                    }
+                    Button("Privacy Policy"){
+                        isOn = true
+                    } .sheet(isPresented: $isOn) {
+                        PolicyView()
+                    }
+                }header: {
+                    Text("Privacy")
+                }
                 Section{
                     Button(role:.destructive,action: {
                         userSession.isLogged = false
@@ -69,9 +85,9 @@ struct SettingsView: View {
                         userSession.isLogged = false
                         userSession.userAuthenticatedId = ""
                         dbManager.userList.removeAll()
-//                      dbManager.deleteAllUserMessages(userID: userSession.userAuthenticatedId)   da fixare
+                        //                      dbManager.deleteAllUserMessages(userID: userSession.userAuthenticatedId)   da fixare
                         userSession.deleteUser(userID: userSession.userAuthenticatedId)
-                       
+                        
                     }, label: {
                         Text("Delete Account")
                     })
@@ -79,16 +95,11 @@ struct SettingsView: View {
                     Text("User")
                 }
                 
-                
-                
             }.listStyle(.inset)
             Text("Version 1.0")
                 .padding()
             
-            
-        }  .navigationTitle("Settings")
-        
-        
+        } .navigationTitle("Settings")
     }
 }
 
