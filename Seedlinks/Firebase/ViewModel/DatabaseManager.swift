@@ -63,7 +63,7 @@ class DatabaseManager: ObservableObject {
             }
         }
     }
-    //func coordinatesMessageQuery(userID: String, message:)
+   
     
     func userMessagesQuery(userID: String) {
         db.collection("messages").whereField("userID", isEqualTo: userID)
@@ -174,6 +174,17 @@ class DatabaseManager: ObservableObject {
         }
     }
     
+    func deleteUserDatabase(userID: String) {
+        db.collection("user").document(userID).delete() { error in
+            
+            if error == nil {
+                print("User deleted on Database!")
+            } else {
+                print("Something went wrong!")
+            }
+        }
+    }
+    
  
     
     func getUsername(userID: String)  {
@@ -236,6 +247,8 @@ private func fetchCurrentUser() {
         formatter.dateStyle = .medium
         return formatter.string(from: date)
     }
+    
+   
 }
         
 

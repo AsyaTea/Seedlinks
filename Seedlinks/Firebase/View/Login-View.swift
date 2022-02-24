@@ -41,11 +41,14 @@ struct SignInView: View {
             authenticationDidSucceed = true
             userSession.isLogged = true
             userSession.userAuthenticatedId = userID
-            dbManager.getUsername(userID: userID)
+  
+            
         }
     }
     
     var body: some View {
+      
+       
         VStack {
             Text("Welcome back")
                 .font(.system(size: 40))
@@ -108,6 +111,14 @@ struct SignInView: View {
             }
             Spacer()
         }
+        //            NavigationLink(destination: FolderList(id: workFolder.id)) {
+        //                Label("Work Folder", systemImage: "folder")
+        //            }
+        
+        //        .navigationBarBackButtonHidden(true)
+        //  .frame(width: 400.0, height: 800.0)
+        
+    
     }
 }
 
@@ -151,7 +162,6 @@ extension View {
             .padding(10)
     }
 }
-
 
 //struct ContentView_Previews5: PreviewProvider {
 //    static var previews: some View {
