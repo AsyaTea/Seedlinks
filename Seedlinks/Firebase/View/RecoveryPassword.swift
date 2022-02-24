@@ -14,7 +14,7 @@ struct RecoveryPassword: View {
     
     var body: some View {
         VStack{
-            Text("Insert your email por favor")
+            Text("Please insert your email")
             emailTextField(email: $email)
             Button(action: {
                 userSession.passwordReset(email:email)

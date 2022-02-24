@@ -13,10 +13,9 @@ struct User: Identifiable {
     
     var id : String
     var username: String
-//    var name: String
-//    var surname: String
-//    var location: CLLocation
+    //    var name: String
+    //    var surname: String
+    //    var location: CLLocation
     var email: String
-
     
 }

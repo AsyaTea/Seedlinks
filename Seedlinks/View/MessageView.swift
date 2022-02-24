@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-
+let actionTriggered: String = "Action 1 triggered"
+let delDatabase: String = "Deleting from database"
 struct ContentLengthPreference: PreferenceKey {
     static var defaultValue: CGFloat { 0 }
     
@@ -30,11 +31,11 @@ struct MessageView: View {
     let longitude: String
     let latitude: String
     @State var textHeight: CGFloat = 0
-
-   @ObservedObject var dbManager : DatabaseManager
+    
+    @ObservedObject var dbManager : DatabaseManager
     @ObservedObject var locationManager : LocationManager
     @ObservedObject var userSession : UserSession
-
+    
     
     
     var body: some View {
@@ -48,10 +49,18 @@ struct MessageView: View {
             
             //Rect
             if category == "Advice" {
-            RoundedRectangle(cornerRadius:10)
-                .foregroundColor(.green)
-                .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+                RoundedRectangle(cornerRadius:10)
+                    .foregroundColor(.green)
+                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
             } else if category == "Message" {
+                RoundedRectangle(cornerRadius:10)
+                    .foregroundColor(.orange)
+                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+            } else if category == "Consiglio" {
+                RoundedRectangle(cornerRadius:10)
+                    .foregroundColor(.green)
+                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+            } else if category == "Messaggio" {
                 RoundedRectangle(cornerRadius:10)
                     .foregroundColor(.orange)
                     .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
@@ -90,10 +99,9 @@ struct MessageView: View {
                                             value: proxy.size.height) // <-- this
                         }
                     )
-
                 
                 //TIME STAMP
-//                Text(DatabaseManager().formatting(date: pubblicationDate))
+                //                Text(DatabaseManager().formatting(date: pubblicationDate))
                 Text(dateString)
                     .foregroundColor(.black)
                     .font(.system(size: 16))
@@ -101,11 +109,11 @@ struct MessageView: View {
                     .padding(.top,-5)
                 
             }.frame(width: UIScreen.main.bounds.width * 0.85,alignment: .leading)
-            .onPreferenceChange(ContentLengthPreference.self) { value in // <-- this
-                DispatchQueue.main.async {
-                    self.textHeight = value
+                .onPreferenceChange(ContentLengthPreference.self) { value in // <-- this
+                    DispatchQueue.main.async {
+                        self.textHeight = value
+                    }
                 }
-            }
         } .contextMenu
         {
             Button(action: {
@@ -116,26 +124,26 @@ struct MessageView: View {
                 dbManager.getMessageIdUserQuery(messageID: messageId)
                 locationManager.setRegion(latitude: Double(dbManager.messageUser.latitude) ?? 0.0, longitude: Double(dbManager.messageUser.longitude) ?? 0.0)
                 print(dbManager.messageUser.latitude,dbManager.messageUser.longitude)
-
-                print("Action 1 triggered")
+                
+                print(NSLocalizedString(actionTriggered, comment: ""))
                 
             }
                    , label:
-            {
+                    {
                 NavigationLink(destination: MapView(locationManager: locationManager,dbManager: dbManager, userSession:userSession)){
-                HStack{
-                   
-                    Text("View on map")
-                    Image(systemName: "map")
-                }
+                    HStack{
+                        
+                        Text("View on map")
+                        Image(systemName: "map")
+                    }
                 }
             })
             
             Button(role: .destructive ,action: {
-                print("Deleting from db")
+                print(NSLocalizedString(delDatabase, comment: ""))
                 dbManager.deleteMessage(messageId)
             }, label:
-            {
+                    {
                 HStack{
                     Text("Delete")
                     Image(systemName: "trash")
@@ -144,7 +152,7 @@ struct MessageView: View {
           
         }
     }
-   
+    
 }
 
 

@@ -21,8 +21,8 @@ struct GardenView: View {
             {
                 ProfileView(userSession: userSession, dbManager: dbManager,locationManager: locationManager)
                     .onAppear{
-                            locationManager.reverseGeo(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
-                        }
+                        locationManager.reverseGeo(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
+                    }
             }
             else
             {
@@ -30,7 +30,6 @@ struct GardenView: View {
             }
         }
     }
-    
 }
 
 //struct GardenView_Previews: PreviewProvider {

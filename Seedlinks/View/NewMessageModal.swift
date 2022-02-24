@@ -8,6 +8,8 @@
 import SwiftUI
 import MapKit
 
+let cat1 = "Message"
+let cat2  = "Advice"
 struct SheetView: View {
     
     @ObservedObject var userSession: UserSession
@@ -17,9 +19,7 @@ struct SheetView: View {
     @State private var anonymous = false
     @State private var privat = false
     
-    
- 
-    var categories = ["Message", "Advice"]
+    var categories = [NSLocalizedString(cat1, comment: ""), NSLocalizedString(cat2, comment: "")]
     @ObservedObject var dbManager : DatabaseManager
     @ObservedObject var locationManager : LocationManager
     

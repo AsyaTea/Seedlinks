@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 import AuthenticationServices
 
+let failedToLog: String = "Failed to login user!"
+let successfulLog: String = "Successfully logged in as user: "
+
 struct LoginView: View {
     @ObservedObject var userSession : UserSession
     @ObservedObject var dbManager : DatabaseManager
@@ -31,24 +34,24 @@ struct SignInView: View {
     private func loginUser() {
         FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, err in
             if let err = err {
-                print("Failed to login user:", err)
+                print(NSLocalizedString(failedToLog, comment: ""), err)
                 authenticationDidFail = true
                 errorString = err.localizedDescription
                 return
             }
             let userID = result?.user.uid ?? ""
-            print("Successfully logged in as user: \(userID)")
+            print(NSLocalizedString(successfulLog, comment: "") + "\(userID)")
             authenticationDidSucceed = true
             userSession.isLogged = true
             userSession.userAuthenticatedId = userID
-  
+            
             
         }
     }
     
     var body: some View {
-      
-       
+        
+        
         VStack {
             Text("Welcome back")
                 .font(.system(size: 40))
@@ -120,7 +123,7 @@ struct SignInView: View {
         //        .navigationBarBackButtonHidden(true)
         //  .frame(width: 400.0, height: 800.0)
         
-    
+        
     }
 }
 

@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 import AuthenticationServices
 
+let failedToCreate: String = "Failed to create user!"
+let successfulCreate: String = "Successfully created user: "
+let regiCompleted: String = "Registration completed"
+
 struct RegisterView: View {
     
     @StateObject var dbManager = DatabaseManager()
@@ -39,21 +43,6 @@ struct RegisterView: View {
 //        }
 //    }
 //
-    var body: some View {
-        VStack {
-            Text("Get started!")
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .multilineTextAlignment(.center)
-            Text("Use your email to create an account")
-                .font(.body)
-                .fontWeight(.regular)
-                .multilineTextAlignment(.center)
-                .padding(.top,2)
-            Spacer()
-            VStack {
-                Text("Username")
-                    .font(.caption)
                     .padding(.top, 30.0)
                     .frame(width: 370, height: 10, alignment: .leading)
                 UsernameTextField(username: $username)
@@ -81,7 +70,7 @@ struct RegisterView: View {
             }
             //                    .disabled()
             Spacer()
-        }.alert("Registration completed", isPresented: $registrationDidSucceed) {
+        }.alert(NSLocalizedString(regiCompleted, comment: ""), isPresented: $registrationDidSucceed) {
             Button("Ok", role: .cancel) { }
         }
         

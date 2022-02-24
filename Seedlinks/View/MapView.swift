@@ -19,7 +19,7 @@ struct MapView: View {
     @State var messageID : String = ""
     @State var didTapOnPin: Bool = false
     @State var prova : Bool = false
-
+    
     
     func getRadius(bLat : Double, bLong: Double) -> Double {
         let myCoord = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
@@ -49,6 +49,7 @@ struct MapView: View {
                         if  clickedMessage == message {
                             
                             PlaceAnnotationView(dbManager: dbManager, title : clickedMessage?.message ?? "default", messageID: message.id)
+
                         
                             
                         }
@@ -80,13 +81,11 @@ struct MapView: View {
                                     Image("sprout")
                                         .resizable()
                                         .frame(width: 15, height: 15)
-                                    
                                 }
                             }
-                            
                         }
                         
-                        .disabled(getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 300.0 )
+                        .disabled(getRadius(bLat: message.coordinate.latitude, bLong: message.coordinate.longitude ) >= 300.0 )
                         
                     }
                 )
@@ -137,8 +136,7 @@ struct PlaceAnnotationView: View {
     @ObservedObject var dbManager : DatabaseManager
     let title: String
     let messageID : String
-   // @State var didTapOnPin: Bool = false
-    
+  
     //    let id :  String
     var body: some View {
         
