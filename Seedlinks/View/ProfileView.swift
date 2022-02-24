@@ -11,7 +11,7 @@ struct ProfileView: View {
     
     @ObservedObject var userSession : UserSession
     @StateObject var dbManager = DatabaseManager()
-    @StateObject var locationManager = LocationManager()
+    @ObservedObject var locationManager : LocationManager
     @State var isOn: Bool = false
     var username : String = ""
     
@@ -100,6 +100,7 @@ struct ProfileView: View {
         .padding([.top, .leading, .trailing], 15.0)
         .onAppear {
             dbManager.getUsername(userID: userSession.userAuthenticatedId)
+            
         }
     
     }
