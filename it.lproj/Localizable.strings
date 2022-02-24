@@ -2,6 +2,9 @@
 "2h ago" = "2 ore fa";
 
 /* No comment provided by engineer. */
+"Advice" = "Consiglio";
+
+/* No comment provided by engineer. */
 "and our" = "e ai nostri";
 
 /* No comment provided by engineer. */
@@ -36,6 +39,9 @@
 
 /* No comment provided by engineer. */
 "Login succeeded!" = "Log in effettuato con successo!";
+
+/* No comment provided by engineer. */
+"Message" = "Messaggio";
 
 /* No comment provided by engineer. */
 "Michele Carro" = "";
