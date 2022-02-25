@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 struct Message: Identifiable,Hashable {
-    
+
     var id: String
     var userID: String 
     var author: String

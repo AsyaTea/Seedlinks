@@ -98,7 +98,10 @@ class DatabaseManager: ObservableObject {
                                     
                             )
                         }
-//                        self.userList.sorted ???
+//                        self.userList.sort { (lhs: String, rhs: String) -> Bool in
+//                        return lhs > rhs
+//                    }
+
                         
                        
                     }

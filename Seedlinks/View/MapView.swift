@@ -17,7 +17,7 @@ struct MapView: View {
     
     @State var clickedMessage: Message?
     @State var messageID : String = ""
-    @State var didTapOnPin: Bool = false
+    
     @State var prova : Bool = false
     
     
@@ -33,12 +33,6 @@ struct MapView: View {
         return prova ? .green : .gray
     }
     
-    //    func messageIsClicked(bLat : Double, bLong: Double) -> Bool {
-    //        var distanceInMeters = getRadius(bLat: bLat, bLong: bLat)
-    //        if (distanceInMeters >= 300) {return true}
-    //        else {return false}
-    //    }
-    
     
     var body: some View {
         ZStack{
@@ -48,10 +42,8 @@ struct MapView: View {
                     content: {
                         if  clickedMessage == message {
                             
-                            PlaceAnnotationView(dbManager: dbManager, title : clickedMessage?.message ?? "default", messageID: message.id)
+                            PlaceAnnotationView( locationManager: locationManager, dbManager: dbManager, title : clickedMessage?.message ?? "default", messageID: message.id)
 
-                        
-                            
                         }
                         
                         
@@ -59,7 +51,7 @@ struct MapView: View {
                         Button {
                             
                             dbManager.getMessageIDquery(messageID: message.id)
-                            didTapOnPin = true
+                            locationManager.didTapOnPin.toggle()
                             clickedMessage = dbManager.message
                             
                         } label: {
@@ -133,9 +125,11 @@ struct ButtonPosition : View {
     }
 }
 struct PlaceAnnotationView: View {
+    @ObservedObject var locationManager : LocationManager
     @ObservedObject var dbManager : DatabaseManager
     let title: String
     let messageID : String
+    
   
     //    let id :  String
     var body: some View {
@@ -147,7 +141,9 @@ struct PlaceAnnotationView: View {
                 .background(Color("TabBar"))
                 .cornerRadius(10)
             
+            
         }
+        .opacity(locationManager.didTapOnPin ? 1 : 0)
         .frame(width: 300, height: 80)
         .contextMenu{
             Button(role: .destructive ,action: {
