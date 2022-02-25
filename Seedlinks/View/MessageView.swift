@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 let actionTriggered: String = "Action 1 triggered"
 let delDatabase: String = "Deleting from database"
@@ -36,7 +37,13 @@ struct MessageView: View {
     @ObservedObject var locationManager : LocationManager
     @ObservedObject var userSession : UserSession
     
-    
+    func getRadius(bLat : Double, bLong: Double) -> Double {
+        let myCoord = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
+        let genericCoord = CLLocation(latitude: bLat, longitude: bLong)
+        let distanceInMeters = myCoord.distance(from: genericCoord)
+        print("DISTANZA IN METRI" ,distanceInMeters)
+        return distanceInMeters
+    }
     
     var body: some View {
         ZStack{
@@ -48,29 +55,40 @@ struct MessageView: View {
                 .blur(radius: 10)
             
             //Rect
-            if category == "Advice" {
-                RoundedRectangle(cornerRadius:10)
-                    .foregroundColor(.green)
-                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
-            } else if category == "Message" {
-                RoundedRectangle(cornerRadius:10)
-                    .foregroundColor(.orange)
-                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
-            } else if category == "Consiglio" {
-                RoundedRectangle(cornerRadius:10)
-                    .foregroundColor(.green)
-                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
-            } else if category == "Messaggio" {
-                RoundedRectangle(cornerRadius:10)
-                    .foregroundColor(.orange)
-                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
-            }
-            else{
-                RoundedRectangle(cornerRadius:10)
-                    .foregroundColor(.black)
-                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
-            }
+            //            if category == "Advice" {
+            //                RoundedRectangle(cornerRadius:10)
+            //                    .foregroundColor(.green)
+            //                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+            //            } else if category == "Message" {
+            //                RoundedRectangle(cornerRadius:10)
+            //                    .foregroundColor(.orange)
+            //                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+            //            } else if category == "Consiglio" {
+            //                RoundedRectangle(cornerRadius:10)
+            //                    .foregroundColor(.green)
+            //                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+            //            } else if category == "Messaggio" {
+            //                RoundedRectangle(cornerRadius:10)
+            //                    .foregroundColor(.orange)
+            //                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+            //            }
+            //            else{
+            //                RoundedRectangle(cornerRadius:10)
+            //                    .foregroundColor(.black)
+            //                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+            //            }
             
+            if (getRadius(bLat: Double(longitude) ?? 0.0 , bLong: Double( latitude) ?? 0.0 ) >= 300.0){
+               
+                RoundedRectangle(cornerRadius:10)
+                    .foregroundColor(.green)
+                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+            }
+            else {
+                RoundedRectangle(cornerRadius:10)
+                    .foregroundColor(.white)
+                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+            }
             
             VStack(alignment: .leading){
                 //Nickname
@@ -122,7 +140,7 @@ struct MessageView: View {
                 //DEVO PROBABILMENTE FARE UN RETRIEVE DELLE COORDINATE DEL MEX DAL DB E POI SETTARLE
                 //PROBLEMA MESSAGE ID
                 dbManager.getMessageIdUserQuery(messageID: messageId)
-                locationManager.setRegion(latitude: Double(dbManager.messageUser.latitude) ?? 0.0, longitude: Double(dbManager.messageUser.longitude) ?? 0.0)
+              //  locationManager.setRegion(latitude: Double(dbManager.messageUser.latitude) ?? 0.0, longitude: Double(dbManager.messageUser.longitude) ?? 0.0)
                 print(dbManager.messageUser.latitude,dbManager.messageUser.longitude)
                 
                 print(NSLocalizedString(actionTriggered, comment: ""))
@@ -149,7 +167,7 @@ struct MessageView: View {
                     Image(systemName: "trash")
                 }
             })
-          
+            
         }
     }
     

@@ -48,7 +48,7 @@ struct MapView: View {
                     content: {
                         if  clickedMessage == message {
                             
-                            PlaceAnnotationView(dbManager: dbManager, title : clickedMessage?.message ?? "default", messageID: message.id)
+                            PlaceAnnotationView(dbManager: dbManager, title : clickedMessage?.message ?? "default", name: clickedMessage?.author ?? "default", messageID: message.id)
 
                         
                             
@@ -135,18 +135,21 @@ struct ButtonPosition : View {
 struct PlaceAnnotationView: View {
     @ObservedObject var dbManager : DatabaseManager
     let title: String
+    let name: String
     let messageID : String
   
     //    let id :  String
     var body: some View {
         
         VStack{
+            Text(name)
+                .fontWeight(.bold)
             Text(title)
                 .font(.callout)
-                .padding(5)
+                .padding(3)
                 .background(Color("TabBar"))
                 .cornerRadius(10)
-            
+        
         }
         .frame(width: 300, height: 80)
         .contextMenu{
