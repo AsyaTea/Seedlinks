@@ -1,0 +1,6 @@
+/* Privacy - Location Usage Description */
+"NSLocationUsageDescription" = "I messaggi che mandi utilizzano la tua posizione attuale";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "Inizia ad esplorare i Semini intorno a te.";
+

@@ -8,12 +8,6 @@
 "Anonymous" = "Анонимно";
 
 /* No comment provided by engineer. */
-"By registering, you agree to our" = "Регистрируясь, вы принимаете наши";
-
-/* No comment provided by engineer. */
-"Caricamento..." = "Загрузка...";
-
-/* No comment provided by engineer. */
 "Choose a category" = "Выберите категорию";
 
 /* No comment provided by engineer. */
@@ -41,7 +35,7 @@
 "Log out" = "Выйти";
 
 /* No comment provided by engineer. */
-"Login succeeded!" = "Вы вошли успешно";
+"Login succeeded!" = "Вы вошли успешно!";
 
 /* No comment provided by engineer. */
 "New seed" = "Новое семя";
@@ -62,10 +56,13 @@
 "Plant" = "Посадить";
 
 /* No comment provided by engineer. */
-"Plant a seed." = "Посади семя";
+"Plant a seed." = "Посади семя.";
 
 /* No comment provided by engineer. */
 "privacy policy" = "Политика конфиденциальности";
+
+/* No comment provided by engineer. */
+"Privacy Policy" = "Политика Kонфиденциальности";
 
 /* No comment provided by engineer. */
 "Private" = "Приватно";
@@ -74,10 +71,7 @@
 "Register" = "Регистрация";
 
 /* No comment provided by engineer. */
-"Register now!" = "Регистрируйся сейчас";
-
-/* No comment provided by engineer. */
-"Registration completed" = "Регистрация прошла успешно";
+"Register now!" = "Регистрируйся сейчас!";
 
 /* No comment provided by engineer. */
 "Seeds" = "Семена";

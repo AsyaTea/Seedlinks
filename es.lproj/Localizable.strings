@@ -1,126 +1,129 @@
 /* No comment provided by engineer. */
-"2h ago" = "il y a 2h";
+"2h ago" = "Hace 2 horas";
 
 /* No comment provided by engineer. */
-"and our" = "et notre";
+"and our" = "y los";
 
 /* No comment provided by engineer. */
-"Anonymous" = "Anonyme";
+"Anonymous" = "Anónimo";
 
 /* No comment provided by engineer. */
-"By clicking on the button above, you agree to our" = "En cliquant sur le bouton ci-dessus, vous acceptez nos";
+"By clicking on the button above, you agree to our" = "Al pinchar en el botón de arriba, aceptas nuestra";
 
 /* No comment provided by engineer. */
-"Choose a category" = "Choisis une catégorie";
+"Choose a category" = "Elige una categoría";
 
 /* No comment provided by engineer. */
-"Dark Mode" = "Mode Sombre";
+"Dark Mode" = "Aspecto Oscuro";
 
 /* No comment provided by engineer. */
-"Delete" = "Supprimer";
+"Delete" = "Eliminar";
 
 /* No comment provided by engineer. */
-"Delete Account" = "Supprimer mon compte";
+"Delete Account" = "Eliminar cuenta";
 
 /* No comment provided by engineer. */
-"Forgotten password?" = "Mot de passe oublié?";
+"Forgotten password?" = "¿Contraseña olvidada?";
 
 /* No comment provided by engineer. */
-"Garden" = "Jardin";
+"Garden" = "Jardín";
 
 /* No comment provided by engineer. */
-"General" = "Général";
+"Get started!" = "¡Empezar!";
 
 /* No comment provided by engineer. */
-"Get started!" = "Allons-y!";
+"Language" = "Idioma";
 
 /* No comment provided by engineer. */
-"Language" = "Langue";
+"Log out" = "Cerrar sesión";
 
 /* No comment provided by engineer. */
-"Log out" = "Se déconnecter";
+"Login succeeded!" = "Inicio de sesión exitoso!";
 
 /* No comment provided by engineer. */
-"Login succeeded!" = "Connexion réussie!";
+"New seed" = "Nueva semilla";
 
 /* No comment provided by engineer. */
-"New seed" = "Nouvelle graine";
+"Not a member?" = "¿No es un miembro?";
 
 /* No comment provided by engineer. */
-"Not a member?" = "Pas encore membre?";
+"Notification" = "Notificaciones";
 
 /* No comment provided by engineer. */
-"Password" = "Mot de passe";
+"Password" = "Contraseña";
 
 /* No comment provided by engineer. */
-"Plant" = "Plante";
+"Plant" = "Sembrar";
 
 /* No comment provided by engineer. */
-"Plant a seed." = "Plante une graine.";
+"Plant a seed." = "Planta tu semilla";
 
 /* No comment provided by engineer. */
-"Please insert your email" = "Veuillez insérer votre email";
+"Please insert your email" = "Por favor inserte su email";
 
 /* No comment provided by engineer. */
-"Privacy" = "Confidentialité";
+"Privacy" = "Privacidad";
 
 /* No comment provided by engineer. */
-"privacy policy" = "politique de confidentialité";
+"privacy policy" = "política de privacidad";
 
 /* No comment provided by engineer. */
-"Privacy Policy" = "Politique de confidentialité";
+"Privacy Policy" = "Política de privacidad";
 
 /* No comment provided by engineer. */
-"Private" = "Privé";
+"Private" = "Privado";
 
 /* No comment provided by engineer. */
-"Register" = "Créer mon compte";
+"Register" = "Registrar";
 
 /* No comment provided by engineer. */
-"Register now!" = "Créer mon compte maintenant!";
+"Register now!" = "¡Regístrate ahora!";
 
 /* No comment provided by engineer. */
-"Report" = "Signaler";
+"Report" = "Reportas";
 
 /* No comment provided by engineer. */
-"Seeds" = "Graines";
+"Seeds" = "Semillas";
 
 /* No comment provided by engineer. */
-"Send reset password" = "Réinitialiser le mot de passe";
+"Send reset password" = "Enviar restablecer contraseña";
 
 /* No comment provided by engineer. */
-"Settings" = "Réglages";
+"Settings" = "Ajustes";
 
 /* No comment provided by engineer. */
-"Sign in" = "Connecte toi";
+"Sign in" = "Iniciar sesión";
 
 /* No comment provided by engineer. */
-"terms and conditions." = "Termes et conditions.";
+"terms and conditions." = "términos del servicio.";
 
 /* No comment provided by engineer. */
-"Terms of Service" = "Conditions d'utilisation";
+"Terms of Service" = "Términos del servicio";
 
 /* No comment provided by engineer. */
-"Use your email to create an account" = "Utilize ton mail pour créer un compte";
+"Use your email to create an account" = "Usa tu email para crear una cuenta";
 
 /* No comment provided by engineer. */
-"User" = "Utilisateur";
+"User" = "Usuario";
 
 /* No comment provided by engineer. */
-"Username" = "Nom d'utilisateur";
+"Username" = "Nombre de usuario";
 
 /* No comment provided by engineer. */
-"View on map" = "Voir sur la carte";
+"Version 1.0" = "Versión 1.0";
 
 /* No comment provided by engineer. */
-"Welcome back" = "Bienvenue";
+"View on map" = "Ver en el mapa";
 
 /* No comment provided by engineer. */
-"Write a text" = "Écris un texte";
+"Welcome back" = "Bienvenido";
 
 /* No comment provided by engineer. */
-"You have been missed" = "Heureux de te revoir";
+"Write a text" = "Escribir un texto";
 
 /* No comment provided by engineer. */
-"Your seeds" = "Tes graines";
+"You have been missed" = "Te han extrañado";
+
+/* No comment provided by engineer. */
+"Your seeds" = "Tus semillas";
 
