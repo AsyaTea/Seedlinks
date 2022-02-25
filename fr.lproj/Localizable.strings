@@ -1,7 +1,4 @@
 /* No comment provided by engineer. */
-"<" = "<";
-
-/* No comment provided by engineer. */
 "2h ago" = "il y a 2h";
 
 /* No comment provided by engineer. */
@@ -11,10 +8,7 @@
 "Anonymous" = "Anonyme";
 
 /* No comment provided by engineer. */
-"By registering, you agree to our" = "En créant un compte, vous acceptez notre";
-
-/* No comment provided by engineer. */
-"Caricamento..." = "Chargement...";
+"By clicking on the button above, you agree to our" = "En cliquant sur le bouton ci-dessus, vous acceptez nos";
 
 /* No comment provided by engineer. */
 "Choose a category" = "Choisis une catégorie";
@@ -29,7 +23,7 @@
 "Delete Account" = "Supprimer mon compte";
 
 /* No comment provided by engineer. */
-"Forgotten password?" = "Mot de passe oublié ?";
+"Forgotten password?" = "Mot de passe oublié?";
 
 /* No comment provided by engineer. */
 "Garden" = "Jardin";
@@ -38,10 +32,7 @@
 "General" = "Général";
 
 /* No comment provided by engineer. */
-"Get started!" = "Allons-y !";
-
-/* No comment provided by engineer. */
-"Insert your email por favor" = "Veuillez insérer votre adresse mail ";
+"Get started!" = "Allons-y!";
 
 /* No comment provided by engineer. */
 "Language" = "Langue";
@@ -50,13 +41,13 @@
 "Log out" = "Se déconnecter";
 
 /* No comment provided by engineer. */
-"Login succeeded!" = "Connexion réussie !";
+"Login succeeded!" = "Connexion réussie!";
 
 /* No comment provided by engineer. */
 "New seed" = "Nouvelle graine";
 
 /* No comment provided by engineer. */
-"Not a member?" = "Pas encore membre ?";
+"Not a member?" = "Pas encore membre?";
 
 /* No comment provided by engineer. */
 "Password" = "Mot de passe";
@@ -68,7 +59,16 @@
 "Plant a seed." = "Plante une graine.";
 
 /* No comment provided by engineer. */
-"privacy policy" = "Confidentialité";
+"Please insert your email" = "Veuillez insérer votre email";
+
+/* No comment provided by engineer. */
+"Privacy" = "Confidentialité";
+
+/* No comment provided by engineer. */
+"privacy policy" = "politique de confidentialité";
+
+/* No comment provided by engineer. */
+"Privacy Policy" = "Politique de confidentialité";
 
 /* No comment provided by engineer. */
 "Private" = "Privé";
@@ -77,10 +77,10 @@
 "Register" = "Créer mon compte";
 
 /* No comment provided by engineer. */
-"Register now!" = "Créer mon compte maintenant !";
+"Register now!" = "Créer mon compte maintenant!";
 
 /* No comment provided by engineer. */
-"Registration completed" = "Compte créé";
+"Report" = "Signaler";
 
 /* No comment provided by engineer. */
 "Seeds" = "Graines";
@@ -95,7 +95,10 @@
 "Sign in" = "Connecte toi";
 
 /* No comment provided by engineer. */
-"terms and conditions." = "Termes et conditions";
+"terms and conditions." = "Termes et conditions.";
+
+/* No comment provided by engineer. */
+"Terms of Service" = "Conditions d'utilisation";
 
 /* No comment provided by engineer. */
 "Use your email to create an account" = "Utilize ton mail pour créer un compte";
@@ -116,7 +119,7 @@
 "Write a text" = "Écris un texte";
 
 /* No comment provided by engineer. */
-"You have been missed" = "Heureux de te revoir ";
+"You have been missed" = "Heureux de te revoir";
 
 /* No comment provided by engineer. */
 "Your seeds" = "Tes graines";
