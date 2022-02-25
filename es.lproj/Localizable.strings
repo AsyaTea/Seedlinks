@@ -2,6 +2,9 @@
 "2h ago" = "Hace 2 horas";
 
 /* No comment provided by engineer. */
+"Advice" = "Consejos";
+
+/* No comment provided by engineer. */
 "and our" = "y los";
 
 /* No comment provided by engineer. */
@@ -39,6 +42,9 @@
 
 /* No comment provided by engineer. */
 "Login succeeded!" = "Inicio de sesión exitoso!";
+
+/* No comment provided by engineer. */
+"Message" = "Mensaje";
 
 /* No comment provided by engineer. */
 "New seed" = "Nueva semilla";
@@ -110,13 +116,13 @@
 "Username" = "Nombre de usuario";
 
 /* No comment provided by engineer. */
-"Version 1.0" = "Versión 1.0";
+"Version 1.5" = "Versión 1.5";
 
 /* No comment provided by engineer. */
 "View on map" = "Ver en el mapa";
 
 /* No comment provided by engineer. */
-"Welcome back" = "Bienvenido";
+"Welcome back " = "Bienvenido";
 
 /* No comment provided by engineer. */
 "Write a text" = "Escribir un texto";

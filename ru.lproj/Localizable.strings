@@ -2,6 +2,9 @@
 "2h ago" = "2ч назад";
 
 /* No comment provided by engineer. */
+"Advice" = "Cоветовать";
+
+/* No comment provided by engineer. */
 "and our" = "и наши";
 
 /* No comment provided by engineer. */
@@ -36,6 +39,9 @@
 
 /* No comment provided by engineer. */
 "Login succeeded!" = "Вы вошли успешно!";
+
+/* No comment provided by engineer. */
+"Message" = "Сообщение";
 
 /* No comment provided by engineer. */
 "New seed" = "Новое семя";
@@ -95,13 +101,13 @@
 "Username" = "Имя пользователя";
 
 /* No comment provided by engineer. */
-"Version 1.0" = "Версия 1.0";
+"Version 1.5" = "Версия 1.5";
 
 /* No comment provided by engineer. */
 "View on map" = "Посмотреть на карте";
 
 /* No comment provided by engineer. */
-"Welcome back" = "С возвращением";
+"Welcome back " = "С возвращением";
 
 /* No comment provided by engineer. */
 "Write a text" = "Напишите сообщение";
