@@ -44,6 +44,7 @@ struct RegisterView: View {
                     .font(.caption)
                     .padding(.top, 30.0)
                     .frame(width: 370, height: 10, alignment: .leading)
+                UsernameTextField(username: $username)
                 Text("E-mail")
                     .font(.caption)
                     .padding(.top, 30.0)

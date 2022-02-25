@@ -51,6 +51,7 @@
 		0307B11D27BC07AF00A667F8 /* HTML View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTML View.swift"; sourceTree = "<group>"; };
 		0307B11F27BC119800A667F8 /* Policy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Policy.html; sourceTree = "<group>"; };
 		0307B12027BC119800A667F8 /* TTC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TTC.html; sourceTree = "<group>"; };
+		038D255027C8CC13005D0CF5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		039B2A3827C3AA70008D46A0 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		039B2A3A27C3AC4D008D46A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		413945B427BAB77600F86087 /* NewMessageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageModal.swift; sourceTree = "<group>"; };
@@ -271,6 +272,7 @@
 				it,
 				ru,
 				fr,
+				es,
 			);
 			mainGroup = FF03867227BA653E0000A7C9;
 			packageReferences = (
@@ -343,6 +345,7 @@
 				039B2A3A27C3AC4D008D46A0 /* en */,
 				FF366DD827C3B46B00DA7300 /* ru */,
 				FF52479327C64B6A009C2C35 /* fr */,
+				038D255027C8CC13005D0CF5 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -478,11 +481,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = MYPTJXP3NK;
+				DEVELOPMENT_TEAM = 5DPX8M9Z36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationUsageDescription = "SAMPLE TESTO PROVA 1 21232131";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "You need to enable the localization";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Start exploring Seeds around you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -514,7 +517,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationUsageDescription = "SAMPLE TESTO PROVA 1 21232131";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "You need to enable the localization";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Start exploring Seeds around you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
