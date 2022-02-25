@@ -48,9 +48,9 @@ struct MapView: View {
                     content: {
                         if  clickedMessage == message {
                             
-                            PlaceAnnotationView(dbManager: dbManager, title : clickedMessage?.message ?? "default", name: clickedMessage?.author ?? "default", messageID: message.id)
-
-                        
+                            PlaceAnnotationView(locationManager: locationManager, dbManager: dbManager, title : clickedMessage?.message ?? "default", name: clickedMessage?.author ?? "default", messageID: message.id)
+                            
+                            
                             
                         }
                         
@@ -59,7 +59,7 @@ struct MapView: View {
                         Button {
                             
                             dbManager.getMessageIDquery(messageID: message.id)
-                            didTapOnPin = true
+                            locationManager.didTapOnPin.toggle()
                             clickedMessage = dbManager.message
                             
                         } label: {
@@ -133,24 +133,46 @@ struct ButtonPosition : View {
     }
 }
 struct PlaceAnnotationView: View {
+    @ObservedObject var locationManager : LocationManager
     @ObservedObject var dbManager : DatabaseManager
     let title: String
     let name: String
     let messageID : String
-  
+    @State var textHeight: CGFloat = 0
+    
     //    let id :  String
     var body: some View {
         
-        VStack{
-            Text(name)
-                .fontWeight(.bold)
-            Text(title)
-                .font(.callout)
-                .padding(3)
-                .background(Color("TabBar"))
-                .cornerRadius(10)
-        
+        ZStack{
+            RoundedRectangle(cornerRadius:10)
+                .foregroundColor(Color("TabBar"))
+                .frame(width: UIScreen.main.bounds.width * 0.81, height: textHeight+65,alignment: .leading)
+            VStack{
+                Text(name)
+                    .fontWeight(.bold)
+                Text(title)
+                    .font(.callout)
+                    .padding(3)
+                // .background(Color("TabBar"))
+                    .cornerRadius(10)
+                    .overlay(
+                        GeometryReader { proxy in
+                            Color
+                                .clear
+                                .preference(key: ContentLengthPreference.self,
+                                            value: proxy.size.height) // <-- this
+                        }
+                    )
+            }
+            
+           
         }
+        .onPreferenceChange(ContentLengthPreference.self) { value in // <-- this
+            DispatchQueue.main.async {
+                self.textHeight = value
+            }
+        }
+        .opacity(locationManager.didTapOnPin ? 1 : 0)
         .frame(width: 300, height: 80)
         .contextMenu{
             Button(role: .destructive ,action: {
@@ -158,7 +180,7 @@ struct PlaceAnnotationView: View {
                 dbManager.message.reportCount += 1
                 dbManager.reportedMessage(messageID: messageID)
             }, label:
-            {
+                    {
                 HStack{
                     Text("Report")
                     Image(systemName: "exclamationmark.bubble.fill")

@@ -42,7 +42,6 @@
 		FF900AD827BE678F00D7B5E7 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD727BE678F00D7B5E7 /* UserSession.swift */; };
 		FF900ADA27BE8A9300D7B5E7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */; };
 		FFD9892427C269E10025F7CE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD9892327C269E10025F7CE /* SettingsView.swift */; };
-		FFD9892627C2BAE10025F7CE /* MapMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD9892527C2BAE10025F7CE /* MapMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +77,6 @@
 		FF900AD727BE678F00D7B5E7 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FFD9892327C269E10025F7CE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		FFD9892527C2BAE10025F7CE /* MapMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +179,6 @@
 				413945B427BAB77600F86087 /* NewMessageModal.swift */,
 				FF900AD427BE671700D7B5E7 /* ProfileView.swift */,
 				FFD9892327C269E10025F7CE /* SettingsView.swift */,
-				FFD9892527C2BAE10025F7CE /* MapMessage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,7 +306,6 @@
 				FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */,
 				03C6875D27BBC2E700F2D641 /* (null) in Sources */,
 				FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */,
-				FFD9892627C2BAE10025F7CE /* MapMessage.swift in Sources */,
 				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
 				FF03869327BA99980000A7C9 /* GardenView.swift in Sources */,
 				41DA31AA27BBAFA900684C13 /* MessageList.swift in Sources */,
@@ -475,7 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = 5DPX8M9Z36;
+				DEVELOPMENT_TEAM = 55H4ABU399;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationUsageDescription = "SAMPLE TESTO PROVA 1 21232131";
@@ -504,10 +500,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = MYPTJXP3NK;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationUsageDescription = "SAMPLE TESTO PROVA 1 21232131";
@@ -525,6 +521,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Seedlinks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
