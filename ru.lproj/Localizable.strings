@@ -8,13 +8,16 @@
 "Anonymous" = "Анонимно";
 
 /* No comment provided by engineer. */
+"By clicking on the button above, you agree to our" = "Нажимая на кнопку выше, вы соглашаетесь с нашими";
+
+/* No comment provided by engineer. */
 "Choose a category" = "Выберите категорию";
 
 /* No comment provided by engineer. */
-"Dark Mode" = "Тёмная тема";
+"Delete" = "Удалить";
 
 /* No comment provided by engineer. */
-"Delete" = "Удалить";
+"Delete Account" = "Удалить аккаунт";
 
 /* No comment provided by engineer. */
 "Forgotten password?" = "Забыли пароль?";
@@ -23,13 +26,7 @@
 "Garden" = "Сад";
 
 /* No comment provided by engineer. */
-"General" = "Основные";
-
-/* No comment provided by engineer. */
 "Get started!" = "Давайте начнем!";
-
-/* No comment provided by engineer. */
-"Language" = "Язык";
 
 /* No comment provided by engineer. */
 "Log out" = "Выйти";
@@ -44,9 +41,6 @@
 "Not a member?" = "Еще не зарегистрированы?";
 
 /* No comment provided by engineer. */
-"Notification" = "Уведомления";
-
-/* No comment provided by engineer. */
 "Ok" = "Ок";
 
 /* No comment provided by engineer. */
@@ -57,6 +51,12 @@
 
 /* No comment provided by engineer. */
 "Plant a seed." = "Посади семя.";
+
+/* No comment provided by engineer. */
+"Please insert your email" = "Пожалуйста, введите ваш email";
+
+/* No comment provided by engineer. */
+"Privacy" = "Конфиденциальность";
 
 /* No comment provided by engineer. */
 "privacy policy" = "Политика конфиденциальности";
@@ -74,7 +74,13 @@
 "Register now!" = "Регистрируйся сейчас!";
 
 /* No comment provided by engineer. */
+"Report" = "Жалоба";
+
+/* No comment provided by engineer. */
 "Seeds" = "Семена";
+
+/* No comment provided by engineer. */
+"Send reset password" = "Восстановить пароль";
 
 /* No comment provided by engineer. */
 "Settings" = "Настройки";
@@ -86,6 +92,9 @@
 "terms and conditions." = "Правила и условия";
 
 /* No comment provided by engineer. */
+"Terms of Service" = "Правила сервиса";
+
+/* No comment provided by engineer. */
 "Use your email to create an account" = "Используйте ваш email для создания аккаунта";
 
 /* No comment provided by engineer. */
@@ -95,7 +104,7 @@
 "Username" = "Имя пользователя";
 
 /* No comment provided by engineer. */
-"Version 1.0" = "Версия 1.0";
+"Version 1.5" = "Версия 1.5";
 
 /* No comment provided by engineer. */
 "View on map" = "Посмотреть на карте";
