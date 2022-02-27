@@ -2,6 +2,9 @@
 "2h ago" = "2ч назад";
 
 /* No comment provided by engineer. */
+"Advice" = "Cоветовать";
+
+/* No comment provided by engineer. */
 "and our" = "и наши";
 
 /* No comment provided by engineer. */
@@ -33,6 +36,9 @@
 
 /* No comment provided by engineer. */
 "Login succeeded!" = "Вы вошли успешно!";
+
+/* No comment provided by engineer. */
+"Message" = "Сообщение";
 
 /* No comment provided by engineer. */
 "New seed" = "Новое семя";
@@ -110,7 +116,7 @@
 "View on map" = "Посмотреть на карте";
 
 /* No comment provided by engineer. */
-"Welcome back" = "С возвращением";
+"Welcome back " = "С возвращением";
 
 /* No comment provided by engineer. */
 "Write a text" = "Напишите сообщение";
