@@ -25,20 +25,13 @@ struct MapView: View {
         let myCoord = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
         let genericCoord = CLLocation(latitude: bLat, longitude: bLong)
         let distanceInMeters = myCoord.distance(from: genericCoord)
-        // print("DISTANZA IN METRI" ,distanceInMeters)
+         print("DISTANZA IN METRI MAPPA" ,distanceInMeters)
         return distanceInMeters
     }
     
     var buttonColor: Color {
         return prova ? .green : .gray
     }
-    
-    //    func messageIsClicked(bLat : Double, bLong: Double) -> Bool {
-    //        var distanceInMeters = getRadius(bLat: bLat, bLong: bLat)
-    //        if (distanceInMeters >= 300) {return true}
-    //        else {return false}
-    //    }
-    
     
     var body: some View {
         ZStack{
@@ -49,8 +42,6 @@ struct MapView: View {
                         if  clickedMessage == message {
                             
                             PlaceAnnotationView(locationManager: locationManager, dbManager: dbManager, title : clickedMessage?.message ?? "default", name: clickedMessage?.author ?? "default", messageID: message.id)
-                            
-                            
                             
                         }
                         
@@ -104,7 +95,7 @@ struct MapView: View {
                 .onAppear{
                     //Prende la posizione corrente appena apri l'app (se hai dato il consenso)
                     //  locationManager.getRegion()
-                    locationManager.requestAuthorization()
+                    //locationManager.requestAuthorization()
                     dbManager.getData()
                     
                 }

@@ -10,6 +10,7 @@ import CoreLocation
 
 let actionTriggered: String = "Action 1 triggered"
 let delDatabase: String = "Deleting from database"
+
 struct ContentLengthPreference: PreferenceKey {
     static var defaultValue: CGFloat { 0 }
     
@@ -37,21 +38,26 @@ struct MessageView: View {
     @ObservedObject var locationManager : LocationManager
     @ObservedObject var userSession : UserSession
     
-    func getRadius(bLat : Double, bLong: Double) -> Double {
-        let myCoord = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
-        let genericCoord = CLLocation(latitude: bLat, longitude: bLong)
-        let distanceInMeters = myCoord.distance(from: genericCoord)
-        print("DISTANZA IN METRI" ,distanceInMeters)
-        return distanceInMeters
+    @State var navigateToMap = false
+  
+    
+    func getRadius1(bLat : Double, bLong: Double) -> Double {
+        let myCoord1 = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
+      //  print("MYCORD",myCoord1)
+        let genericCoord1 = CLLocation(latitude: bLat, longitude: bLong)
+      //  print("GENERIC",genericCoord1)
+        let distanceInMeters1 = myCoord1.distance(from: genericCoord1)
+       // print("DISTANZA IN METRI" ,distanceInMeters1)
+        return distanceInMeters1
     }
     
     var body: some View {
         ZStack{
             //Shadow
             RoundedRectangle(cornerRadius:10)
-                .foregroundColor(.gray)
+                .foregroundColor(Color("shadowColor"))
                 .opacity(0.2)
-                .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+                .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+60,alignment: .leading)
                 .blur(radius: 10)
             
             //Rect
@@ -78,15 +84,16 @@ struct MessageView: View {
             //                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
             //            }
             
-            if (getRadius(bLat: Double(longitude) ?? 0.0 , bLong: Double( latitude) ?? 0.0 ) >= 300.0){
+            if (getRadius1(bLat: Double(latitude) ?? 0.0 , bLong: Double(longitude) ?? 0.0 ) <= 300.0){
                
                 RoundedRectangle(cornerRadius:10)
                     .foregroundColor(.green)
                     .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+                
             }
             else {
                 RoundedRectangle(cornerRadius:10)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("notInRadius"))
                     .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
             }
             
@@ -94,19 +101,19 @@ struct MessageView: View {
                 //Nickname
                 if anonymous == true {
                     Text("Anonymous")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("Inverso"))
                         .font(.system(size: 16))
                         .fontWeight(.bold)
                 } else {
                     Text(dbManager.username)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("Inverso"))
                         .font(.system(size: 16))
                         .fontWeight(.bold)
                 }
                 
                 //Message
                 Text(messageText)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("Inverso"))
                     .font(.system(size: 16))
                     .fontWeight(.regular)
                     .overlay(
@@ -121,7 +128,7 @@ struct MessageView: View {
                 //TIME STAMP
                 //                Text(DatabaseManager().formatting(date: pubblicationDate))
                 Text(dateString)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("Inverso"))
                     .font(.system(size: 16))
                     .fontWeight(.regular)
                     .padding(.top,-5)
@@ -135,25 +142,22 @@ struct MessageView: View {
         } .contextMenu
         {
             Button(action: {
-                
-                //Devo fare una navigation e settare le coordinate attuali a quelli del messaggio
-                //DEVO PROBABILMENTE FARE UN RETRIEVE DELLE COORDINATE DEL MEX DAL DB E POI SETTARLE
-                //PROBLEMA MESSAGE ID
+         
                 dbManager.getMessageIdUserQuery(messageID: messageId)
-              //  locationManager.setRegion(latitude: Double(dbManager.messageUser.latitude) ?? 0.0, longitude: Double(dbManager.messageUser.longitude) ?? 0.0)
+                locationManager.setRegion(latitude: Double(dbManager.messageUser.latitude) ?? 0.0, longitude: Double(dbManager.messageUser.longitude) ?? 0.0)
                 print(dbManager.messageUser.latitude,dbManager.messageUser.longitude)
+                self.navigateToMap = true
                 
                 print(NSLocalizedString(actionTriggered, comment: ""))
                 
             }
                    , label:
                     {
-                NavigationLink(destination: MapView(locationManager: locationManager,dbManager: dbManager, userSession:userSession)){
+              
                     HStack{
                         
                         Text("View on map")
                         Image(systemName: "map")
-                    }
                 }
             })
             
@@ -166,8 +170,10 @@ struct MessageView: View {
                     Text("Delete")
                     Image(systemName: "trash")
                 }
-            })
+            }).disabled(getRadius1(bLat: Double(latitude) ?? 0.0 , bLong: Double(longitude) ?? 0.0 ) >= 300.0)
             
+        }
+        NavigationLink(destination: MapView(locationManager: locationManager,dbManager: dbManager, userSession:userSession),isActive: $navigateToMap){
         }
     }
     

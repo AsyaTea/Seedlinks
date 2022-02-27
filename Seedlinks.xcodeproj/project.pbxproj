@@ -182,8 +182,8 @@
 				FF03868027BA653E0000A7C9 /* MapView.swift */,
 				FF03869627BAAEF80000A7C9 /* Tab.swift */,
 				FF03869827BAB6B40000A7C9 /* ListView.swift */,
-				413945B427BAB77600F86087 /* NewMessageModal.swift */,
 				FF900AD427BE671700D7B5E7 /* ProfileView.swift */,
+				413945B427BAB77600F86087 /* NewMessageModal.swift */,
 				FFD9892327C269E10025F7CE /* SettingsView.swift */,
 			);
 			path = View;
@@ -489,7 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = 5DPX8M9Z36;
+				DEVELOPMENT_TEAM = 55H4ABU399;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationUsageDescription = "Messages you send use your current position";

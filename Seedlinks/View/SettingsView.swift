@@ -21,44 +21,44 @@ struct SettingsView: View {
         
         VStack{
             List{
-//                Section{
-//                    HStack{
-//                        ZStack{
-//                            Rectangle()
-//                                .frame(width: 36, height: 36)
-//                                .cornerRadius(10)
-//                                .foregroundColor(.red)
-//                            SwiftUI.Image(systemName:"bell.badge")
-//                        }
-//                        Text("Notification")
-//                            .fontWeight(.regular)
-//                    }
-//                    Toggle(isOn: $isDarkMode) {
-//                        ZStack{
-//                            Rectangle()
-//                                .frame(width: 36, height: 36)
-//                                .cornerRadius(10)
-//                                .foregroundColor(.blue)
-//                            SwiftUI.Image(systemName:"sun.max")
-//                        }
-//                        Text("Dark Mode")
-//                            .fontWeight(.regular)
-//                    }
-//                    HStack{
-//                        ZStack{
-//                            Rectangle()
-//                                .frame(width: 36, height: 36)
-//                                .cornerRadius(10)
-//                                .foregroundColor(.green)
-//                            SwiftUI.Image(systemName:"network")
-//                        }
-//                        Text("Language")
-//                            .fontWeight(.regular)
-//                    }
-//                    
-//                }header: {
-//                    Text("General")
-//                }
+                Section{
+                    HStack{
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 36, height: 36)
+                                .cornerRadius(10)
+                                .foregroundColor(.red)
+                            SwiftUI.Image(systemName:"bell.badge")
+                        }
+                        Text("Notification")
+                            .fontWeight(.regular)
+                    }
+                    Toggle(isOn: $isDarkMode) {
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 36, height: 36)
+                                .cornerRadius(10)
+                                .foregroundColor(.blue)
+                            SwiftUI.Image(systemName:"sun.max")
+                        }
+                        Text("Dark Mode")
+                            .fontWeight(.regular)
+                    }
+                    HStack{
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 36, height: 36)
+                                .cornerRadius(10)
+                                .foregroundColor(.green)
+                            SwiftUI.Image(systemName:"network")
+                        }
+                        Text("Language")
+                            .fontWeight(.regular)
+                    }
+                    
+                }header: {
+                    Text("General")
+                }
                 Section{
                     Button("Terms of Service"){
                         isOn2 = true
