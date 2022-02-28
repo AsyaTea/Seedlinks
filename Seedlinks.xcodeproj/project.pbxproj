@@ -42,6 +42,7 @@
 		FF900AD527BE671700D7B5E7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD427BE671700D7B5E7 /* ProfileView.swift */; };
 		FF900AD827BE678F00D7B5E7 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD727BE678F00D7B5E7 /* UserSession.swift */; };
 		FF900ADA27BE8A9300D7B5E7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */; };
+		FFC585CA27CCCF040000CCB2 /* MapModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC585C927CCCF040000CCB2 /* MapModal.swift */; };
 		FFD9892427C269E10025F7CE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD9892327C269E10025F7CE /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		FF900AD427BE671700D7B5E7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FF900AD727BE678F00D7B5E7 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		FFC585C927CCCF040000CCB2 /* MapModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModal.swift; sourceTree = "<group>"; };
 		FFD9892327C269E10025F7CE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +187,7 @@
 				FF900AD427BE671700D7B5E7 /* ProfileView.swift */,
 				413945B427BAB77600F86087 /* NewMessageModal.swift */,
 				FFD9892327C269E10025F7CE /* SettingsView.swift */,
+				FFC585C927CCCF040000CCB2 /* MapModal.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				4187DB4627BE607B0044A5BF /* PrivacyPolicy.swift in Sources */,
 				03C6875B27BB9F7600F2D641 /* (null) in Sources */,
 				0307B11E27BC07AF00A667F8 /* HTML View.swift in Sources */,
+				FFC585CA27CCCF040000CCB2 /* MapModal.swift in Sources */,
 				FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */,
 				41B0DFFE27BAB70600D3E9C6 /* DatabaseManager.swift in Sources */,
 				FFD9892427C269E10025F7CE /* SettingsView.swift in Sources */,

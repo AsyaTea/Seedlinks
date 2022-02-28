@@ -21,7 +21,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     //Default position = San Giovanni a Teduccio
     @Published var region: MKCoordinateRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 40.836501, longitude: 14.306021),
-        span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.05))
+        span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.001))
     
     // Reverse geolocation
     @Published var streetName : String = ""
