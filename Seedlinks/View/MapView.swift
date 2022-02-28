@@ -25,7 +25,7 @@ struct MapView: View {
         let myCoord = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
         let genericCoord = CLLocation(latitude: bLat, longitude: bLong)
         let distanceInMeters = myCoord.distance(from: genericCoord)
-        // print("DISTANZA IN METRI" ,distanceInMeters)
+         print("DISTANZA IN METRI MAPPA" ,distanceInMeters)
         return distanceInMeters
     }
     
@@ -42,8 +42,8 @@ struct MapView: View {
                     content: {
                         if  clickedMessage == message {
                             
-                            PlaceAnnotationView( locationManager: locationManager, dbManager: dbManager, title : clickedMessage?.message ?? "default", messageID: message.id)
-
+                            PlaceAnnotationView(locationManager: locationManager, dbManager: dbManager, title : clickedMessage?.message ?? "default", name: clickedMessage?.author ?? "default", messageID: message.id)
+                            
                         }
                         
                         
@@ -96,7 +96,7 @@ struct MapView: View {
                 .onAppear{
                     //Prende la posizione corrente appena apri l'app (se hai dato il consenso)
                     //  locationManager.getRegion()
-                    locationManager.requestAuthorization()
+                    //locationManager.requestAuthorization()
                     dbManager.getData()
                     
                 }
@@ -128,20 +128,42 @@ struct PlaceAnnotationView: View {
     @ObservedObject var locationManager : LocationManager
     @ObservedObject var dbManager : DatabaseManager
     let title: String
+    let name: String
     let messageID : String
+    @State var textHeight: CGFloat = 0
     
   
     //    let id :  String
     var body: some View {
         
-        VStack{
-            Text(title)
-                .font(.callout)
-                .padding(5)
-                .background(Color("TabBar"))
-                .cornerRadius(10)
+        ZStack{
+            RoundedRectangle(cornerRadius:10)
+                .foregroundColor(Color("TabBar"))
+                .frame(width: UIScreen.main.bounds.width * 0.81, height: textHeight+65,alignment: .leading)
+            VStack{
+                Text(name)
+                    .fontWeight(.bold)
+                Text(title)
+                    .font(.callout)
+                    .padding(3)
+                // .background(Color("TabBar"))
+                    .cornerRadius(10)
+                    .overlay(
+                        GeometryReader { proxy in
+                            Color
+                                .clear
+                                .preference(key: ContentLengthPreference.self,
+                                            value: proxy.size.height) // <-- this
+                        }
+                    )
+            }
             
-            
+           
+        }
+        .onPreferenceChange(ContentLengthPreference.self) { value in // <-- this
+            DispatchQueue.main.async {
+                self.textHeight = value
+            }
         }
         .opacity(locationManager.didTapOnPin ? 1 : 0)
         .frame(width: 300, height: 80)
@@ -151,7 +173,7 @@ struct PlaceAnnotationView: View {
                 dbManager.message.reportCount += 1
                 dbManager.reportedMessage(messageID: messageID)
             }, label:
-            {
+                    {
                 HStack{
                     Text("Report")
                     Image(systemName: "exclamationmark.bubble.fill")

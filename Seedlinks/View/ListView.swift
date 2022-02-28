@@ -28,7 +28,7 @@ struct ListView: View {
                         .fontWeight(.bold)
                     
                     //Message
-                    Text("Il decò è un furto, non ci andate !!!!!!dsfdsfdsfsfddsffdsdfdsfdsfdfsfdsfsddsfdsfdsdsfdsfdsfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdssff SDHFJDSFHDSFJHDJSHFJHDSHFHJSDHJFHJDSHJFS")
+                    Text("Il decò è un furto, non ci andate")
                         .foregroundColor(.black)
                         .font(.system(size: 16))
                         .fontWeight(.regular)

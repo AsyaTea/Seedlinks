@@ -97,7 +97,7 @@ struct SettingsView: View {
                 }
                 
             }.listStyle(.inset)
-            Text("Version 1.0")
+            Text("Version 1.5")
                 .padding()
             
         } .navigationTitle("Settings")

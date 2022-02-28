@@ -7,13 +7,15 @@
 
 import SwiftUI
 import MapKit
+import Combine
 
 let cat1 = "Message"
 let cat2  = "Advice"
 struct SheetView: View {
     
     @ObservedObject var userSession: UserSession
-    @State var message = "" 
+    @State var message = ""
+    @State var placeholder = "Write something, max 250 characters"
     @Binding var showSheetView: Bool
     @State private var selectedCategory = ""
     @State private var anonymous = false
@@ -23,6 +25,16 @@ struct SheetView: View {
     @ObservedObject var dbManager : DatabaseManager
     @ObservedObject var locationManager : LocationManager
     
+    //Text limit
+    let textLimit = 250
+    
+    //Function to keep text lenght in limits
+    func limitText(_ upper: Int) {
+        if message.count > upper {
+            message = String(message.prefix(upper))
+        }
+    }
+    
     var body: some View {
         
         let coordinate : CLLocationCoordinate2D = self.locationManager.lastLocation!.coordinate
@@ -30,9 +42,26 @@ struct SheetView: View {
         NavigationView {
                 VStack {
                     Divider()
-                    TextField("Write a text", text: $message)
+                    ZStack{
+                        if message.isEmpty{
+                            Text(placeholder)
+                                .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
+                                .foregroundColor(Color("genericGray"))
+                                .disabled(true)
+                        }
+                    
+                    TextEditor(text: $message)
                         .textFieldStyle(PlainTextFieldStyle())
-                        .frame(width: 400, height: 300, alignment: .topLeading)
+                        .opacity(message.isEmpty ? 0.25 : 1)
+                        .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
+                        .onReceive(Just(message)) {_ in limitText(textLimit)}
+                    }
+                    HStack{
+                        Spacer()
+                        Text(String(message.count) + " / " + String(textLimit))
+                            .foregroundColor(Color("genericGray"))
+                           
+                    }.padding()
                     List {
                         Toggle("Anonymous", isOn: $anonymous)
                         Toggle("Private", isOn: $privat)
