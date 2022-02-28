@@ -15,7 +15,7 @@ struct SheetView: View {
     
     @ObservedObject var userSession: UserSession
     @State var message = ""
-    @State var placeholder = "Write something, max 250 characters"
+    @State var placeholder = "Write something..."
     @Binding var showSheetView: Bool
     @State private var selectedCategory = ""
     @State private var anonymous = false
@@ -40,64 +40,88 @@ struct SheetView: View {
         let coordinate : CLLocationCoordinate2D = self.locationManager.lastLocation!.coordinate
         
         NavigationView {
-                VStack {
-                    Divider()
-                    ZStack{
-                        if message.isEmpty{
-                            Text(placeholder)
-                                .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
-                                .foregroundColor(Color("genericGray"))
-                                .disabled(true)
-                        }
+            VStack {
+                Divider()
+                
+                ZStack{
+                    if message.isEmpty{
+                        Text(placeholder)
+                            .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
+                            .foregroundColor(Color("genericGray"))
+                            .disabled(true)
+                    }
                     
                     TextEditor(text: $message)
                         .textFieldStyle(PlainTextFieldStyle())
                         .opacity(message.isEmpty ? 0.25 : 1)
                         .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
                         .onReceive(Just(message)) {_ in limitText(textLimit)}
-                    }
-                    HStack{
-                        Spacer()
-                        Text(String(message.count) + " / " + String(textLimit))
-                            .foregroundColor(Color("genericGray"))
-                           
-                    }.padding()
-                    List {
-                        Toggle("Anonymous", isOn: $anonymous)
-                        Toggle("Private", isOn: $privat)
-                        Picker("Choose a category", selection: $selectedCategory) {
-                                        ForEach(categories, id: \.self) {
-                                            Text($0)
-                                        }
-                        }.pickerStyle(.inline)
-                        
-//
-                    }
-                    .listStyle(PlainListStyle())
-                    
-                    Spacer()
                 }
-                .navigationBarItems(leading: Button(action: {
-                    self.showSheetView = false
-                }) {
-                    HStack {
-                        Text("<")
-                            .font(.custom("Times New Roman", size: 18))
-                            .fontWeight(.bold)
-                        Text("Garden")
+                HStack{
+                    Spacer()
+                    Text(String(message.count) + " / " + String(textLimit))
+                        .foregroundColor(Color("genericGray"))
+                    
+                }
+                .padding()
+                
+                List {
+                    Toggle("Anonymous", isOn: $anonymous)
+                    Toggle("Private", isOn: $privat)
+                    Picker("Choose a category", selection: $selectedCategory) {
+                        ForEach(categories, id: \.self) {
+                            Text($0)
+                        }
+                    }.pickerStyle(.inline)
+                    if(locationManager.streetName.isEmpty){
+                        HStack{
+                            Text("You are leaving a message at: ")
+                                .font(.system(size: 16))
+                                .fontWeight(.regular)
+                            Text(locationManager.cityName)
+                                .font(.system(size: 16))
+                                .fontWeight(.medium)
+                        }
                     }
-                })
-                .navigationBarTitle(Text("New seed"), displayMode: .inline)
-                .navigationBarItems(trailing: Button(action: {
-                    self.showSheetView = false
-                    dbManager.addMessage(userID: userSession.userAuthenticatedId, author: dbManager.user?.username ?? dbManager.username, message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat, latitude:String(coordinate.latitude) ,longitude:String(coordinate.longitude),
-                        reportCount: 0 )
-                    dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)
-
-                }) {
-                    Text("Plant")
-                }.disabled(self.message.isEmpty || self.selectedCategory.isEmpty)
-                )
+                    else{
+                        Text("You are leaving a message at: ")
+                            .font(.system(size: 16))
+                            .fontWeight(.regular)
+                        Text(locationManager.streetName)
+                            .font(.system(size: 16))
+                            .fontWeight(.medium)
+                    }
+                  
+                    
+                }
+                .listStyle(InsetListStyle())
+                MapModal()
+                    .cornerRadius(20)
+                    .frame(width: UIScreen.main.bounds.width * 0.91, height: 150)
+                    .disabled(true)
+                Spacer()
+            }
+            .navigationBarItems(leading: Button(action: {
+                self.showSheetView = false
+            }) {
+                HStack {
+                    Text("<")
+                        .font(.custom("Times New Roman", size: 18))
+                        .fontWeight(.bold)
+                    Text("Garden")
+                }
+            })
+            .navigationBarTitle(Text("New seed"), displayMode: .inline)
+            .navigationBarItems(trailing: Button(action: {
+                self.showSheetView = false
+                dbManager.addMessage(userID: userSession.userAuthenticatedId, author: dbManager.user?.username ?? dbManager.username, message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat, latitude:String(coordinate.latitude) ,longitude:String(coordinate.longitude),
+                                     reportCount: 0 )
+                dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)
+                
+            }) {
+                Text("Plant")
+            }.disabled(self.message.isEmpty || self.selectedCategory.isEmpty)
+            )
             
         }
     }
