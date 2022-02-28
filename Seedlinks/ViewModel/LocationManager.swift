@@ -111,7 +111,15 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         lastLocation = location
-        print(#function, location)
+//        print(#function, location)
     }
+    func getRadius(bLat : Double, bLong: Double) -> Double {
+        let myCoord = CLLocation(latitude: self.lastLocation?.coordinate.latitude ?? 0.0,longitude: self.lastLocation?.coordinate.longitude ?? 0.0)
+        let genericCoord = CLLocation(latitude: bLat, longitude: bLong)
+        let distanceInMeters = myCoord.distance(from: genericCoord)
+//         print("DISTANZA IN METRI MAPPA" ,distanceInMeters)
+        return distanceInMeters
+    }
+    
 }
 

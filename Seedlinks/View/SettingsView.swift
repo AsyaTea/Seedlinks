@@ -100,8 +100,9 @@ struct SettingsView: View {
                                 dbManager.userList.removeAll()
                                 dbManager.deleteUserDatabase(userID: dbManager.userDocumentID)
                                 dbManager.deleteAllUserMessages(userID: userSession.userAuthenticatedId)
-                                userSession.deleteUser(userID: userSession.userAuthenticatedId)
-                                userSession.isLogged = false
+//                                userSession.logOut()
+                                userSession.deleteUser()
+                                           
                                 print("Deleting...")
                             },
                             secondaryButton: .cancel()

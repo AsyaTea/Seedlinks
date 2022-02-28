@@ -21,7 +21,7 @@ class DatabaseManager: ObservableObject {
     @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "",  reportCount: 0)
     @Published var messageUser = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "",  reportCount: 0)
     @Published var userDocumentID = ""
-    
+  
     @Published var errorMessage = ""
     
     let db = Firestore.firestore()              // Reference to the database
@@ -32,48 +32,37 @@ class DatabaseManager: ObservableObject {
     
     func getData() {
         
-        
-        db.collection("messages").getDocuments { snapshot, error in  // Read document at a specific path
-            
-            if error == nil {
+        db.collection("messages").whereField("private", isEqualTo: false)
+            .getDocuments { querySnapshot, error in
                 
-                if let snapshot = snapshot {
-                    
-                    DispatchQueue.main.async {  // Update list property in the main thread
-                        
-                        self.list = snapshot.documents.map { d in
+                if error == nil {
+                        for d in querySnapshot!.documents {
                             
-//                            if d["private"] as? Bool == false {
-                            
-                            return Message(id: d.documentID,
-                                           userID: d["userID"] as? String ?? "",
-                                           author: d["author"] as? String ?? "",
-                                           message: d["message"] as? String ?? "",
-                                           publicationDate: d["publicationDate"] as? Date ?? Date.init(),
-                                           dateString: d["dateString"] as? String ?? "",
-                                           category: d["category"] as? String ?? "",
-                                           anonymous: d["anonymous"] as? Bool ?? Bool.init(),
-                                           privat: d["private"] as? Bool ?? Bool.init(),
-                                           longitude: d["longitude"] as? String ?? "",
-                                           latitude: d["latitude"] as? String ?? "",
-                                           reportCount: d["reportCount"] as? Int ?? 0)
-//                            }
-//                            return
+//                            print("\(d)")
+                            self.list.append(
+                                Message(id: d.documentID,
+                                userID: d["userID"] as? String ?? "",
+                                author: d["author"] as? String ?? "",
+                                message: d["message"] as? String ?? "",
+                                publicationDate: d["publicationDate"] as? Date ?? Date.init(),
+                                dateString: d["dateString"] as? String ?? "",
+                                category: d["category"] as? String ?? "",
+                                anonymous: d["anonymous"] as? Bool ?? Bool.init(),
+                                privat: d["private"] as? Bool ?? Bool.init(),
+                                longitude: d["longitude"] as? String ?? "",
+                                latitude: d["latitude"] as? String ?? "",
+                                reportCount: d["reportCount"] as? Int ?? 0)
+                                    
+                            )
                         }
-                    }
-                    
                 }
-            } else {
-                
-                //Handle errors
-                
             }
-        }
+        
     }
    
     
     func userMessagesQuery(userID: String) {
-        db.collection("messages").whereField("userID", isEqualTo: userID)
+        db.collection("messages").whereField("userID", isEqualTo: userID).order(by: "publicationDate", descending: true)
             .getDocuments { querySnapshot, error in
                 
                 if error == nil {
@@ -101,16 +90,19 @@ class DatabaseManager: ObservableObject {
                                     
                             )
                         }
-//                        self.userList.sort { (lhs: String, rhs: String) -> Bool in
-//                        return lhs > rhs
-//                    }
-
-                        
-                       
+//                        self.userList.sort {
+//                            $0.publicationDate > $1.publicationDate
+//                        }
+                        print(self.userList)
+                     
                     }
+                } else {
+                    print("error")
                 }
             }
     }
+    
+
     
     func addMessage(userID: String, author: String, message: String, publicationDate: Date, dateString: String, category: String, anonymous: Bool, privat: Bool, latitude : String, longitude : String, reportCount: Int) {
         
@@ -219,7 +211,7 @@ private func fetchCurrentUser() {
             return
         }
         db.collection("user").document(id).getDocument { querySnapshot, error in
-            
+
             if let error = error {
                 self.errorMessage = "Failed to fetch current user: \(error)"
                 print("Failed to fetch current user:", error)
@@ -229,11 +221,11 @@ private func fetchCurrentUser() {
                 self.errorMessage = "No data found"
                 return
             }
-            
+
             let id = data["userID"] as? String ?? ""
             let username = data["username"] as? String ?? ""
             let email = data["email"] as? String ?? ""
-            
+
             self.user = User(id: id,username: username, email: email)
             print("ODIO LA MIA VITA")
         }

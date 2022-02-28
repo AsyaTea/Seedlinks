@@ -21,7 +21,8 @@ struct ProfileView: View {
             
             //Welcome back
             HStack{
-                Text("Welcome back " + String(dbManager.user?.username ?? dbManager.username))
+//                Text("Welcome back " + String(dbManager.user?.username ?? dbManager.username))
+                Text("Garden")
                     .fontWeight(.medium)
                     .font(.system(size:28))
                     .scaledToFit()
@@ -98,9 +99,9 @@ struct ProfileView: View {
         }
         .navigationBarHidden(true)
         .padding([.top, .leading, .trailing], 15.0)
-        .onAppear {            
-                dbManager.getUsername(userID: userSession.userAuthenticatedId)
-        }
+//        .onAppear {
+//                dbManager.getUsername(userID: userSession.userAuthenticatedId)
+//        }
         
     }
 }

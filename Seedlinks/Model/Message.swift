@@ -23,5 +23,6 @@ struct Message: Identifiable,Hashable {
     var latitude : String
     var coordinate: CLLocationCoordinate2D{CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0)}
     var reportCount: Int
+    var distanceFromPos : Double?
     
 }

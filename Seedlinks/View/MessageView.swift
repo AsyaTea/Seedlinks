@@ -26,7 +26,7 @@ struct MessageView: View {
     let messageId: String
     var messageText : String
     let messageAuthor: String
-    let pubblicationDate: Date
+    let pubblicationDate : Date
     let dateString: String
     var category: String
     var anonymous: Bool
