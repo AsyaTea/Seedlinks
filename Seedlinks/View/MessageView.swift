@@ -57,8 +57,8 @@ struct MessageView: View {
             RoundedRectangle(cornerRadius:10)
                 .foregroundColor(Color("shadowColor"))
                 .opacity(0.2)
-                .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+60,alignment: .leading)
-                .blur(radius: 10)
+                .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+                .blur(radius: 8)
             
             //Rect
             //            if category == "Advice" {
