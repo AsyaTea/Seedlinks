@@ -17,7 +17,7 @@ struct MapView: View {
     
     @State var clickedMessage: Message?
     @State var messageID : String = ""
-    @State var didTapOnPin: Bool = false
+    
     @State var prova : Bool = false
     
     
@@ -25,13 +25,14 @@ struct MapView: View {
         let myCoord = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
         let genericCoord = CLLocation(latitude: bLat, longitude: bLong)
         let distanceInMeters = myCoord.distance(from: genericCoord)
-         print("DISTANZA IN METRI MAPPA" ,distanceInMeters)
+//         print("DISTANZA IN METRI MAPPA" ,distanceInMeters)
         return distanceInMeters
     }
     
     var buttonColor: Color {
         return prova ? .green : .gray
     }
+    
     
     var body: some View {
         ZStack{
@@ -131,6 +132,7 @@ struct PlaceAnnotationView: View {
     let messageID : String
     @State var textHeight: CGFloat = 0
     
+  
     //    let id :  String
     var body: some View {
         

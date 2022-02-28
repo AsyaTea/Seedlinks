@@ -79,6 +79,8 @@ struct SettingsView: View {
                         userSession.isLogged = false
                         userSession.userAuthenticatedId = ""
                         dbManager.userList.removeAll()
+                        userSession.logOut()
+
                     }, label: {
                         Text("Log out")
                     })

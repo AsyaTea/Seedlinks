@@ -493,7 +493,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = 55H4ABU399;
+				DEVELOPMENT_TEAM = MYPTJXP3NK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationUsageDescription = "Messages you send use your current position";
@@ -526,7 +526,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = 55H4ABU399;
+				DEVELOPMENT_TEAM = MYPTJXP3NK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationUsageDescription = "Messages you send use your current position";

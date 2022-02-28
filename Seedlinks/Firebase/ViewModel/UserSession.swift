@@ -66,6 +66,7 @@ class UserSession: ObservableObject {
             print("Failed deleting")
           }
         }
+        
     }
     
     func createNewAccount(email: String, password: String, username: String) {
@@ -130,9 +131,22 @@ class UserSession: ObservableObject {
                 self.userAuthenticatedId = ""
             }
             
+        }
+    
     }
     
-}
+    func logOut() {
+        
+        let auth = Auth.auth()
+        
+        do {
+            try auth.signOut()
+           
+        } catch _ {
+            print("Error on logging out")
+        }
+        isLogged = false
+    }
 }
 
 
