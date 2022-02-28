@@ -16,6 +16,7 @@ struct SettingsView: View {
     @State var isOn: Bool = false
     @State var isOn2: Bool = false
     
+    @State var showingAlert = false
     
     var body: some View {
         
@@ -82,16 +83,28 @@ struct SettingsView: View {
                         Text("Log out")
                     })
                     Button(role:.destructive,action: {
-                        dbManager.userList.removeAll()
+                       
                         print(userSession.userAuthenticatedId)
-                        dbManager.deleteUserDatabase(userID: dbManager.userDocumentID)
-                        dbManager.deleteAllUserMessages(userID: userSession.userAuthenticatedId)   
-                        userSession.deleteUser(userID: userSession.userAuthenticatedId)
-                        userSession.isLogged = false
+                        showingAlert = true
                        
                     }, label: {
                         Text("Delete Account")
                     })
+                        .alert(isPresented:$showingAlert) {
+                        Alert(
+                            title: Text("Are you sure you want to delete your account?"),
+                            message: Text("There is no undo"),
+                            primaryButton: .destructive(Text("Delete")) {
+                                dbManager.userList.removeAll()
+                                dbManager.deleteUserDatabase(userID: dbManager.userDocumentID)
+                                dbManager.deleteAllUserMessages(userID: userSession.userAuthenticatedId)
+                                userSession.deleteUser(userID: userSession.userAuthenticatedId)
+                                userSession.isLogged = false
+                                print("Deleting...")
+                            },
+                            secondaryButton: .cancel()
+                        )
+                    }
                 }header: {
                     Text("User")
                 }
