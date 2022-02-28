@@ -100,8 +100,8 @@ struct SettingsView: View {
                                 dbManager.userList.removeAll()
                                 dbManager.deleteUserDatabase(userID: dbManager.userDocumentID)
                                 dbManager.deleteAllUserMessages(userID: userSession.userAuthenticatedId)
-//                                userSession.logOut()
-                                userSession.deleteUser()
+                                userSession.logOut()
+//                                userSession.deleteUser()
                                            
                                 print("Deleting...")
                             },

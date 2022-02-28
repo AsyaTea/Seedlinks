@@ -135,7 +135,7 @@ class DatabaseManager: ObservableObject {
                     }
                 }
             } else {
-                // Handle errors
+//                print(error)
             }
         }
     }

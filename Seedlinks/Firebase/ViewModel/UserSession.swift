@@ -61,12 +61,7 @@ class UserSession: ObservableObject {
             
             dump(user)
           if error == nil {
-              do {
-                  try Auth.auth().signOut()
-                 
-              } catch _ {
-                  print("Error on logging out")
-              }
+           print("Success")
          
           } else {
             print("Failed deleting")
