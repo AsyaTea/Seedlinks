@@ -78,6 +78,8 @@ struct SettingsView: View {
                         userSession.isLogged = false
                         userSession.userAuthenticatedId = ""
                         dbManager.userList.removeAll()
+                        userSession.logOut()
+
                     }, label: {
                         Text("Log out")
                     })
@@ -86,8 +88,8 @@ struct SettingsView: View {
                         print(userSession.userAuthenticatedId)
                         dbManager.deleteUserDatabase(userID: dbManager.userDocumentID)
                         dbManager.deleteAllUserMessages(userID: userSession.userAuthenticatedId)   
-                        userSession.deleteUser(userID: userSession.userAuthenticatedId)
-                        userSession.isLogged = false
+                        userSession.deleteUser(userID: userSession.userAuthenticatedId)                        
+                        userSession.logOut()
                        
                     }, label: {
                         Text("Delete Account")

@@ -43,6 +43,8 @@ class DatabaseManager: ObservableObject {
                         
                         self.list = snapshot.documents.map { d in
                             
+//                            if d["private"] != nil && d["private"] == true {
+                            
                             return Message(id: d.documentID,
                                            userID: d["userID"] as? String ?? "",
                                            author: d["author"] as? String ?? "",
@@ -55,6 +57,9 @@ class DatabaseManager: ObservableObject {
                                            longitude: d["longitude"] as? String ?? "",
                                            latitude: d["latitude"] as? String ?? "",
                                            reportCount: d["reportCount"] as? Int ?? 0)
+//                            } else {
+//                                
+//                            }
 
                         }
                     }

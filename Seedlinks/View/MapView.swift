@@ -25,7 +25,7 @@ struct MapView: View {
         let myCoord = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
         let genericCoord = CLLocation(latitude: bLat, longitude: bLong)
         let distanceInMeters = myCoord.distance(from: genericCoord)
-         print("DISTANZA IN METRI MAPPA" ,distanceInMeters)
+//         print("DISTANZA IN METRI MAPPA" ,distanceInMeters)
         return distanceInMeters
     }
     
