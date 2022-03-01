@@ -37,7 +37,7 @@ struct RectangleInRadius: View {
                     ZStack{
                         Rectangle()
                             .cornerRadius(12)
-                            .frame(width: UIScreen.main.bounds.width * 0.22,height:20)
+                            .frame(width: UIScreen.main.bounds.width * 0.24,height:20)
                             .foregroundColor(Color("Anon"))
                         Text("Anonymous")
                             .font(.system(size: 14))
@@ -49,7 +49,7 @@ struct RectangleInRadius: View {
                         ZStack{
                             Rectangle()
                                 .cornerRadius(12)
-                                .frame(width: UIScreen.main.bounds.width * 0.22,height:20)
+                                .frame(width: UIScreen.main.bounds.width * 0.24,height:20)
                                 .foregroundColor(Color("Private"))
                             Text("Private")
                                 .font(.system(size: 14))

@@ -38,6 +38,19 @@ struct SheetView: View {
     //Dismiss keyboard
     @FocusState private var isFocused: Bool
     
+    //LABEL FOR CATEGORY MENU
+    var customLabel: some View {
+           HStack {
+               Text("Select a category:")
+                   .foregroundColor(.accentColor)
+               Text(String(selectedCategory))
+                   .foregroundColor(.primary)
+               Spacer()
+           }
+           .font(.system(size: 17))
+//           .frame(height: 32)
+       }
+    
     var body: some View {
         
         let coordinate : CLLocationCoordinate2D = self.locationManager.lastLocation!.coordinate
@@ -106,12 +119,17 @@ struct SheetView: View {
                             Spacer()
                         }
                         HStack{
-                            Picker("Choose a category", selection: $selectedCategory) {
+                            Menu{
+                                Picker(selection: $selectedCategory,label:EmptyView()) {
                                 ForEach(categories, id: \.self) {
                                     Text($0)
                                 }
                             }
                             Spacer()
+                        }label: {
+                            customLabel
+                        }
+
                         }
                     }
                     
@@ -129,9 +147,6 @@ struct SheetView: View {
                       
                     if(locationManager.streetName.isEmpty){
                         HStack{
-                            //                            Text("You are leaving a message at: ")
-                            //                                .font(.system(size: 16))
-                            //                                .fontWeight(.regular)
                             Text(locationManager.cityName)
                                 .font(.system(size: 16))
                                 .fontWeight(.medium)

@@ -14,6 +14,8 @@ struct ProfileView: View {
     @ObservedObject var locationManager : LocationManager
     @State var isOn: Bool = false
     var username : String = ""
+    @State private var selectedCategory = ""
+    var filtering = ["Date","Distance"]
     
     var body: some View {
         
@@ -68,7 +70,7 @@ struct ProfileView: View {
                        // .stroke(Color.green,lineWidth: 2)
                         .foregroundColor(.green)
                         .frame(width: UIScreen.main.bounds.width * 0.91, height: 50)
-                    Text("+ Plant a seed.")
+                    Text("+ Plant a seed")
                        // .foregroundColor(Color("genericGray"))
                         .font(.system(size: 16))
                         .foregroundColor(.white)
@@ -88,10 +90,20 @@ struct ProfileView: View {
                 Text("Your seeds")
                     .font(.system(size: 22))
                     .fontWeight(.semibold)
-                    .padding(.top,20)
                 Spacer()
-                Image(systemName: "line.3.horizontal.decrease.circle")
-            }
+                
+                Picker(selection: $selectedCategory,label:
+                    Image(systemName: "line.3.horizontal.decrease.circle")
+                        .resizable()
+                        .frame(width:17,height: 17)
+                ) {
+                    ForEach(filtering, id: \.self) {
+                        Text($0)
+                    }
+                }
+                
+                
+            }.padding(.top,20)
             
             ScrollView(showsIndicators: false){
                 MessageListView(userSession: userSession, dbManager: dbManager, locationManager: locationManager)

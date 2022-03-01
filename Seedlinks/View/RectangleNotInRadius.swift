@@ -37,7 +37,7 @@ struct RectangleNotInRadius: View {
                     ZStack{
                         Rectangle()
                             .cornerRadius(12)
-                            .frame(width: UIScreen.main.bounds.width * 0.22,height:20)
+                            .frame(width: UIScreen.main.bounds.width * 0.24,height:20)
                             .foregroundColor(Color("TagNotRadius"))
                         Text("Anonymous")
                             .font(.system(size: 14))
@@ -49,7 +49,7 @@ struct RectangleNotInRadius: View {
                         ZStack{
                             Rectangle()
                                 .cornerRadius(12)
-                                .frame(width: UIScreen.main.bounds.width * 0.22,height:20)
+                                .frame(width: UIScreen.main.bounds.width * 0.24,height:20)
                                 .foregroundColor(Color("TagNotRadius"))
                             Text("Private")
                                 .font(.system(size: 14))
@@ -60,7 +60,7 @@ struct RectangleNotInRadius: View {
                 }
                 //Message
                 Text(messageText)
-                    .foregroundColor(Color("TagNotRadius"))
+                    .foregroundColor(Color("TextNotRadius"))
                     .font(.system(size: 16))
                     .fontWeight(.regular)
                     .overlay(
