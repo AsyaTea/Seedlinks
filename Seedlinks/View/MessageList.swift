@@ -9,19 +9,20 @@ import SwiftUI
 
 struct MessageListView: View {
     @ObservedObject var userSession : UserSession
-    @ObservedObject var dbManager : DatabaseManager
+    @StateObject var dbManager : DatabaseManager
     @ObservedObject var locationManager : LocationManager
     
     //    @ObservedObject var dbManager : DatabaseManager
     var body: some View {
         ForEach(dbManager.userList, id: \.self) { item in
-            MessageView(messageId: item.id, messageText: item.message, messageAuthor: item.author, pubblicationDate: item.publicationDate, dateString: item.dateString, category: item.category, anonymous: item.anonymous,longitude: item.longitude, latitude: item.latitude,dbManager: dbManager, locationManager: locationManager, userSession: userSession)
-                .padding(.top,2)
+            MessageView(messageId: item.id, messageText: item.message, messageAuthor: item.author, pubblicationDate: item.publicationDate, dateString: item.dateString, category: item.category, anonymous: item.anonymous, privat: item.privat,longitude: item.longitude, latitude: item.latitude,locationName: item.locationName,dbManager: dbManager, locationManager: locationManager, userSession: userSession)
+                .padding(.top,6.5)
             
         }
         .onAppear{
             dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)
 //            orderByDistance()
+            
         }
         //chiamare la funzione nella main view e passare il parametro
     }

@@ -144,6 +144,8 @@ struct SheetView: View {
                             .fontWeight(.regular)
                     }
                 }.padding()
+            }.onAppear{
+                locationManager.reverseGeoMessage(latitude: coordinate.latitude,longitude: coordinate.longitude)
             }
             
             .navigationBarItems(leading: Button(action: {
@@ -154,8 +156,20 @@ struct SheetView: View {
             .navigationBarTitle(Text("New seed"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 self.showSheetView = false
-                dbManager.addMessage(userID: userSession.userAuthenticatedId, author: dbManager.user?.username ?? dbManager.username, message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat, latitude:String(coordinate.latitude) ,longitude:String(coordinate.longitude),
-                                     reportCount: 0 )
+                dbManager.addMessage(
+                    userID: userSession.userAuthenticatedId,
+                    author: dbManager.user?.username ?? dbManager.username,
+                    message: message,
+                    publicationDate: Date.now,
+                    dateString: DatabaseManager().formatting(date: Date.now),
+                    category: selectedCategory,
+                    anonymous: anonymous,
+                    privat: privat,
+                    latitude:String(coordinate.latitude),
+                    longitude:String(coordinate.longitude),
+                    reportCount: 0,
+                    locationName: locationManager.streetNameMessage.isEmpty ? locationManager.cityNameMessage : locationManager.streetNameMessage
+                )
                 dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)
                 
             }) {

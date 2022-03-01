@@ -43,7 +43,8 @@
 		FF900AD827BE678F00D7B5E7 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD727BE678F00D7B5E7 /* UserSession.swift */; };
 		FF900ADA27BE8A9300D7B5E7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */; };
 		FFC585CA27CCCF040000CCB2 /* MapModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC585C927CCCF040000CCB2 /* MapModal.swift */; };
-		FFC585CC27CD52C00000CCB2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC585CB27CD52C00000CCB2 /* Profile.swift */; };
+		FFC585CE27CE3A680000CCB2 /* RectangleInRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC585CD27CE3A680000CCB2 /* RectangleInRadius.swift */; };
+		FFC585D027CE3D780000CCB2 /* RectangleNotInRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC585CF27CE3D780000CCB2 /* RectangleNotInRadius.swift */; };
 		FFD9892427C269E10025F7CE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD9892327C269E10025F7CE /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +85,8 @@
 		FF900AD727BE678F00D7B5E7 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FFC585C927CCCF040000CCB2 /* MapModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModal.swift; sourceTree = "<group>"; };
-		FFC585CB27CD52C00000CCB2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		FFC585CD27CE3A680000CCB2 /* RectangleInRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleInRadius.swift; sourceTree = "<group>"; };
+		FFC585CF27CE3D780000CCB2 /* RectangleNotInRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleNotInRadius.swift; sourceTree = "<group>"; };
 		FFD9892327C269E10025F7CE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,8 @@
 				FF03869227BA99980000A7C9 /* GardenView.swift */,
 				41DA31A927BBAFA900684C13 /* MessageList.swift */,
 				FF03869427BAA35A0000A7C9 /* MessageView.swift */,
+				FFC585CD27CE3A680000CCB2 /* RectangleInRadius.swift */,
+				FFC585CF27CE3D780000CCB2 /* RectangleNotInRadius.swift */,
 				FF03868027BA653E0000A7C9 /* MapView.swift */,
 				FF03869627BAAEF80000A7C9 /* Tab.swift */,
 				FF03869827BAB6B40000A7C9 /* ListView.swift */,
@@ -190,7 +194,6 @@
 				FFD9892327C269E10025F7CE /* SettingsView.swift */,
 				413945B427BAB77600F86087 /* NewMessageModal.swift */,
 				FFC585C927CCCF040000CCB2 /* MapModal.swift */,
-				FFC585CB27CD52C00000CCB2 /* Profile.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,14 +325,15 @@
 				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
 				FF03869327BA99980000A7C9 /* GardenView.swift in Sources */,
 				41DA31AA27BBAFA900684C13 /* MessageList.swift in Sources */,
+				FFC585CE27CE3A680000CCB2 /* RectangleInRadius.swift in Sources */,
 				FF52479227C63AAC009C2C35 /* RecoveryPassword.swift in Sources */,
 				41DA31AC27BBBFE100684C13 /* User.swift in Sources */,
 				4187DB4027BE5FEB0044A5BF /* Login-View.swift in Sources */,
 				FF900AD527BE671700D7B5E7 /* ProfileView.swift in Sources */,
 				FF900ADA27BE8A9300D7B5E7 /* LocationManager.swift in Sources */,
 				4187DB4827BE60950044A5BF /* TermsConditions.swift in Sources */,
-				FFC585CC27CD52C00000CCB2 /* Profile.swift in Sources */,
 				41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */,
+				FFC585D027CE3D780000CCB2 /* RectangleNotInRadius.swift in Sources */,
 				4187DB4627BE607B0044A5BF /* PrivacyPolicy.swift in Sources */,
 				03C6875B27BB9F7600F2D641 /* (null) in Sources */,
 				0307B11E27BC07AF00A667F8 /* HTML View.swift in Sources */,

@@ -31,9 +31,8 @@ struct ProfileView: View {
                 Spacer()
                 NavigationLink(destination: SettingsView(dbManager: dbManager,userSession: userSession),
                                label:{
-                    Image(systemName: "gearshape.fill")
+                    Image(systemName: "gearshape")
                         .resizable()
-                        .foregroundColor(.accentColor)
                         .frame(width: 25, height: 25)
                 })
             }
@@ -65,16 +64,18 @@ struct ProfileView: View {
                 isOn = true
             } label: {
                 ZStack{
-                    Text("Plant a seed.")
-                        .foregroundColor(Color("genericGray"))
+                    RoundedRectangle(cornerRadius:30)
+                       // .stroke(Color.green,lineWidth: 2)
+                        .foregroundColor(.green)
+                        .frame(width: UIScreen.main.bounds.width * 0.91, height: 50)
+                    Text("+ Plant a seed.")
+                       // .foregroundColor(Color("genericGray"))
                         .font(.system(size: 16))
-                        .fontWeight(.regular)
-                        .frame(width: UIScreen.main.bounds.width * 0.86, height: 40, alignment: .leading)
-                    
-                    RoundedRectangle(cornerRadius:10)
-                        .stroke(Color.green,lineWidth: 2)
                         .foregroundColor(.white)
-                        .frame(width: UIScreen.main.bounds.width * 0.91, height: 44)
+                        .fontWeight(.bold)
+                        .frame(width: UIScreen.main.bounds.width * 0.86, height: 40, alignment: .center)
+                    
+                    
                 }
                 .padding(.top,15)
             }
@@ -89,6 +90,7 @@ struct ProfileView: View {
                     .fontWeight(.semibold)
                     .padding(.top,20)
                 Spacer()
+                Image(systemName: "line.3.horizontal.decrease.circle")
             }
             
             ScrollView(showsIndicators: false){
@@ -99,9 +101,9 @@ struct ProfileView: View {
         }
         .navigationBarHidden(true)
         .padding([.top, .leading, .trailing], 15.0)
-//        .onAppear {
-//                dbManager.getUsername(userID: userSession.userAuthenticatedId)
-//        }
+        .onAppear {
+                dbManager.getUsername(userID: userSession.userAuthenticatedId)
+        }
         
     }
 }
