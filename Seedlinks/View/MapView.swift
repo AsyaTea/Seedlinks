@@ -29,6 +29,8 @@ struct MapView: View {
         return distanceInMeters
     }
     
+ 
+    
     var buttonColor: Color {
         return prova ? .green : .gray
     }

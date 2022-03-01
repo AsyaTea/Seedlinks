@@ -21,8 +21,22 @@ struct MessageListView: View {
         }
         .onAppear{
             dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)
+//            orderByDistance()
         }
         //chiamare la funzione nella main view e passare il parametro
+    }
+    func orderByDistance()  {
+
+        for var message in dbManager.userList {
+            let longitude = Double(message.longitude)
+            let latitude = Double(message.latitude)
+            let distanceFromPos = locationManager.getRadius(bLat: latitude ?? 0.0, bLong: longitude ?? 0.0)
+            message.distanceFromPos = distanceFromPos
+        }
+        dbManager.userList.sort {
+            $0.distanceFromPos ?? 0.0 < $1.distanceFromPos ?? 0.0
+        }
+
     }
 }
 

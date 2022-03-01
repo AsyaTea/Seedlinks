@@ -53,7 +53,7 @@ class UserSession: ObservableObject {
     @Published var showingAlert = false
     @ObservedObject var dbManager = DatabaseManager()
         
-    func deleteUser(userID: String) {
+    func deleteUser() {
         
         let user = Auth.auth().currentUser
 
@@ -61,7 +61,8 @@ class UserSession: ObservableObject {
             
             dump(user)
           if error == nil {
-            print("Successful deleting")
+           print("Success")
+         
           } else {
             print("Failed deleting")
           }
@@ -128,7 +129,7 @@ class UserSession: ObservableObject {
                 }
             } else {
                 self.isLogged = false
-                self.userAuthenticatedId = ""
+//                self.userAuthenticatedId = ""
             }
             
         }
