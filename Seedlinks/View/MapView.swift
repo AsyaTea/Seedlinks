@@ -25,11 +25,11 @@ struct MapView: View {
         let myCoord = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
         let genericCoord = CLLocation(latitude: bLat, longitude: bLong)
         let distanceInMeters = myCoord.distance(from: genericCoord)
-//         print("DISTANZA IN METRI MAPPA" ,distanceInMeters)
+        //         print("DISTANZA IN METRI MAPPA" ,distanceInMeters)
         return distanceInMeters
     }
     
- 
+    
     
     var buttonColor: Color {
         return prova ? .green : .gray
@@ -42,11 +42,21 @@ struct MapView: View {
                 MapAnnotation(
                     coordinate: message.coordinate,
                     content: {
-                        if  clickedMessage == message {
-                            
-                            PlaceAnnotationView(locationManager: locationManager, dbManager: dbManager, title : clickedMessage?.message ?? "default", name: clickedMessage?.author ?? "default", messageID: message.id)
-                            
-                        }
+                        
+                        VStack{
+                         if  clickedMessage == message {
+                        
+                        PlaceAnnotationView(locationManager: locationManager, dbManager: dbManager, title : clickedMessage?.message ?? "default", name: clickedMessage?.author ?? "default", messageID: message.id)
+                        
+                    }
+                            else {
+                                PlaceAnnotationViewHidden(locationManager: locationManager, dbManager: dbManager, title: "", name: "", messageID: "")
+                                //
+//
+                    }
+                        
+                        
+//
                         
                         
                         //Se la distanza tra me e il bottone singolo è < 2km -> abilitalo
@@ -57,6 +67,9 @@ struct MapView: View {
                             clickedMessage = dbManager.message
                             
                         } label: {
+                            
+                          
+                            
                             
                             ZStack{
                                 if getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 300.0  {
@@ -78,6 +91,7 @@ struct MapView: View {
                                 }
                             }
                         }
+                        }
                         
                         .disabled(getRadius(bLat: message.coordinate.latitude, bLong: message.coordinate.longitude ) >= 300.0 )
                         
@@ -97,7 +111,7 @@ struct MapView: View {
                 .padding(25)
                 .onAppear{
                     //Prende la posizione corrente appena apri l'app (se hai dato il consenso)
-                   //  locationManager.getRegion()
+                    //  locationManager.getRegion()
                     locationManager.requestAuthorization()
                     dbManager.getData()
                     
@@ -134,7 +148,7 @@ struct PlaceAnnotationView: View {
     let messageID : String
     @State var textHeight: CGFloat = 0
     
-  
+    
     //    let id :  String
     var body: some View {
         
@@ -160,7 +174,7 @@ struct PlaceAnnotationView: View {
                     )
             }
             
-           
+            
         }
         .onPreferenceChange(ContentLengthPreference.self) { value in // <-- this
             DispatchQueue.main.async {
@@ -184,6 +198,67 @@ struct PlaceAnnotationView: View {
         }
     }
 }
+
+struct PlaceAnnotationViewHidden: View {
+        @ObservedObject var locationManager : LocationManager
+        @ObservedObject var dbManager : DatabaseManager
+    let title: String
+    let name: String
+        let messageID : String
+    @State var textHeight: CGFloat = 0
+
+
+    //    let id :  String
+    var body: some View {
+
+                ZStack{
+        //            RoundedRectangle(cornerRadius:10)
+        //                .foregroundColor(Color("TabBar"))
+//                        .frame(width: UIScreen.main.bounds.width * 0.81, height: textHeight+65,alignment: .leading)
+        VStack{
+            Text("")
+                .fontWeight(.bold)
+            Text("")
+                .font(.callout)
+//                .padding(3)
+            // .background(Color("TabBar"))
+            //                    .cornerRadius(10)
+//                                .overlay(
+//                                    GeometryReader { proxy in
+//                                        Color
+//                                            .clear
+//                                            .preference(key: ContentLengthPreference.self,
+//                                                        value: proxy.size.height) // <-- this
+//                                    }
+//                                )
+            //            }
+
+
+        }
+        .padding()
+                    //        .onPreferenceChange(ContentLengthPreference.self) { value in // <-- this
+        //            DispatchQueue.main.async {
+        //                self.textHeight = value
+        //            }
+        //        }
+        //        .opacity(locationManager.didTapOnPin ? 1 : 0)
+        //        .frame(width: 300, height: 80)
+        //        .contextMenu{
+        //            Button(role: .destructive ,action: {
+        //                print("reporting message")
+        //                dbManager.message.reportCount += 1
+        //                dbManager.reportedMessage(messageID: messageID)
+        //            }, label:
+        //                    {
+        //                HStack{
+        //                    Text("Report")
+        //                    Image(systemName: "exclamationmark.bubble.fill")
+        //                }
+        //            })
+                }
+    }
+}
+
 struct CustomButton: Identifiable{
     let id: String
     
