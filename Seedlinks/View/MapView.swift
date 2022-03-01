@@ -95,8 +95,8 @@ struct MapView: View {
                 .padding(25)
                 .onAppear{
                     //Prende la posizione corrente appena apri l'app (se hai dato il consenso)
-                    //  locationManager.getRegion()
-                    //locationManager.requestAuthorization()
+                   //  locationManager.getRegion()
+                    locationManager.requestAuthorization()
                     dbManager.getData()
                     
                 }

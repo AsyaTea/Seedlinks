@@ -91,7 +91,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         if let location = self.lastLocation {
             region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
         }
-        print(#function )
+        print(#function,region)
     }
     
     func setRegion(latitude : Double, longitude : Double){

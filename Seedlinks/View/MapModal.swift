@@ -10,13 +10,14 @@ import MapKit
 
 struct MapModal: View {
     
-    @StateObject var locationManager = LocationManager()
+    @ObservedObject var locationManager : LocationManager
     
     var body: some View {
         Map(coordinateRegion: $locationManager.region,  showsUserLocation: true)
             .onAppear{
-                locationManager.getRegion()
+                locationManager.requestAuthorization()
             }
+            
     }
 }
 

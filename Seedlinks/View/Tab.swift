@@ -19,8 +19,8 @@ struct Tab: View {
     }
     @StateObject var dbManager = DatabaseManager()
     @StateObject var userSession = UserSession()
-    @StateObject var locationManager = LocationManager()
-    @AppStorage("isDarkMode") private var isDarkMode = false
+    @ObservedObject var locationManager = LocationManager()
+//    @AppStorage("isDarkMode") private var isDarkMode = false
     
     var body: some View {
         
@@ -39,7 +39,8 @@ struct Tab: View {
                         .renderingMode(.template)
                     Text("Garden")
                 }
-        }.preferredColorScheme(isDarkMode ? .dark : .light)
+        }
+//        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
     // .environmentObject(userSession)
 }

@@ -60,30 +60,6 @@ struct MessageView: View {
                 .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
                 .blur(radius: 8)
             
-            //Rect
-            //            if category == "Advice" {
-            //                RoundedRectangle(cornerRadius:10)
-            //                    .foregroundColor(.green)
-            //                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
-            //            } else if category == "Message" {
-            //                RoundedRectangle(cornerRadius:10)
-            //                    .foregroundColor(.orange)
-            //                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
-            //            } else if category == "Consiglio" {
-            //                RoundedRectangle(cornerRadius:10)
-            //                    .foregroundColor(.green)
-            //                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
-            //            } else if category == "Messaggio" {
-            //                RoundedRectangle(cornerRadius:10)
-            //                    .foregroundColor(.orange)
-            //                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
-            //            }
-            //            else{
-            //                RoundedRectangle(cornerRadius:10)
-            //                    .foregroundColor(.black)
-            //                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
-            //            }
-            
             if (getRadius1(bLat: Double(latitude) ?? 0.0 , bLong: Double(longitude) ?? 0.0 ) <= 300.0){
                
                 RoundedRectangle(cornerRadius:10)

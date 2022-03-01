@@ -35,81 +35,121 @@ struct SheetView: View {
         }
     }
     
+    //Dismiss keyboard
+    @FocusState private var isFocused: Bool
+    
     var body: some View {
         
         let coordinate : CLLocationCoordinate2D = self.locationManager.lastLocation!.coordinate
         
         NavigationView {
-            VStack {
-                Divider()
-                
-                ZStack{
-                    if message.isEmpty{
-                        Text(placeholder)
+            ScrollView(showsIndicators: false){
+                Group {
+                    
+                    ZStack{
+                        if message.isEmpty{
+                            Text(placeholder)
+                                .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
+                                .foregroundColor(Color("genericGray"))
+                                .disabled(true)
+                        }
+                        
+                        TextEditor(text: $message)
+                            .textFieldStyle(PlainTextFieldStyle())
+                            .focused($isFocused)
+                            .opacity(message.isEmpty ? 0.25 : 1)
                             .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
+                            .onReceive(Just(message)) {_ in limitText(textLimit)}
+                        //DISMISS KEYBOARD
+                            .toolbar {
+                                ToolbarItem(placement: .keyboard){
+                                    Button{
+                                        isFocused = false
+                                    }
+                                label:{
+                                    Image(systemName: "keyboard.chevron.compact.down")
+                                        .foregroundColor(.gray)
+                                }
+                                }
+                            }
+                    }
+                    HStack{
+                        Spacer()
+                        Text(String(message.count) + " / " + String(textLimit))
                             .foregroundColor(Color("genericGray"))
-                            .disabled(true)
+                        
+                    }
+                    .padding()
+                    VStack{
+                        Divider()
+                        HStack{
+                            Text("Propreties")
+                                .font(.system(size: 18))
+                                .fontWeight(.medium)
+                            Spacer()
+                        }
+                        Toggle("Anonymous", isOn: $anonymous)
+                        HStack{
+                            Text("Other users will not be able to see your username")
+                                .fontWeight(.thin)
+                                .foregroundColor(Color("genericGray"))
+                                .font(.system(size: 14))
+                            Spacer()
+                        }
+                        
+                        Toggle("Private", isOn: $privat)
+                        HStack{
+                            Text("This message will not be visibile by other users")
+                                .foregroundColor(Color("genericGray"))
+                                .font(.system(size: 14))
+                                .fontWeight(.thin)
+                            Spacer()
+                        }
+                        HStack{
+                            Picker("Choose a category", selection: $selectedCategory) {
+                                ForEach(categories, id: \.self) {
+                                    Text($0)
+                                }
+                            }
+                            Spacer()
+                        }
                     }
                     
-                    TextEditor(text: $message)
-                        .textFieldStyle(PlainTextFieldStyle())
-                        .opacity(message.isEmpty ? 0.25 : 1)
-                        .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
-                        .onReceive(Just(message)) {_ in limitText(textLimit)}
-                }
-                HStack{
-                    Spacer()
-                    Text(String(message.count) + " / " + String(textLimit))
-                        .foregroundColor(Color("genericGray"))
-                    
-                }
-                .padding()
-                
-                List {
-                    Toggle("Anonymous", isOn: $anonymous)
-                    Toggle("Private", isOn: $privat)
-                    Picker("Choose a category", selection: $selectedCategory) {
-                        ForEach(categories, id: \.self) {
-                            Text($0)
-                        }
-                    }.pickerStyle(.inline)
+                    Divider()
+                    HStack{
+                        Text("Current location")
+                            .font(.system(size: 18))
+                            .fontWeight(.medium)
+                        Spacer()
+                    }
+                    MapModal(locationManager: locationManager)
+                        .cornerRadius(20)
+                        .frame(width: UIScreen.main.bounds.width * 0.91, height: 150)
+                        .disabled(true)
+                      
                     if(locationManager.streetName.isEmpty){
                         HStack{
-                            Text("You are leaving a message at: ")
-                                .font(.system(size: 16))
-                                .fontWeight(.regular)
+                            //                            Text("You are leaving a message at: ")
+                            //                                .font(.system(size: 16))
+                            //                                .fontWeight(.regular)
                             Text(locationManager.cityName)
                                 .font(.system(size: 16))
                                 .fontWeight(.medium)
+                            // Spacer()
                         }
                     }
                     else{
-                        Text("You are leaving a message at: ")
-                            .font(.system(size: 16))
-                            .fontWeight(.regular)
                         Text(locationManager.streetName)
                             .font(.system(size: 16))
-                            .fontWeight(.medium)
+                            .fontWeight(.regular)
                     }
-                  
-                    
-                }
-                .listStyle(InsetListStyle())
-                MapModal()
-                    .cornerRadius(20)
-                    .frame(width: UIScreen.main.bounds.width * 0.91, height: 150)
-                    .disabled(true)
-                Spacer()
+                }.padding()
             }
+            
             .navigationBarItems(leading: Button(action: {
                 self.showSheetView = false
             }) {
-                HStack {
-                    Text("<")
-                        .font(.custom("Times New Roman", size: 18))
-                        .fontWeight(.bold)
-                    Text("Garden")
-                }
+                Text("Cancel")
             })
             .navigationBarTitle(Text("New seed"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {

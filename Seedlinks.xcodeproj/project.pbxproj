@@ -43,6 +43,7 @@
 		FF900AD827BE678F00D7B5E7 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD727BE678F00D7B5E7 /* UserSession.swift */; };
 		FF900ADA27BE8A9300D7B5E7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */; };
 		FFC585CA27CCCF040000CCB2 /* MapModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC585C927CCCF040000CCB2 /* MapModal.swift */; };
+		FFC585CC27CD52C00000CCB2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC585CB27CD52C00000CCB2 /* Profile.swift */; };
 		FFD9892427C269E10025F7CE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD9892327C269E10025F7CE /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		FF900AD727BE678F00D7B5E7 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		FF900AD927BE8A9300D7B5E7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FFC585C927CCCF040000CCB2 /* MapModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModal.swift; sourceTree = "<group>"; };
+		FFC585CB27CD52C00000CCB2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		FFD9892327C269E10025F7CE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,9 +187,10 @@
 				FF03869627BAAEF80000A7C9 /* Tab.swift */,
 				FF03869827BAB6B40000A7C9 /* ListView.swift */,
 				FF900AD427BE671700D7B5E7 /* ProfileView.swift */,
-				413945B427BAB77600F86087 /* NewMessageModal.swift */,
 				FFD9892327C269E10025F7CE /* SettingsView.swift */,
+				413945B427BAB77600F86087 /* NewMessageModal.swift */,
 				FFC585C927CCCF040000CCB2 /* MapModal.swift */,
+				FFC585CB27CD52C00000CCB2 /* Profile.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				FF900AD527BE671700D7B5E7 /* ProfileView.swift in Sources */,
 				FF900ADA27BE8A9300D7B5E7 /* LocationManager.swift in Sources */,
 				4187DB4827BE60950044A5BF /* TermsConditions.swift in Sources */,
+				FFC585CC27CD52C00000CCB2 /* Profile.swift in Sources */,
 				41B0E00027BAB72700D3E9C6 /* Message.swift in Sources */,
 				4187DB4627BE607B0044A5BF /* PrivacyPolicy.swift in Sources */,
 				03C6875B27BB9F7600F2D641 /* (null) in Sources */,
@@ -493,7 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = MYPTJXP3NK;
+				DEVELOPMENT_TEAM = 55H4ABU399;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationUsageDescription = "Messages you send use your current position";
@@ -508,7 +512,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Seedlinks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -526,7 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Seedlinks/Preview Content\"";
-				DEVELOPMENT_TEAM = MYPTJXP3NK;
+				DEVELOPMENT_TEAM = 55H4ABU399;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationUsageDescription = "Messages you send use your current position";
@@ -541,7 +545,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Seedlinks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
