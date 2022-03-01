@@ -25,7 +25,7 @@ struct ProfileView: View {
             HStack{
 //                Text("Welcome back " + String(dbManager.user?.username ?? dbManager.username))
                 Text("Garden")
-                    .fontWeight(.medium)
+                    .fontWeight(.bold)
                     .font(.system(size:28))
                     .scaledToFit()
                     .minimumScaleFactor(0.4)
@@ -59,7 +59,7 @@ struct ProfileView: View {
                 }
                 Spacer()
             }
-            .padding(.top,-5)
+            .padding(.top,-7)
             
             //Plant a seed
             Button {

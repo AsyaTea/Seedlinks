@@ -97,25 +97,8 @@ struct SheetView: View {
                         Divider()
                         HStack{
                             Text("Propreties")
-                                .font(.system(size: 18))
+                                .font(.system(size: 20))
                                 .fontWeight(.medium)
-                            Spacer()
-                        }
-                        Toggle("Anonymous", isOn: $anonymous)
-                        HStack{
-                            Text("Other users will not be able to see your username")
-                                .fontWeight(.thin)
-                                .foregroundColor(Color("genericGray"))
-                                .font(.system(size: 14))
-                            Spacer()
-                        }
-                        
-                        Toggle("Private", isOn: $privat)
-                        HStack{
-                            Text("This message will not be visibile by other users")
-                                .foregroundColor(Color("genericGray"))
-                                .font(.system(size: 14))
-                                .fontWeight(.thin)
                             Spacer()
                         }
                         HStack{
@@ -131,12 +114,33 @@ struct SheetView: View {
                         }
 
                         }
+                        Divider()
+                        Toggle("Anonymous", isOn: $anonymous)
+                        HStack{
+                            Text("Other users will not be able to see your username")
+                                .fontWeight(.thin)
+                                .foregroundColor(Color("genericGray"))
+                                .font(.system(size: 14))
+                                .padding(.top,-3)
+                            Spacer()
+                        }
+                        Divider()
+                        Toggle("Private", isOn: $privat)
+                        HStack{
+                            Text("This message will not be visibile by other users")
+                                .foregroundColor(Color("genericGray"))
+                                .font(.system(size: 14))
+                                .fontWeight(.thin)
+                                .padding(.top,-3)
+                            Spacer()
+                        }
+                        
                     }
                     
                     Divider()
                     HStack{
                         Text("Current location")
-                            .font(.system(size: 18))
+                            .font(.system(size: 20))
                             .fontWeight(.medium)
                         Spacer()
                     }
@@ -154,7 +158,7 @@ struct SheetView: View {
                         }
                     }
                     else{
-                        Text(locationManager.streetName)
+                        Text(locationManager.cityName + " - " + locationManager.streetName)
                             .font(.system(size: 16))
                             .fontWeight(.regular)
                     }
