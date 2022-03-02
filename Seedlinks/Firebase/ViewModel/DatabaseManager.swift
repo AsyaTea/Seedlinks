@@ -18,8 +18,8 @@ class DatabaseManager: ObservableObject {
     //  @Published var user = User(id: "" ,username: "", email: "")
     @Published var user : User?
     @Published var username: String = "Default"
-    @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "",  reportCount: 0)
-    @Published var messageUser = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "",  reportCount: 0)
+    @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "",  reportCount: 0, locationName: "")
+    @Published var messageUser = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "",  reportCount: 0, locationName: "")
     @Published var userDocumentID = ""
   
     @Published var errorMessage = ""
@@ -36,6 +36,8 @@ class DatabaseManager: ObservableObject {
             .getDocuments { querySnapshot, error in
                 
                 if error == nil {
+                    
+                    self.list = [Message]()
                         for d in querySnapshot!.documents {
                             
 //                            print("\(d)")
@@ -51,8 +53,9 @@ class DatabaseManager: ObservableObject {
                                 privat: d["private"] as? Bool ?? Bool.init(),
                                 longitude: d["longitude"] as? String ?? "",
                                 latitude: d["latitude"] as? String ?? "",
-                                reportCount: d["reportCount"] as? Int ?? 0)
-                                    
+                                reportCount: d["reportCount"] as? Int ?? 0,
+                                locationName: d["location"] as? String ?? "")
+                    
                             )
                         }
                 }
@@ -86,7 +89,8 @@ class DatabaseManager: ObservableObject {
                                 privat: d["private"] as? Bool ?? Bool.init(),
                                 longitude: d["longitude"] as? String ?? "",
                                 latitude: d["latitude"] as? String ?? "",
-                                reportCount: d["reportCount"] as? Int ?? 0)
+                                reportCount: d["reportCount"] as? Int ?? 0,
+                                locationName: d["location"] as? String ?? "")
                                     
                             )
                         }
@@ -104,11 +108,9 @@ class DatabaseManager: ObservableObject {
     
 
     
-    func addMessage(userID: String, author: String, message: String, publicationDate: Date, dateString: String, category: String, anonymous: Bool, privat: Bool, latitude : String, longitude : String, reportCount: Int) {
+    func addMessage(userID: String, author: String, message: String, publicationDate: Date, dateString: String, category: String, anonymous: Bool, privat: Bool, latitude : String, longitude : String, reportCount: Int, locationName : String) {
         
-        
-        
-        db.collection("messages").addDocument(data: ["userID": userID , "author": author, "message": message, "publicationDate": publicationDate, "dateString": dateString, "category": category, "anonymous": anonymous, "private": privat, "latitude" : latitude,"longitude" :longitude, "reportCount" : 0]) { error in
+        db.collection("messages").addDocument(data: ["userID": userID , "author": author, "message": message, "publicationDate": publicationDate, "dateString": dateString, "category": category, "anonymous": anonymous, "private": privat, "latitude" : latitude,"longitude" :longitude, "reportCount" : 0,"location": locationName]) { error in
             
             if error == nil {
                 
@@ -263,7 +265,7 @@ private func fetchCurrentUser() {
     
     func formatting(date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.dateFormat = "dd/MM/yyyy"
         return formatter.string(from: date)
     }
     

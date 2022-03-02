@@ -28,6 +28,44 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var cityName : String = NSLocalizedString(currLocation, comment: "")
     let geoCoder = CLGeocoder()
     
+    //Reverse geolocation for every message
+    @Published var streetNameMessage : String = ""
+    @Published var cityNameMessage : String = ""
+    
+    func reverseGeoMessage(latitude : Double, longitude : Double ) {
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        geoCoder.reverseGeocodeLocation(location, completionHandler:
+                                            {
+            placemarks, error -> Void in
+            
+            // Place details
+            guard let placeMark = placemarks?.first else { return }
+            
+            // Location name
+            if let locationName = placeMark.location {
+                print(locationName)
+            }
+            // Street address
+            if let street = placeMark.thoroughfare {
+                self.streetNameMessage = street
+                print(street)
+            }
+            // City
+            if let city = placeMark.subAdministrativeArea {
+                self.cityNameMessage = city
+                print(city)
+            }
+            // Zip code
+            if let zip = placeMark.isoCountryCode {
+                print(zip)
+            }
+            // Country
+            if let country = placeMark.country {
+                print(country)
+            }
+        })
+    }
+    
     func reverseGeo(latitude : Double, longitude : Double ) {
         let location = CLLocation(latitude: latitude, longitude: longitude)
         geoCoder.reverseGeocodeLocation(location, completionHandler:

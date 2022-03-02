@@ -30,8 +30,10 @@ struct MessageView: View {
     let dateString: String
     var category: String
     var anonymous: Bool
+    var privat: Bool
     let longitude: String
     let latitude: String
+    let locationName : String
     @State var textHeight: CGFloat = 0
     
     @ObservedObject var dbManager : DatabaseManager
@@ -39,86 +41,31 @@ struct MessageView: View {
     @ObservedObject var userSession : UserSession
     
     @State var navigateToMap = false
-  
+    
     
     func getRadius1(bLat : Double, bLong: Double) -> Double {
         let myCoord1 = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
-      //  print("MYCORD",myCoord1)
         let genericCoord1 = CLLocation(latitude: bLat, longitude: bLong)
-      //  print("GENERIC",genericCoord1)
         let distanceInMeters1 = myCoord1.distance(from: genericCoord1)
-       // print("DISTANZA IN METRI" ,distanceInMeters1)
+        // print("DISTANZA IN METRI" ,distanceInMeters1)
         return distanceInMeters1
     }
     
     var body: some View {
         ZStack{
-            //Shadow
-            RoundedRectangle(cornerRadius:10)
-                .foregroundColor(Color("shadowColor"))
-                .opacity(0.2)
-                .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
-                .blur(radius: 8)
-            
             if (getRadius1(bLat: Double(latitude) ?? 0.0 , bLong: Double(longitude) ?? 0.0 ) <= 300.0){
-               
-                RoundedRectangle(cornerRadius:10)
-                    .foregroundColor(.green)
-                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+                
+                RectangleInRadius(messageId: messageId, messageText: messageText, messageAuthor: messageAuthor, pubblicationDate: pubblicationDate, dateString: dateString, category: category, anonymous: anonymous, privat: privat, longitude: longitude, latitude: latitude, locationName: locationName)
                 
             }
             else {
-                RoundedRectangle(cornerRadius:10)
-                    .foregroundColor(Color("notInRadius"))
-                    .frame(width: UIScreen.main.bounds.width * 0.91, height: textHeight+65,alignment: .leading)
+                RectangleNotInRadius(messageId: messageId, messageText: messageText, messageAuthor: messageAuthor, pubblicationDate: pubblicationDate, dateString: dateString, category: category, anonymous: anonymous, privat: privat, longitude: longitude, latitude: latitude, locationName: locationName)
             }
-            
-            VStack(alignment: .leading){
-                //Nickname
-                if anonymous == true {
-                    Text("Anonymous")
-                        .foregroundColor(Color("Inverso"))
-                        .font(.system(size: 16))
-                        .fontWeight(.bold)
-                } else {
-                    Text(dbManager.username)
-                        .foregroundColor(Color("Inverso"))
-                        .font(.system(size: 16))
-                        .fontWeight(.bold)
-                }
-                
-                //Message
-                Text(messageText)
-                    .foregroundColor(Color("Inverso"))
-                    .font(.system(size: 16))
-                    .fontWeight(.regular)
-                    .overlay(
-                        GeometryReader { proxy in
-                            Color
-                                .clear
-                                .preference(key: ContentLengthPreference.self,
-                                            value: proxy.size.height) // <-- this
-                        }
-                    )
-                
-                //TIME STAMP
-                //                Text(DatabaseManager().formatting(date: pubblicationDate))
-                Text(dateString)
-                    .foregroundColor(Color("Inverso"))
-                    .font(.system(size: 16))
-                    .fontWeight(.regular)
-                    .padding(.top,-5)
-                
-            }.frame(width: UIScreen.main.bounds.width * 0.85,alignment: .leading)
-                .onPreferenceChange(ContentLengthPreference.self) { value in // <-- this
-                    DispatchQueue.main.async {
-                        self.textHeight = value
-                    }
-                }
-        } .contextMenu
+        }
+        .contextMenu
         {
             Button(action: {
-         
+                
                 dbManager.getMessageIdUserQuery(messageID: messageId)
                 locationManager.setRegion(latitude: Double(dbManager.messageUser.latitude) ?? 0.0, longitude: Double(dbManager.messageUser.longitude) ?? 0.0)
                 print(dbManager.messageUser.latitude,dbManager.messageUser.longitude)
@@ -129,11 +76,11 @@ struct MessageView: View {
             }
                    , label:
                     {
-              
-                    HStack{
-                        
-                        Text("View on map")
-                        Image(systemName: "map")
+                
+                HStack{
+                    
+                    Text("View on map")
+                    Image(systemName: "map")
                 }
             })
             

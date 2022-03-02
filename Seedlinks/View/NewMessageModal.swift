@@ -38,6 +38,19 @@ struct SheetView: View {
     //Dismiss keyboard
     @FocusState private var isFocused: Bool
     
+    //LABEL FOR CATEGORY MENU
+    var customLabel: some View {
+           HStack {
+               Text("Select a category:")
+                   .foregroundColor(.accentColor)
+               Text(String(selectedCategory))
+                   .foregroundColor(.primary)
+               Spacer()
+           }
+           .font(.system(size: 17))
+//           .frame(height: 32)
+       }
+    
     var body: some View {
         
         let coordinate : CLLocationCoordinate2D = self.locationManager.lastLocation!.coordinate
@@ -83,42 +96,51 @@ struct SheetView: View {
                     VStack{
                         Divider()
                         HStack{
-                            Text("Propreties")
-                                .font(.system(size: 18))
+                            Text("Properties")
+                                .font(.system(size: 20))
                                 .fontWeight(.medium)
                             Spacer()
                         }
+                        HStack{
+                            Menu{
+                                Picker(selection: $selectedCategory,label:EmptyView()) {
+                                ForEach(categories, id: \.self) {
+                                    Text($0)
+                                }
+                            }
+                            Spacer()
+                        }label: {
+                            customLabel
+                        }
+
+                        }
+                        Divider()
                         Toggle("Anonymous", isOn: $anonymous)
                         HStack{
                             Text("Other users will not be able to see your username")
                                 .fontWeight(.thin)
                                 .foregroundColor(Color("genericGray"))
                                 .font(.system(size: 14))
+                                .padding(.top,-3)
                             Spacer()
                         }
-                        
+                        Divider()
                         Toggle("Private", isOn: $privat)
                         HStack{
                             Text("This message will not be visibile by other users")
                                 .foregroundColor(Color("genericGray"))
                                 .font(.system(size: 14))
                                 .fontWeight(.thin)
+                                .padding(.top,-3)
                             Spacer()
                         }
-                        HStack{
-                            Picker("Choose a category", selection: $selectedCategory) {
-                                ForEach(categories, id: \.self) {
-                                    Text($0)
-                                }
-                            }
-                            Spacer()
-                        }
+                        
                     }
                     
                     Divider()
                     HStack{
                         Text("Current location")
-                            .font(.system(size: 18))
+                            .font(.system(size: 20))
                             .fontWeight(.medium)
                         Spacer()
                     }
@@ -129,9 +151,6 @@ struct SheetView: View {
                       
                     if(locationManager.streetName.isEmpty){
                         HStack{
-                            //                            Text("You are leaving a message at: ")
-                            //                                .font(.system(size: 16))
-                            //                                .fontWeight(.regular)
                             Text(locationManager.cityName)
                                 .font(.system(size: 16))
                                 .fontWeight(.medium)
@@ -139,11 +158,13 @@ struct SheetView: View {
                         }
                     }
                     else{
-                        Text(locationManager.streetName)
+                        Text(locationManager.cityName + " - " + locationManager.streetName)
                             .font(.system(size: 16))
                             .fontWeight(.regular)
                     }
                 }.padding()
+            }.onAppear{
+                locationManager.reverseGeoMessage(latitude: coordinate.latitude,longitude: coordinate.longitude)
             }
             
             .navigationBarItems(leading: Button(action: {
@@ -154,8 +175,20 @@ struct SheetView: View {
             .navigationBarTitle(Text("New seed"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 self.showSheetView = false
-                dbManager.addMessage(userID: userSession.userAuthenticatedId, author: dbManager.user?.username ?? dbManager.username, message: message.lowercased(), publicationDate: Date.now, dateString: DatabaseManager().formatting(date: Date.now), category: selectedCategory, anonymous: anonymous, privat: privat, latitude:String(coordinate.latitude) ,longitude:String(coordinate.longitude),
-                                     reportCount: 0 )
+                dbManager.addMessage(
+                    userID: userSession.userAuthenticatedId,
+                    author: dbManager.user?.username ?? dbManager.username,
+                    message: message,
+                    publicationDate: Date.now,
+                    dateString: DatabaseManager().formatting(date: Date.now),
+                    category: selectedCategory,
+                    anonymous: anonymous,
+                    privat: privat,
+                    latitude:String(coordinate.latitude),
+                    longitude:String(coordinate.longitude),
+                    reportCount: 0,
+                    locationName: locationManager.streetNameMessage.isEmpty ? locationManager.cityNameMessage : locationManager.streetNameMessage
+                )
                 dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)
                 
             }) {
