@@ -65,6 +65,7 @@ struct SheetView: View {
                                 .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
                                 .foregroundColor(Color("genericGray"))
                                 .disabled(true)
+                                .padding()
                         }
                         
                         TextEditor(text: $message)
