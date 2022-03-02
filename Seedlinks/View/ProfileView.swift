@@ -21,7 +21,7 @@ struct ProfileView: View {
         HStack {
             Image(systemName: "line.3.horizontal.decrease.circle")
                 .resizable()
-                .frame(width:17,height: 17)
+                .frame(width:19,height: 19)
 //            Spacer()
         }
         .font(.system(size: 17))
