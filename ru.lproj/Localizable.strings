@@ -1,8 +1,8 @@
 /* No comment provided by engineer. */
-"2h ago" = "2ч назад";
+"+ Plant a seed" = "+ Посадить семя";
 
 /* No comment provided by engineer. */
-"Advice" = "Cовет";
+"2h ago" = "2ч назад";
 
 /* No comment provided by engineer. */
 "and our" = "и наши";
@@ -11,10 +11,16 @@
 "Anonymous" = "Анонимно";
 
 /* No comment provided by engineer. */
+"Are you sure you want to delete your account?" = "Вы действительно хотите удалить аккаунт?";
+
+/* No comment provided by engineer. */
 "By clicking on the button above, you agree to our" = "Нажимая на кнопку выше, вы соглашаетесь с нашими";
 
 /* No comment provided by engineer. */
-"Choose a category" = "Выберите категорию";
+"Cancel" = "Отмена";
+
+/* No comment provided by engineer. */
+"Current location" = "Ваша позиция";
 
 /* No comment provided by engineer. */
 "Delete" = "Удалить";
@@ -38,9 +44,6 @@
 "Login succeeded!" = "Вы вошли успешно!";
 
 /* No comment provided by engineer. */
-"Message" = "Сообщение";
-
-/* No comment provided by engineer. */
 "New seed" = "Новое семя";
 
 /* No comment provided by engineer. */
@@ -50,13 +53,13 @@
 "Ok" = "Ок";
 
 /* No comment provided by engineer. */
+"Other users will not be able to see your username" = "Остальные пользователи не будут видеть ваш юзернейм";
+
+/* No comment provided by engineer. */
 "Password" = "Пароль";
 
 /* No comment provided by engineer. */
 "Plant" = "Посадить";
-
-/* No comment provided by engineer. */
-"Plant a seed." = "Посади семя.";
 
 /* No comment provided by engineer. */
 "Please insert your email" = "Пожалуйста, введите ваш email";
@@ -74,6 +77,9 @@
 "Private" = "Приватно";
 
 /* No comment provided by engineer. */
+"Properties" = "Свойства";
+
+/* No comment provided by engineer. */
 "Register" = "Регистрация";
 
 /* No comment provided by engineer. */
@@ -84,6 +90,9 @@
 
 /* No comment provided by engineer. */
 "Seeds" = "Семена";
+
+/* No comment provided by engineer. */
+"Select a category:" = "Выберите категорию:";
 
 /* No comment provided by engineer. */
 "Send reset password" = "Восстановить пароль";
@@ -101,6 +110,12 @@
 "Terms of Service" = "Правила сервиса";
 
 /* No comment provided by engineer. */
+"There is no undo" = "Это действие нельзя отменить";
+
+/* No comment provided by engineer. */
+"This message will not be visibile by other users" = "Это сообщение не будет видно другим пользователям";
+
+/* No comment provided by engineer. */
 "Use your email to create an account" = "Используйте ваш email для создания аккаунта";
 
 /* No comment provided by engineer. */
@@ -110,16 +125,13 @@
 "Username" = "Имя пользователя";
 
 /* No comment provided by engineer. */
-"Version 1.5" = "Версия 1.5";
+"Version 1.6" = "Версия 1.6";
 
 /* No comment provided by engineer. */
 "View on map" = "Посмотреть на карте";
 
 /* No comment provided by engineer. */
-"Welcome back " = "С возвращением";
-
-/* No comment provided by engineer. */
-"Write a text" = "Напишите сообщение";
+"Welcome back" = "Добро пожаловать";
 
 /* No comment provided by engineer. */
 "You have been missed" = "Мы по вам скучали";
