@@ -71,6 +71,7 @@ struct InfoList: View {
                         .foregroundColor(.green)
                         .padding()
                         .frame(width: 50.0, height: 50.0)
+                    
                     Spacer()
                     
                     Image(systemName: "bubble.left.fill")
@@ -130,7 +131,7 @@ struct OnboardingButton: View {
         GeometryReader { proxy in
             HStack {
                 VStack{
-                    Text("Enable your position to explore the full functionalities of the app.")
+                    Text("Allow the app to access your position to explore the full functionalities.")
                         .font(.footnote)
                         .multilineTextAlignment(.center)
                         .padding()

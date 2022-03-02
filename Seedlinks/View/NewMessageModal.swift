@@ -128,7 +128,7 @@ struct SheetView: View {
                         Divider()
                         Toggle("Private", isOn: $privat)
                         HStack{
-                            Text("This message will not be visibile by other users")
+                            Text("This message will not be visible by other users")
                                 .foregroundColor(Color("genericGray"))
                                 .font(.system(size: 14))
                                 .fontWeight(.thin)
