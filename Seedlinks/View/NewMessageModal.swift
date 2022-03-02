@@ -96,7 +96,7 @@ struct SheetView: View {
                     VStack{
                         Divider()
                         HStack{
-                            Text("Propreties")
+                            Text("Properties")
                                 .font(.system(size: 20))
                                 .fontWeight(.medium)
                             Spacer()

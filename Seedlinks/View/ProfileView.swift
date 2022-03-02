@@ -17,13 +17,24 @@ struct ProfileView: View {
     @State private var selectedCategory = ""
     var filtering = ["Date","Distance"]
     
+    var customLabel: some View {
+        HStack {
+            Image(systemName: "line.3.horizontal.decrease.circle")
+                .resizable()
+                .frame(width:17,height: 17)
+//            Spacer()
+        }
+        .font(.system(size: 17))
+        //           .frame(height: 32)
+    }
+    
     var body: some View {
         
         VStack{
             
             //Welcome back
             HStack{
-//                Text("Welcome back " + String(dbManager.user?.username ?? dbManager.username))
+                //                Text("Welcome back " + String(dbManager.user?.username ?? dbManager.username))
                 Text("Garden")
                     .fontWeight(.bold)
                     .font(.system(size:28))
@@ -67,11 +78,11 @@ struct ProfileView: View {
             } label: {
                 ZStack{
                     RoundedRectangle(cornerRadius:30)
-                       // .stroke(Color.green,lineWidth: 2)
+                    // .stroke(Color.green,lineWidth: 2)
                         .foregroundColor(.green)
                         .frame(width: UIScreen.main.bounds.width * 0.91, height: 50)
                     Text("+ Plant a seed")
-                       // .foregroundColor(Color("genericGray"))
+                    // .foregroundColor(Color("genericGray"))
                         .font(.system(size: 16))
                         .foregroundColor(.white)
                         .fontWeight(.bold)
@@ -91,18 +102,15 @@ struct ProfileView: View {
                     .font(.system(size: 22))
                     .fontWeight(.semibold)
                 Spacer()
-                
-                Picker(selection: $selectedCategory,label:
-                    Image(systemName: "line.3.horizontal.decrease.circle")
-                        .resizable()
-                        .frame(width:17,height: 17)
-                ) {
-                    ForEach(filtering, id: \.self) {
-                        Text($0)
+                Menu{
+                    Picker(selection: $selectedCategory,label:EmptyView()){
+                        ForEach(filtering, id: \.self) {
+                            Text($0)
+                        }
                     }
+                }label: {
+                    customLabel
                 }
-                
-                
             }.padding(.top,20)
             
             ScrollView(showsIndicators: false){
@@ -114,7 +122,7 @@ struct ProfileView: View {
         .navigationBarHidden(true)
         .padding([.top, .leading, .trailing], 15.0)
         .onAppear {
-                dbManager.getUsername(userID: userSession.userAuthenticatedId)
+            dbManager.getUsername(userID: userSession.userAuthenticatedId)
         }
         
     }
