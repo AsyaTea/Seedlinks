@@ -28,26 +28,9 @@ struct SignInView: View {
     @State var password: String = ""
     @State var errorString : String = ""
     
-    @State var authenticationDidFail: Bool = false
-    @State var authenticationDidSucceed: Bool = false
     
-    private func loginUser() {
-        FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, err in
-            if let err = err {
-                print(NSLocalizedString(failedToLog, comment: ""), err)
-                authenticationDidFail = true
-                errorString = err.localizedDescription
-                return
-            }
-            let userID = result?.user.uid ?? ""
-            print(NSLocalizedString(successfulLog, comment: "") + "\(userID)")
-            authenticationDidSucceed = true
-            userSession.isLogged = true
-            userSession.userAuthenticatedId = userID
-            
-            
-        }
-    }
+    
+
     
     var body: some View {
         
@@ -69,7 +52,7 @@ struct SignInView: View {
                 Text("  ")
                 emailTextField(email: $email)
                 PasswordSecureField(password: $password)
-                if authenticationDidFail {
+                if userSession.authenticationDidFail {
                     Text(errorString)
                         .offset(y: -10)
                         .foregroundColor(.red)
@@ -87,7 +70,7 @@ struct SignInView: View {
                 guard !email.isEmpty, !password.isEmpty else {
                     return
                 }
-                loginUser()
+                userSession.loginUser(email: email, password: password)
                 userSession.sendSignInEmail(email: email)
                 
                 
@@ -96,7 +79,7 @@ struct SignInView: View {
                 LoginButtonContent()
             }
             .padding()
-            if authenticationDidSucceed {
+            if userSession.authenticationDidSucceed {
                 Text("Login succeeded!")
                     .font(.headline)
                     .frame(width: 250, height: 80)

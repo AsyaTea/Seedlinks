@@ -142,6 +142,8 @@ struct PlaceAnnotationView: View {
             RoundedRectangle(cornerRadius:10)
                 .foregroundColor(Color("TabBar"))
                 .frame(width: UIScreen.main.bounds.width * 0.81, height: textHeight+65,alignment: .leading)
+                .border(.cyan, width: 1)
+                
             VStack{
                 Text(name)
                     .fontWeight(.bold)

@@ -51,6 +51,8 @@ class UserSession: ObservableObject {
     @Published var registrationDidSucceed: Bool = false
     @Published var errorString : String = ""
     @Published var showingAlert = false
+    @Published var authenticationDidFail: Bool = false
+    @Published var authenticationDidSucceed: Bool = false
     @ObservedObject var dbManager = DatabaseManager()
         
     func deleteUser() {
@@ -134,6 +136,24 @@ class UserSession: ObservableObject {
             
         }
     
+    }
+    
+    func loginUser(email : String, password: String) {
+        FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, err in
+            if let err = err {
+                print(NSLocalizedString(failedToLog, comment: ""), err)
+                self.authenticationDidFail = true
+                self.errorString = err.localizedDescription
+                return
+            }
+            let userID = result?.user.uid ?? ""
+            print(NSLocalizedString(successfulLog, comment: "") + "\(userID)")
+            self.authenticationDidSucceed = true
+            self.isLogged = true
+            self.userAuthenticatedId = userID
+            
+            
+        }
     }
     
     func logOut() {

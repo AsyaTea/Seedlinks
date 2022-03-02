@@ -99,9 +99,9 @@ struct ProfileView: View {
         }
         .navigationBarHidden(true)
         .padding([.top, .leading, .trailing], 15.0)
-//        .onAppear {
-//                dbManager.getUsername(userID: userSession.userAuthenticatedId)
-//        }
+        .onAppear {
+                dbManager.getUsername(userID: userSession.userAuthenticatedId)
+        }
         
     }
 }
