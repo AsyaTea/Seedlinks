@@ -5,7 +5,7 @@
 "2h ago" = "il y a 2h";
 
 /* No comment provided by engineer. */
-"Advice" = "";
+"Advice" = "Conseil";
 
 /* No comment provided by engineer. */
 "Allow the app to access your position to explore the full functionalities." = "Autorisez l'application à accéder à votre position pour explorer toutes les fonctionnalités.";
@@ -29,7 +29,7 @@
 "Current location" = "Position actuelle";
 
 /* No comment provided by engineer. */
-"Date" = "";
+"Date" = "Date";
 
 /* No comment provided by engineer. */
 "Delete" = "Supprimer";
@@ -38,7 +38,7 @@
 "Delete Account" = "Supprimer mon compte";
 
 /* No comment provided by engineer. */
-"Distance" = "";
+"Distance" = "Distance";
 
 /* No comment provided by engineer. */
 "Explore the world" = "Explore le monde";
@@ -56,7 +56,7 @@
 "Join the community" = "Joindre la communauté";
 
 /* No comment provided by engineer. */
-"Leave a sign around the world" = "";
+"Leave a sign around the world" = "Laissez votre empreinte dans le monde entier";
 
 /* No comment provided by engineer. */
 "Log out" = "Se déconnecter";
@@ -65,7 +65,7 @@
 "Login succeeded!" = "Connexion réussie!";
 
 /* No comment provided by engineer. */
-"Message" = "";
+"Message" = "Message";
 
 /* No comment provided by engineer. */
 "Navigate through the map and find the most popular places." = "Naviguez sur la mappe et trouvez les endroits les plus populaires.";

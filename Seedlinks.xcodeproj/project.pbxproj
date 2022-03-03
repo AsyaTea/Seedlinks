@@ -54,14 +54,15 @@
 		0307B11F27BC119800A667F8 /* Policy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Policy.html; sourceTree = "<group>"; };
 		0307B12027BC119800A667F8 /* TTC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TTC.html; sourceTree = "<group>"; };
 		037C104E27CFC56800B2172A /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		037C105627D0CAAE00B2172A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		037C105727D0E30E00B2172A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		038D255127C8DD4D005D0CF5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		038D255227C8DD56005D0CF5 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		038D255327C8DD61005D0CF5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		038D255427C8DD68005D0CF5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		038D255627C8EB3A005D0CF5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Seedlinks-InfoPlist.strings"; sourceTree = "<group>"; };
-		038D255827C8EB80005D0CF5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Seedlinks-InfoPlist.strings"; sourceTree = "<group>"; };
-		038D255927C8EB94005D0CF5 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = "it.lproj/Seedlinks-InfoPlist.strings"; sourceTree = "<group>"; };
-		038D255A27C93039005D0CF5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "ru.lproj/Seedlinks-InfoPlist.strings"; sourceTree = "<group>"; };
+		038D255627C8EB3A005D0CF5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		038D255927C8EB94005D0CF5 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		038D255A27C93039005D0CF5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		413945B427BAB77600F86087 /* NewMessageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageModal.swift; sourceTree = "<group>"; };
 		4187DB3F27BE5FEB0044A5BF /* Login-View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-View.swift"; sourceTree = "<group>"; };
 		4187DB4327BE60590044A5BF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -354,9 +355,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				038D255627C8EB3A005D0CF5 /* es */,
-				038D255827C8EB80005D0CF5 /* fr */,
 				038D255927C8EB94005D0CF5 /* it */,
 				038D255A27C93039005D0CF5 /* ru */,
+				037C105627D0CAAE00B2172A /* fr */,
 			);
 			name = "Seedlinks-InfoPlist.strings";
 			sourceTree = "<group>";
@@ -368,6 +369,7 @@
 				038D255227C8DD56005D0CF5 /* it */,
 				038D255327C8DD61005D0CF5 /* es */,
 				038D255427C8DD68005D0CF5 /* ru */,
+				037C105727D0E30E00B2172A /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -506,8 +508,9 @@
 				DEVELOPMENT_TEAM = 5DPX8M9Z36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationUsageDescription = NSLocationUsageDescription;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Messages you send use your current position";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Start exploring Seeds around you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -539,8 +542,9 @@
 				DEVELOPMENT_TEAM = 5DPX8M9Z36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationUsageDescription = NSLocationUsageDescription;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Messages you send use your current position";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Start exploring Seeds around you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
