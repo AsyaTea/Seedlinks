@@ -27,7 +27,7 @@ struct ProfileView: View {
                 .frame(width:19,height: 19)
 //            Spacer()
         }
-        .font(.system(size: 17))
+        .font(.body)
         //           .frame(height: 32)
     }
     
@@ -40,7 +40,7 @@ struct ProfileView: View {
                 //                Text("Welcome back " + String(dbManager.user?.username ?? dbManager.username))
                 Text("Garden")
                     .fontWeight(.bold)
-                    .font(.system(size:28))
+                    .font(.title)
                     .scaledToFit()
                     .minimumScaleFactor(0.4)
                     .lineLimit(1)
@@ -62,13 +62,13 @@ struct ProfileView: View {
                 if(locationManager.streetName.isEmpty){
                     Text(locationManager.cityName)
                         .foregroundColor(Color("genericGray"))
-                        .font(.system(size: 16))
+                        .font(.callout)
                         .fontWeight(.medium)
                 }
                 else{
                     Text(locationManager.streetName)
                         .foregroundColor(Color("genericGray"))
-                        .font(.system(size: 16))
+                        .font(.callout)
                         .fontWeight(.medium)
                 }
                 Spacer()
@@ -86,7 +86,7 @@ struct ProfileView: View {
                         .frame(width: UIScreen.main.bounds.width * 0.91, height: 50)
                     Text("+ Plant a seed")
                     // .foregroundColor(Color("genericGray"))
-                        .font(.system(size: 16))
+                        .font(.callout)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .frame(width: UIScreen.main.bounds.width * 0.86, height: 40, alignment: .center)
@@ -102,7 +102,7 @@ struct ProfileView: View {
             // MARK: Your seeds
             HStack{
                 Text("Your seeds")
-                    .font(.system(size: 22))
+                    .font(.title2)
                     .fontWeight(.semibold)
                 Spacer()
                 Menu{
@@ -131,9 +131,9 @@ struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView(
-            userSession: UserSession(),dbManager: DatabaseManager(),locationManager: LocationManager())
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView(
+//            userSession: UserSession(),dbManager: DatabaseManager(),locationManager: LocationManager())
+//    }
+//}

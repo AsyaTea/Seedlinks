@@ -80,7 +80,26 @@ struct MapView: View {
                                     Image("sprout")
                                         .resizable()
                                         .frame(width: 15, height: 15)
-                                } else{
+                                }
+//                                else if getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 800.0 {
+//                                    Circle()
+//                                        .foregroundColor(.teal)
+//                                        .frame(width: 25, height: 25)
+//                                    //    .padding(20)
+//                                    Image("sprout")
+//                                        .resizable()
+//                                        .frame(width: 15, height: 15)
+//                                }
+//                                else if getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 2000.0 {
+//                                    Circle()
+//                                        .foregroundColor(.mint)
+//                                        .frame(width: 25, height: 25)
+//                                    //    .padding(20)
+//                                    Image("sprout")
+//                                        .resizable()
+//                                        .frame(width: 15, height: 15)
+//                                }
+                                else{
                                     Circle()
                                         .foregroundColor(.green)
                                         .frame(width: 25, height: 25)

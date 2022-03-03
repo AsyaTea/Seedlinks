@@ -67,12 +67,12 @@ struct SheetView: View {
                                 .disabled(true)
                                 .padding()
                         }
-                        
                         TextEditor(text: $message)
                             .textFieldStyle(PlainTextFieldStyle())
                             .focused($isFocused)
                             .opacity(message.isEmpty ? 0.25 : 1)
                             .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
+                            .padding()
                             .onReceive(Just(message)) {_ in limitText(textLimit)}
                         //DISMISS KEYBOARD
                             .toolbar {
@@ -84,12 +84,13 @@ struct SheetView: View {
                                     Image(systemName: "keyboard.chevron.compact.down")
                                         .foregroundColor(.gray)
                                 }
-                                }
                             }
+                        }
                     }
                     HStack{
                         Spacer()
                         Text(String(message.count) + " / " + String(textLimit))
+                            .font(.subheadline)
                             .foregroundColor(Color("genericGray"))
                         
                     }
@@ -98,7 +99,7 @@ struct SheetView: View {
                         Divider()
                         HStack{
                             Text("Properties")
-                                .font(.system(size: 20))
+                                .font(.title3)
                                 .fontWeight(.medium)
                             Spacer()
                         }
@@ -121,7 +122,7 @@ struct SheetView: View {
                             Text("Other users will not be able to see your username")
                                 .fontWeight(.thin)
                                 .foregroundColor(Color("genericGray"))
-                                .font(.system(size: 14))
+                                .font(.subheadline)
                                 .padding(.top,-3)
                             Spacer()
                         }
@@ -130,7 +131,7 @@ struct SheetView: View {
                         HStack{
                             Text("This message will not be visible by other users")
                                 .foregroundColor(Color("genericGray"))
-                                .font(.system(size: 14))
+                                .font(.subheadline)
                                 .fontWeight(.thin)
                                 .padding(.top,-3)
                             Spacer()
@@ -141,7 +142,7 @@ struct SheetView: View {
                     Divider()
                     HStack{
                         Text("Current location")
-                            .font(.system(size: 20))
+                            .font(.title3)
                             .fontWeight(.medium)
                         Spacer()
                     }.padding()
@@ -153,14 +154,14 @@ struct SheetView: View {
                     if(locationManager.streetName.isEmpty){
                         HStack{
                             Text(locationManager.cityName)
-                                .font(.system(size: 16))
+                                .font(.callout)
                                 .fontWeight(.medium)
                             // Spacer()
                         }
                     }
                     else{
                         Text(locationManager.cityName + " - " + locationManager.streetName)
-                            .font(.system(size: 16))
+                            .font(.callout)
                             .fontWeight(.regular)
                     }
                 }.padding()
