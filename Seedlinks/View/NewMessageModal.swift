@@ -136,7 +136,7 @@ struct SheetView: View {
                             Spacer()
                         }
                         
-                    }
+                    }.padding()
                     
                     Divider()
                     HStack{
@@ -144,7 +144,7 @@ struct SheetView: View {
                             .font(.system(size: 20))
                             .fontWeight(.medium)
                         Spacer()
-                    }
+                    }.padding()
                     MapModal(locationManager: locationManager)
                         .cornerRadius(20)
                         .frame(width: UIScreen.main.bounds.width * 0.91, height: 150)

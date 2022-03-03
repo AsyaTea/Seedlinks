@@ -5,6 +5,9 @@
 "2h ago" = "2ч назад";
 
 /* No comment provided by engineer. */
+"Allow the app to access your position to explore the full functionalities." = "Предоставьте доступ к местоположению для использования всей функциональности";
+
+/* No comment provided by engineer. */
 "and our" = "и наши";
 
 /* No comment provided by engineer. */
@@ -35,7 +38,7 @@
 "Delete Account" = "Удалить аккаунт";
 
 /* No comment provided by engineer. */
-"Distance" = "";
+"Explore the world" = "Путешествуйте";
 
 /* No comment provided by engineer. */
 "Forgotten password?" = "Забыли пароль?";
@@ -47,7 +50,7 @@
 "Get started!" = "Давайте начнем!";
 
 /* No comment provided by engineer. */
-"Leave a sign around the world" = "";
+"Join the community" = "Присоединиться к сообществу";
 
 /* No comment provided by engineer. */
 "Log out" = "Выйти";
@@ -56,7 +59,7 @@
 "Login succeeded!" = "Вы вошли успешно!";
 
 /* No comment provided by engineer. */
-"Message" = "";
+"Navigate through the map and find the most popular places." = "Перемещайтесь по карте и находите самые популярные места";
 
 /* No comment provided by engineer. */
 "New seed" = "Новое семя";
@@ -68,6 +71,9 @@
 "Ok" = "Ок";
 
 /* No comment provided by engineer. */
+"Once you delete your account you won't be able to restore it." = "Вы не сможете восстановить аккаунт после его удаления";
+
+/* No comment provided by engineer. */
 "Other users will not be able to see your username" = "Остальные пользователи не будут видеть ваш юзернейм";
 
 /* No comment provided by engineer. */
@@ -75,6 +81,9 @@
 
 /* No comment provided by engineer. */
 "Plant" = "Посадить";
+
+/* No comment provided by engineer. */
+"Plant your thoughts" = "Посади ваши мысли";
 
 /* No comment provided by engineer. */
 "Please insert your email" = "Пожалуйста, введите ваш email";
@@ -125,12 +134,6 @@
 "Terms of Service" = "Правила сервиса";
 
 /* No comment provided by engineer. */
-"There is no undo" = "Это действие нельзя отменить";
-
-/* No comment provided by engineer. */
-"This message will not be visibile by other users" = "Это сообщение не будет видно другим пользователям";
-
-/* No comment provided by engineer. */
 "Use your email to create an account" = "Используйте ваш email для создания аккаунта";
 
 /* No comment provided by engineer. */
@@ -147,6 +150,12 @@
 
 /* No comment provided by engineer. */
 "Welcome back" = "Добро пожаловать";
+
+/* No comment provided by engineer. */
+"Welcome to Seedlinks!" = "Добро пожаловать в Seedlinks!";
+
+/* No comment provided by engineer. */
+"Write something and share your seed with the world!" = "Напишите что-нибудь и поделитесь своими мыслями с миром!";
 
 /* No comment provided by engineer. */
 "You have been missed" = "Мы по вам скучали";
