@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+let filterDate: String = "Date"
+let filterDistance: String = "Distance"
+
 struct ProfileView: View {
     
     @ObservedObject var userSession : UserSession
@@ -15,7 +18,7 @@ struct ProfileView: View {
     @State var isOn: Bool = false
     var username : String = ""
     @State private var selectedCategory = ""
-    var filtering = ["Date","Distance"]
+    var filtering = [NSLocalizedString(filterDate, comment: ""), NSLocalizedString(filterDistance, comment: "")]
     
     var customLabel: some View {
         HStack {

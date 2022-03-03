@@ -8,6 +8,9 @@
 "and our" = "и наши";
 
 /* No comment provided by engineer. */
+"Advice" = "";
+
+/* No comment provided by engineer. */
 "Anonymous" = "Анонимно";
 
 /* No comment provided by engineer. */
@@ -23,10 +26,16 @@
 "Current location" = "Ваша позиция";
 
 /* No comment provided by engineer. */
+"Date" = "";
+
+/* No comment provided by engineer. */
 "Delete" = "Удалить";
 
 /* No comment provided by engineer. */
 "Delete Account" = "Удалить аккаунт";
+
+/* No comment provided by engineer. */
+"Distance" = "";
 
 /* No comment provided by engineer. */
 "Forgotten password?" = "Забыли пароль?";
@@ -38,10 +47,16 @@
 "Get started!" = "Давайте начнем!";
 
 /* No comment provided by engineer. */
+"Leave a sign around the world" = "";
+
+/* No comment provided by engineer. */
 "Log out" = "Выйти";
 
 /* No comment provided by engineer. */
 "Login succeeded!" = "Вы вошли успешно!";
+
+/* No comment provided by engineer. */
+"Message" = "";
 
 /* No comment provided by engineer. */
 "New seed" = "Новое семя";
