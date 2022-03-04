@@ -8,8 +8,11 @@
 import SwiftUI
 import Firebase
 
+let onboardTitle: String = "Leave a sign around the world"
 
 struct Tab: View {
+    @State private var appSetupState = "App NOT Setup"
+    @AppStorage("needsAppOnboarding") private var needsAppOnboarding: Bool = true
     
     init() {
         UITabBar.appearance().shadowImage = UIImage()
@@ -40,9 +43,18 @@ struct Tab: View {
                     Text("Garden")
                 }
         }
-//        .preferredColorScheme(isDarkMode ? .dark : .light)
+        .sheet(isPresented:$needsAppOnboarding) {
+            
+            // Scenario #1: User has NOT completed app onboarding
+            TabView{
+                OnboardingView(systemImageName: "onboarding1", title: NSLocalizedString(onboardTitle, comment: ""), description: "")
+                InfoList(didSetup: true)
+            }
+            .tabViewStyle(.page(indexDisplayMode: .always))
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
+        }
+        //        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
+    
     // .environmentObject(userSession)
 }
-
-

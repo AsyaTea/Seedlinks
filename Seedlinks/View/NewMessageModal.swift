@@ -65,6 +65,7 @@ struct SheetView: View {
                                 .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
                                 .foregroundColor(Color("genericGray"))
                                 .disabled(true)
+                                .padding()
                         }
                         
                         TextEditor(text: $message)
@@ -127,7 +128,7 @@ struct SheetView: View {
                         Divider()
                         Toggle("Private", isOn: $privat)
                         HStack{
-                            Text("This message will not be visibile by other users")
+                            Text("This message will not be visible by other users")
                                 .foregroundColor(Color("genericGray"))
                                 .font(.system(size: 14))
                                 .fontWeight(.thin)
@@ -135,7 +136,7 @@ struct SheetView: View {
                             Spacer()
                         }
                         
-                    }
+                    }.padding()
                     
                     Divider()
                     HStack{
@@ -143,7 +144,7 @@ struct SheetView: View {
                             .font(.system(size: 20))
                             .fontWeight(.medium)
                         Spacer()
-                    }
+                    }.padding()
                     MapModal(locationManager: locationManager)
                         .cornerRadius(20)
                         .frame(width: UIScreen.main.bounds.width * 0.91, height: 150)

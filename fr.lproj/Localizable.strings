@@ -1,8 +1,14 @@
 /* No comment provided by engineer. */
+"+ Plant a seed" = "+ Planter une graine";
+
+/* No comment provided by engineer. */
 "2h ago" = "il y a 2h";
 
 /* No comment provided by engineer. */
-"Advice" = "Conseils";
+"Advice" = "Conseil";
+
+/* No comment provided by engineer. */
+"Allow the app to access your position to explore the full functionalities." = "Autorisez l'application à accéder à votre position pour explorer toutes les fonctionnalités.";
 
 /* No comment provided by engineer. */
 "and our" = "et notre";
@@ -11,13 +17,19 @@
 "Anonymous" = "Anonyme";
 
 /* No comment provided by engineer. */
+"Are you sure you want to delete your account?" = "Êtes-vous sûr de vouloir supprimer votre compte?";
+
+/* No comment provided by engineer. */
 "By clicking on the button above, you agree to our" = "En cliquant sur le bouton ci-dessus, vous acceptez nos";
 
 /* No comment provided by engineer. */
-"Choose a category" = "Choisis une catégorie";
+"Cancel" = "Annuler";
 
 /* No comment provided by engineer. */
-"Dark Mode" = "Mode Sombre";
+"Current location" = "Position actuelle";
+
+/* No comment provided by engineer. */
+"Date" = "Date";
 
 /* No comment provided by engineer. */
 "Delete" = "Supprimer";
@@ -26,19 +38,25 @@
 "Delete Account" = "Supprimer mon compte";
 
 /* No comment provided by engineer. */
+"Distance" = "Distance";
+
+/* No comment provided by engineer. */
+"Explore the world" = "Explore le monde";
+
+/* No comment provided by engineer. */
 "Forgotten password?" = "Mot de passe oublié?";
 
 /* No comment provided by engineer. */
 "Garden" = "Jardin";
 
 /* No comment provided by engineer. */
-"General" = "Général";
-
-/* No comment provided by engineer. */
 "Get started!" = "Allons-y!";
 
 /* No comment provided by engineer. */
-"Language" = "Langue";
+"Join the community" = "Joindre la communauté";
+
+/* No comment provided by engineer. */
+"Leave a sign around the world" = "Laissez votre empreinte dans le monde entier";
 
 /* No comment provided by engineer. */
 "Log out" = "Se déconnecter";
@@ -50,10 +68,19 @@
 "Message" = "Message";
 
 /* No comment provided by engineer. */
+"Navigate through the map and find the most popular places." = "Naviguez sur la mappe et trouvez les endroits les plus populaires.";
+
+/* No comment provided by engineer. */
 "New seed" = "Nouvelle graine";
 
 /* No comment provided by engineer. */
 "Not a member?" = "Pas encore membre?";
+
+/* No comment provided by engineer. */
+"Once you delete your account you won't be able to restore it." = "Une fois le compte supprimé, il ne sera plus possible de le récupérer.";
+
+/* No comment provided by engineer. */
+"Other users will not be able to see your username" = "Les autres utilisateurs ne pourront pas voir votre nom d'utilisateur";
 
 /* No comment provided by engineer. */
 "Password" = "Mot de passe";
@@ -62,7 +89,7 @@
 "Plant" = "Plante";
 
 /* No comment provided by engineer. */
-"Plant a seed." = "Plante une graine.";
+"Plant your thoughts" = "Plantez vos pensées";
 
 /* No comment provided by engineer. */
 "Please insert your email" = "Veuillez insérer votre email";
@@ -80,6 +107,9 @@
 "Private" = "Privé";
 
 /* No comment provided by engineer. */
+"Properties" = "Propriétés";
+
+/* No comment provided by engineer. */
 "Register" = "Créer mon compte";
 
 /* No comment provided by engineer. */
@@ -92,6 +122,9 @@
 "Seeds" = "Graines";
 
 /* No comment provided by engineer. */
+"Select a category:" = "choisissez une catégorie";
+
+/* No comment provided by engineer. */
 "Send reset password" = "Réinitialiser le mot de passe";
 
 /* No comment provided by engineer. */
@@ -101,10 +134,19 @@
 "Sign in" = "Connecte toi";
 
 /* No comment provided by engineer. */
+"Start exploring!" = "Choisissez une catégorie:";
+
+/* No comment provided by engineer. */
+"Stay connected and read messages left by others." = "Restez connecté et lisez les messages laissés par les autres.";
+
+/* No comment provided by engineer. */
 "terms and conditions." = "Termes et conditions.";
 
 /* No comment provided by engineer. */
 "Terms of Service" = "Conditions d'utilisation";
+
+/* No comment provided by engineer. */
+"This message will not be visible by other users" = "Ce message ne sera pas visible par les autres utilisateurs";
 
 /* No comment provided by engineer. */
 "Use your email to create an account" = "Utilize ton mail pour créer un compte";
@@ -116,16 +158,19 @@
 "Username" = "Nom d'utilisateur";
 
 /* No comment provided by engineer. */
-"Version 1.5" = "Version 1.5";
+"Version 1.6" = "Version 1.6";
 
 /* No comment provided by engineer. */
 "View on map" = "Voir sur la carte";
 
 /* No comment provided by engineer. */
-"Welcome back " = "Bienvenue";
+"Welcome back" = "Content de te revoir";
 
 /* No comment provided by engineer. */
-"Write a text" = "Écris un texte";
+"Welcome to Seedlinks!" = "Bienvenue sur Seedlinks!";
+
+/* No comment provided by engineer. */
+"Write something and share your seed with the world!" = "Écrivez quelque chose et partagez votre graines avec le monde!";
 
 /* No comment provided by engineer. */
 "You have been missed" = "Heureux de te revoir";

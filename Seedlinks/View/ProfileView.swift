@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+let filterDate: String = "Date"
+let filterDistance: String = "Distance"
+
 struct ProfileView: View {
     
     @ObservedObject var userSession : UserSession
@@ -14,14 +17,14 @@ struct ProfileView: View {
     @ObservedObject var locationManager : LocationManager
     @State var isOn: Bool = false
     var username : String = ""
-    
-    
+    @State private var selectedCategory = ""
+    var filtering = [NSLocalizedString(filterDate, comment: ""), NSLocalizedString(filterDistance, comment: "")]
     
     var customLabel: some View {
         HStack {
             Image(systemName: "line.3.horizontal.decrease.circle")
                 .resizable()
-                .frame(width:20,height: 20)
+                .frame(width:19,height: 19)
 //            Spacer()
         }
         .font(.system(size: 17))

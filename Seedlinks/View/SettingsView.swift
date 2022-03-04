@@ -96,7 +96,7 @@ struct SettingsView: View {
                         .alert(isPresented:$showingAlert) {
                         Alert(
                             title: Text("Are you sure you want to delete your account?"),
-                            message: Text("There is no undo"),
+                            message: Text("Once you delete your account you won't be able to restore it."),
                             primaryButton: .destructive(Text("Delete")) {
                                 dbManager.userList.removeAll()
                                 dbManager.deleteUserDatabase(userID: dbManager.userDocumentID)
