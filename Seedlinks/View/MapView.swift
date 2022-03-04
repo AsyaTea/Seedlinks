@@ -46,7 +46,11 @@ struct MapView: View {
                         VStack{
                          if  clickedMessage == message {
                         
-                        PlaceAnnotationView(locationManager: locationManager, dbManager: dbManager, title : clickedMessage?.message ?? "default", name: clickedMessage?.author ?? "default", messageID: message.id)
+                        PlaceAnnotationView(locationManager: locationManager,
+                                            dbManager: dbManager,
+                                            title : clickedMessage?.message ?? "default",
+                                            name: (clickedMessage?.anonymous ?? false ? "Anonymous" : clickedMessage?.author ?? ""),
+                                            messageID: message.id)
                         
                     }
                             else {

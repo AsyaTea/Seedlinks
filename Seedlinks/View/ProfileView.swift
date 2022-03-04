@@ -14,14 +14,14 @@ struct ProfileView: View {
     @ObservedObject var locationManager : LocationManager
     @State var isOn: Bool = false
     var username : String = ""
-    @State private var selectedCategory = ""
-    var filtering = ["Date","Distance"]
+    
+    
     
     var customLabel: some View {
         HStack {
             Image(systemName: "line.3.horizontal.decrease.circle")
                 .resizable()
-                .frame(width:17,height: 17)
+                .frame(width:20,height: 20)
 //            Spacer()
         }
         .font(.system(size: 17))
@@ -102,9 +102,14 @@ struct ProfileView: View {
                     .font(.system(size: 22))
                     .fontWeight(.semibold)
                 Spacer()
+                Button(action: {
+                    MessageListView(userSession: userSession, dbManager: dbManager, locationManager: locationManager).orderByDistance()
+                }, label: {
+                    Text("Filtralo")
+                })
                 Menu{
-                    Picker(selection: $selectedCategory,label:EmptyView()){
-                        ForEach(filtering, id: \.self) {
+                    Picker(selection: $dbManager.selectedCategory,label:EmptyView()){
+                        ForEach(dbManager.filtering, id: \.self) {
                             Text($0)
                         }
                     }
@@ -113,16 +118,19 @@ struct ProfileView: View {
                 }
             }.padding(.top,20)
             
-            ScrollView(showsIndicators: false){
-                MessageListView(userSession: userSession, dbManager: dbManager, locationManager: locationManager)
-                    .frame(alignment:.center)
-            }
+            
+                ScrollView(showsIndicators: false){
+                    MessageListView(userSession: userSession, dbManager: dbManager, locationManager: locationManager)
+                        .frame(alignment:.center)
+                }
+                      
             Spacer()
         }
         .navigationBarHidden(true)
         .padding([.top, .leading, .trailing], 15.0)
         .onAppear {
             dbManager.getUsername(userID: userSession.userAuthenticatedId)
+          
         }
         
     }
