@@ -105,9 +105,14 @@ struct ProfileView: View {
                     .font(.title2)
                     .fontWeight(.semibold)
                 Spacer()
+                Button(action: {
+                    MessageListView(userSession: userSession, dbManager: dbManager, locationManager: locationManager).orderByDistance()
+                }, label: {
+                    Text("Filtralo")
+                })
                 Menu{
-                    Picker(selection: $selectedCategory,label:EmptyView()){
-                        ForEach(filtering, id: \.self) {
+                    Picker(selection: $dbManager.selectedCategory,label:EmptyView()){
+                        ForEach(dbManager.filtering, id: \.self) {
                             Text($0)
                         }
                     }
@@ -116,16 +121,19 @@ struct ProfileView: View {
                 }
             }.padding(.top,20)
             
-            ScrollView(showsIndicators: false){
-                MessageListView(userSession: userSession, dbManager: dbManager, locationManager: locationManager)
-                    .frame(alignment:.center)
-            }
+            
+                ScrollView(showsIndicators: false){
+                    MessageListView(userSession: userSession, dbManager: dbManager, locationManager: locationManager)
+                        .frame(alignment:.center)
+                }
+                      
             Spacer()
         }
         .navigationBarHidden(true)
         .padding([.top, .leading, .trailing], 15.0)
         .onAppear {
             dbManager.getUsername(userID: userSession.userAuthenticatedId)
+          
         }
         
     }
