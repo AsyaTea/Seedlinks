@@ -19,7 +19,8 @@ struct MessageListView: View {
                     .padding(.top,5.5)
             }
             .onAppear{
-                dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)                
+                dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)
+                orderByDistance()
             }
     }
     
@@ -29,13 +30,18 @@ struct MessageListView: View {
             let longitude = Double(message.longitude)
             let latitude = Double(message.latitude)
             let distanceFromPos = locationManager.getRadius(bLat: latitude ?? 0.0, bLong: longitude ?? 0.0)
-            print(distanceFromPos)
             message.distanceFromPos = distanceFromPos
+            print("Distance from positions is\(message.distanceFromPos ?? 0.0)")
+            
         }
+        
+//        for i in 0...dbManager.userList.count {
+//            
+//        }
         dbManager.userList.sort {
             $0.distanceFromPos ?? 0.0 < $1.distanceFromPos ?? 0.0
         }
-//        print(dbManager.userList)
+        print(dbManager.userList)
     }
 }
 
