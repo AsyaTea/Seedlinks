@@ -26,4 +26,5 @@ struct Message: Identifiable,Hashable {
     var distanceFromPos : Double?
     var locationName : String
     
+    
 }

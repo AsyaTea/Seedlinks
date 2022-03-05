@@ -64,10 +64,11 @@ struct SheetView: View {
                             Text(placeholder)
                                 .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.43, alignment: .topLeading)
                                 .foregroundColor(Color("genericGray"))
+                                .opacity(0.5)
                                 .disabled(true)
                                 .padding()
                         }
-                        TextEditor(text: $message)
+                        TextField("", text: $message)
                             .textFieldStyle(PlainTextFieldStyle())
                             .focused($isFocused)
                             .opacity(message.isEmpty ? 0.25 : 1)
@@ -191,6 +192,7 @@ struct SheetView: View {
                     reportCount: 0,
                     locationName: locationManager.streetNameMessage.isEmpty ? locationManager.cityNameMessage : locationManager.streetNameMessage
                 )
+                
                 dbManager.userMessagesQuery(userID: userSession.userAuthenticatedId)
                 
             }) {

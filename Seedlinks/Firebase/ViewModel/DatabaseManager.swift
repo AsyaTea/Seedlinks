@@ -11,6 +11,7 @@ import CoreLocation
 import SwiftUI
 import FirebaseAuth
 
+var localizeAnonymous: String = "Anonymous"
 class DatabaseManager: ObservableObject {
     
     @Published var list = [Message]()
@@ -110,7 +111,13 @@ class DatabaseManager: ObservableObject {
     
     func addMessage(userID: String, author: String, message: String, publicationDate: Date, dateString: String, category: String, anonymous: Bool, privat: Bool, latitude : String, longitude : String, reportCount: Int, locationName : String) {
         
-        db.collection("messages").addDocument(data: ["userID": userID , "author": author, "message": message, "publicationDate": publicationDate, "dateString": dateString, "category": category, "anonymous": anonymous, "private": privat, "latitude" : latitude,"longitude" :longitude, "reportCount" : 0,"location": locationName]) { error in
+        var name = author
+        
+        if anonymous {
+            name = NSLocalizedString(localizeAnonymous, comment: "")
+        } 
+        
+        db.collection("messages").addDocument(data: ["userID": userID , "author": name, "message": message, "publicationDate": publicationDate, "dateString": dateString, "category": category, "anonymous": anonymous, "private": privat, "latitude" : latitude,"longitude" :longitude, "reportCount" : 0,"location": locationName]) { error in
             
             if error == nil {
                 

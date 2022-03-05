@@ -46,7 +46,7 @@ struct MapView: View {
                         VStack{
                          if  clickedMessage == message {
                         
-                        PlaceAnnotationView(locationManager: locationManager, dbManager: dbManager, title : clickedMessage?.message ?? "default", name: clickedMessage?.author ?? "default", messageID: message.id)
+                             PlaceAnnotationView(locationManager: locationManager, dbManager: dbManager, title: clickedMessage?.message ?? "default", name: clickedMessage?.author ?? "default", messageID: message.id)
                         
                     }
                             else {
@@ -72,7 +72,9 @@ struct MapView: View {
                             
                             
                             ZStack{
-                                if getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 300.0  {
+                                if getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 300.0
+//                                    && getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) < 800
+                                {
                                     Circle()
                                         .foregroundColor(.gray)
                                         .frame(width: 25, height: 25)
@@ -81,7 +83,7 @@ struct MapView: View {
                                         .resizable()
                                         .frame(width: 15, height: 15)
                                 }
-//                                else if getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 800.0 {
+//                                else if getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 800.0 && getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) < 2000 {
 //                                    Circle()
 //                                        .foregroundColor(.teal)
 //                                        .frame(width: 25, height: 25)
@@ -92,7 +94,7 @@ struct MapView: View {
 //                                }
 //                                else if getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 2000.0 {
 //                                    Circle()
-//                                        .foregroundColor(.mint)
+//                                        .foregroundColor(.gray)
 //                                        .frame(width: 25, height: 25)
 //                                    //    .padding(20)
 //                                    Image("sprout")
