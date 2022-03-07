@@ -108,7 +108,7 @@ struct ProfileView: View {
                 Button(action: {
                     MessageListView(userSession: userSession, dbManager: dbManager, locationManager: locationManager).orderByDistance()
                 }, label: {
-                    Text("Filtralo")
+                    Text("Sort")
                 })
                 Menu{
                     Picker(selection: $dbManager.selectedCategory,label:EmptyView()){

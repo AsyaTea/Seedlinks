@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
+var localizeAnonymous: String = "Anonymous"
+
 struct MapView: View {
     
     @ObservedObject var locationManager : LocationManager
@@ -49,7 +51,7 @@ struct MapView: View {
                         PlaceAnnotationView(locationManager: locationManager,
                                             dbManager: dbManager,
                                             title : clickedMessage?.message ?? "default",
-                                            name: (clickedMessage?.anonymous ?? false ? "Anonymous" : clickedMessage?.author ?? ""),
+                                            name: (clickedMessage?.anonymous ?? false ? NSLocalizedString(localizeAnonymous, comment: "") : clickedMessage?.author ?? ""),
                                             messageID: message.id)
                         
                     }
@@ -69,7 +71,7 @@ struct MapView: View {
                             dbManager.getMessageIDquery(messageID: message.id)
                             locationManager.didTapOnPin.toggle()
                             clickedMessage = dbManager.message
-                            
+                            locationManager.getRegion()
                         } label: {
                             
                           
@@ -130,7 +132,7 @@ struct MapView: View {
                     Spacer()
                     ButtonPosition()
                         .onTapGesture {
-                            locationManager.getRegion()
+//                            locationManager.getRegion()
                         }
                 }
                 .padding(25)
