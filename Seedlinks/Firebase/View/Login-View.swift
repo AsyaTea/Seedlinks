@@ -169,8 +169,7 @@ struct SignInView: View {
                             
                             print("\(String(describing: Auth.auth().currentUser?.uid))")
                         default:
-                            break
-                            
+                            break                            
                         }
                     default:
                         break
