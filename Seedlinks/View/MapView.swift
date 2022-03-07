@@ -71,7 +71,7 @@ struct MapView: View {
                             dbManager.getMessageIDquery(messageID: message.id)
                             locationManager.didTapOnPin.toggle()
                             clickedMessage = dbManager.message
-                            locationManager.getRegion()
+//                            locationManager.getRegion()
                         } label: {
                             
                           
