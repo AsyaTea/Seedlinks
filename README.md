@@ -9,5 +9,4 @@ The app is also present in both light and **dark mode**.
 ## Screenshots
 
 ## Testflight
-Do you want to try the latest version of Seedlinks ? Click on the following link and follow the steps
-[TestFlight](https://testflight.apple.com/join/TYLzqig6).
+Do you want to try the latest version of Seedlinks ? Click on the following [link](https://testflight.apple.com/join/TYLzqig6) and follow the steps.
