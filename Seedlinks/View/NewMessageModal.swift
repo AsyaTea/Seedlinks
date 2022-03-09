@@ -148,7 +148,7 @@ struct SheetView: View {
                     MapModal(locationManager: locationManager)
                         .cornerRadius(20)
                         .frame(width: UIScreen.main.bounds.width * 0.91, height: 150)
-                        .disabled(true)
+//                        .disabled(true)
                       
                     if(locationManager.streetName.isEmpty){
                         HStack{

@@ -11,13 +11,20 @@ import MapKit
 struct MapModal: View {
     
     @ObservedObject var locationManager : LocationManager
+    @State private var userTrackingMode : MapUserTrackingMode = .follow
+    
     
     var body: some View {
-        Map(coordinateRegion: $locationManager.region,  showsUserLocation: true)
-            .onAppear{
-                locationManager.requestAuthorization()
-            }
-            
+        Map(
+            coordinateRegion: $locationManager.region,
+            interactionModes: MapInteractionModes.zoom,
+            showsUserLocation: true,
+            userTrackingMode: $userTrackingMode
+        )
+        .onAppear{
+            locationManager.requestAuthorization()
+        }
+        
     }
 }
 
