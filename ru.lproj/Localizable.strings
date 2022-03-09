@@ -11,6 +11,9 @@
 "and our" = "и наши";
 
 /* No comment provided by engineer. */
+"Advice" = "Совет";
+
+/* No comment provided by engineer. */
 "Anonymous" = "Анонимно";
 
 /* No comment provided by engineer. */
@@ -26,10 +29,16 @@
 "Current location" = "Ваша позиция";
 
 /* No comment provided by engineer. */
+"Date" = "Дата";
+
+/* No comment provided by engineer. */
 "Delete" = "Удалить";
 
 /* No comment provided by engineer. */
 "Delete Account" = "Удалить аккаунт";
+
+/* No comment provided by engineer. */
+"Distance" = "Расстояние";
 
 /* No comment provided by engineer. */
 "Explore the world" = "Путешествуйте";
@@ -47,10 +56,16 @@
 "Join the community" = "Присоединиться к сообществу";
 
 /* No comment provided by engineer. */
+"Leave a sign around the world" = "Оставьте свой след в мире";
+
+/* No comment provided by engineer. */
 "Log out" = "Выйти";
 
 /* No comment provided by engineer. */
 "Login succeeded!" = "Вы вошли успешно!";
+
+/* No comment provided by engineer. */
+"Message" = "Сообщение";
 
 /* No comment provided by engineer. */
 "Navigate through the map and find the most popular places." = "Перемещайтесь по карте и находите самые популярные места";
@@ -120,6 +135,9 @@
 
 /* No comment provided by engineer. */
 "Sign in" = "Вход";
+
+/* No comment provided by engineer. */
+"Sort" = "Сортировка";
 
 /* No comment provided by engineer. */
 "terms and conditions." = "Правила и условия";

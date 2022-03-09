@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 
+let onboardTitle: String = "Leave a sign around the world"
 
 struct Tab: View {
     @State private var appSetupState = "App NOT Setup"
@@ -46,7 +47,7 @@ struct Tab: View {
             
             // Scenario #1: User has NOT completed app onboarding
             TabView{
-                OnboardingView(systemImageName: "onboarding1", title: "Leave a sign around the world", description: "")
+                OnboardingView(systemImageName: "onboarding1", title: NSLocalizedString(onboardTitle, comment: ""), description: "")
                 InfoList(didSetup: true)
             }
             .tabViewStyle(.page(indexDisplayMode: .always))

@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
+var localizeAnonymous: String = "Anonymous"
+
 struct MapView: View {
     
     @ObservedObject var locationManager : LocationManager
@@ -43,11 +45,15 @@ struct MapView: View {
                     content: {
                         
                         VStack{
-                            if  clickedMessage == message {
-                                
-                                PlaceAnnotationView(locationManager: locationManager, dbManager: dbManager, title : clickedMessage?.message ?? "default", name: clickedMessage?.author ?? "default", messageID: message.id)
-                                
-                            }
+                         if  clickedMessage == message {
+                        
+                        PlaceAnnotationView(locationManager: locationManager,
+                                            dbManager: dbManager,
+                                            title : clickedMessage?.message ?? "default",
+                                            name: (clickedMessage?.anonymous ?? false ? NSLocalizedString(localizeAnonymous, comment: "") : clickedMessage?.author ?? ""),
+                                            messageID: message.id)
+                        
+                    }
                             else {
                                 PlaceAnnotationViewHidden(locationManager: locationManager, dbManager: dbManager, title: "", name: "", messageID: "")
                             }
@@ -146,6 +152,8 @@ struct PlaceAnnotationView: View {
             RoundedRectangle(cornerRadius:10)
                 .foregroundColor(Color("TabBar"))
                 .frame(width: UIScreen.main.bounds.width * 0.81, height: textHeight+65,alignment: .leading)
+                .border(.cyan, width: 1)
+                
             VStack{
                 Text(name)
                     .fontWeight(.bold)

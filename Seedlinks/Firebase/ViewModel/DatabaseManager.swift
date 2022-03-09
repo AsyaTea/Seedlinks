@@ -21,13 +21,18 @@ class DatabaseManager: ObservableObject {
     @Published var message = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "",  reportCount: 0, locationName: "")
     @Published var messageUser = Message(id: "", userID: "", author: "", message: "", publicationDate: Date.now, dateString: "", category: "", anonymous: false, privat: false, longitude: "", latitude: "",  reportCount: 0, locationName: "")
     @Published var userDocumentID = ""
-  
     @Published var errorMessage = ""
+    @Published var selectedCategory = "Date"
+    @Published var filtering = ["Date","Distance"]
     
     let db = Firestore.firestore()              // Reference to the database
     
     init() {
-        fetchCurrentUser()
+//        fetchCurrentUser()
+    }
+    
+    enum ErrorHandler{
+        
     }
     
     func getData() {
@@ -39,6 +44,7 @@ class DatabaseManager: ObservableObject {
                     
                     self.list = [Message]()
                         for d in querySnapshot!.documents {
+                            
                             
 //                            print("\(d)")
                             self.list.append(
@@ -58,6 +64,8 @@ class DatabaseManager: ObservableObject {
                     
                             )
                         }
+                } else {
+                    //Handle errors
                 }
             }
         
@@ -76,7 +84,7 @@ class DatabaseManager: ObservableObject {
                         
                         for d in querySnapshot!.documents {
                             
-                            print("\(d)")
+                           
                             self.userList.append(
                                 Message(id: d.documentID,
                                 userID: d["userID"] as? String ?? "",
@@ -109,6 +117,12 @@ class DatabaseManager: ObservableObject {
 
     
     func addMessage(userID: String, author: String, message: String, publicationDate: Date, dateString: String, category: String, anonymous: Bool, privat: Bool, latitude : String, longitude : String, reportCount: Int, locationName : String) {
+        
+//        var name = author
+//
+//        if anonymous {
+//            name = NSLocalizedString(localizeAnonymous, comment: "")
+//        }
         
         db.collection("messages").addDocument(data: ["userID": userID , "author": author, "message": message, "publicationDate": publicationDate, "dateString": dateString, "category": category, "anonymous": anonymous, "private": privat, "latitude" : latitude,"longitude" :longitude, "reportCount" : 0,"location": locationName]) { error in
             
@@ -163,6 +177,8 @@ class DatabaseManager: ObservableObject {
                             }
                         }
                     
+                } else {
+                    //error handle
                 }
             }
         
@@ -202,36 +218,12 @@ class DatabaseManager: ObservableObject {
                 self.username = (querySnapshot?.documents[0]["username"] as? String ?? "")
                 self.userDocumentID = (querySnapshot?.documents[0].documentID ?? "")
             } else {
-                
+                //errors
             }
         }
     }
     
-private func fetchCurrentUser() {
-    guard let id = Auth.auth().currentUser?.uid else {
-            self.errorMessage = "Could not find firebase uid"
-            return
-        }
-        db.collection("user").document(id).getDocument { querySnapshot, error in
 
-            if let error = error {
-                self.errorMessage = "Failed to fetch current user: \(error)"
-                print("Failed to fetch current user:", error)
-                return
-            }
-            guard let data = querySnapshot?.data() else {
-                self.errorMessage = "No data found"
-                return
-            }
-
-            let id = data["userID"] as? String ?? ""
-            let username = data["username"] as? String ?? ""
-            let email = data["email"] as? String ?? ""
-
-            self.user = User(id: id,username: username, email: email)
-            print("ODIO LA MIA VITA")
-        }
-    }
     
     func getMessageIDquery(messageID: String)  {
 
@@ -295,7 +287,7 @@ private func fetchCurrentUser() {
                         }
                         
                     } else {
-                        print("error")
+                        //
                     }
                 }
                 reportedMessage.delete()
