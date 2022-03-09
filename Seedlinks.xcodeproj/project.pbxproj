@@ -39,7 +39,6 @@
 		FF03869327BA99980000A7C9 /* GardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869227BA99980000A7C9 /* GardenView.swift */; };
 		FF03869527BAA35A0000A7C9 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869427BAA35A0000A7C9 /* MessageView.swift */; };
 		FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869627BAAEF80000A7C9 /* Tab.swift */; };
-		FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03869827BAB6B40000A7C9 /* ListView.swift */; };
 		FF52479227C63AAC009C2C35 /* RecoveryPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52479127C63AAC009C2C35 /* RecoveryPassword.swift */; };
 		FF900AD527BE671700D7B5E7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD427BE671700D7B5E7 /* ProfileView.swift */; };
 		FF900AD827BE678F00D7B5E7 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF900AD727BE678F00D7B5E7 /* UserSession.swift */; };
@@ -84,7 +83,6 @@
 		FF03869227BA99980000A7C9 /* GardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenView.swift; sourceTree = "<group>"; };
 		FF03869427BAA35A0000A7C9 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		FF03869627BAAEF80000A7C9 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
-		FF03869827BAB6B40000A7C9 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		FF52479127C63AAC009C2C35 /* RecoveryPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPassword.swift; sourceTree = "<group>"; };
 		FF900AD427BE671700D7B5E7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FF900AD727BE678F00D7B5E7 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 				FFC585CF27CE3D780000CCB2 /* RectangleNotInRadius.swift */,
 				FF03868027BA653E0000A7C9 /* MapView.swift */,
 				FF03869627BAAEF80000A7C9 /* Tab.swift */,
-				FF03869827BAB6B40000A7C9 /* ListView.swift */,
 				413945B427BAB77600F86087 /* NewMessageModal.swift */,
 				FF900AD427BE671700D7B5E7 /* ProfileView.swift */,
 				FFD9892327C269E10025F7CE /* SettingsView.swift */,
@@ -330,7 +327,6 @@
 				FF900AD827BE678F00D7B5E7 /* UserSession.swift in Sources */,
 				FF03867F27BA653E0000A7C9 /* SeedlinksApp.swift in Sources */,
 				03C6875D27BBC2E700F2D641 /* (null) in Sources */,
-				FF03869927BAB6B50000A7C9 /* ListView.swift in Sources */,
 				FF03869727BAAEF80000A7C9 /* Tab.swift in Sources */,
 				FF03869327BA99980000A7C9 /* GardenView.swift in Sources */,
 				037C104F27CFC56900B2172A /* Onboarding.swift in Sources */,

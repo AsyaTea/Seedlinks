@@ -145,14 +145,17 @@ struct PlaceAnnotationView: View {
     let messageID : String
     @State var textHeight: CGFloat = 0
     
-    //    let id :  String
+    //    let id :  MicheleCarro
     var body: some View {
         
         ZStack{
             RoundedRectangle(cornerRadius:10)
                 .foregroundColor(Color("TabBar"))
                 .frame(width: UIScreen.main.bounds.width * 0.81, height: textHeight+65,alignment: .leading)
-                .border(.cyan, width: 1)
+                .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.green, lineWidth: 2)
+                    )
                 
             VStack{
                 Text(name)

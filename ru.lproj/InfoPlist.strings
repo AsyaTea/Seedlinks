@@ -1,11 +1,11 @@
 /* Privacy - Location Usage Description */
-"Messages you send use your current position" = "Messages you send use your current position";
+"Messages you send use your current position" = "Это сообщение использует вашу геопозицию";
 
 /* Privacy - Location When In Use Usage Description */
-"NSLocationWhenInUseUsageDescription" = "Start exploring Seeds around you.";
+"NSLocationWhenInUseUsageDescription" = "Начните искать Семена рядом с вами";
 
 /* Privacy - Location Usage Description */
-"NSLocationUsageDescription" = "Messages you send use your current position";
+"NSLocationUsageDescription" = "Это сообщение использует вашу геопозицию";
 
 /* Privacy - Location When In Use Usage Description */
-"Start exploring Seeds around you." = "Start exploring Seeds around you.";
+"Start exploring Seeds around you." = "Начните искать Семена рядом с вами";

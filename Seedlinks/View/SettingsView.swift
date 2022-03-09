@@ -16,6 +16,8 @@ struct SettingsView: View {
     @State var isOn: Bool = false
     @State var isOn2: Bool = false
     
+    let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    
     @State var showingAlert = false
     
     var body: some View {
@@ -114,7 +116,7 @@ struct SettingsView: View {
                 }
                 
             }.listStyle(.inset)
-            Text("Version 1.6")
+            Text("Version \(appVersion ?? "")")
                 .padding()
             
         } .navigationTitle("Settings")
