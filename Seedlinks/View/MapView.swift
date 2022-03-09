@@ -132,7 +132,7 @@ struct MapView: View {
                     Spacer()
                     ButtonPosition()
                         .onTapGesture {
-//                            locationManager.getRegion()
+                            locationManager.getRegion()
                         }
                 }
                 .padding(25)

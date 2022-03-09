@@ -134,48 +134,48 @@ struct SignInView: View {
                     .foregroundColor(.white)
                     .animation(Animation.linear(duration: 1), value: 1.5)
             }
-            SignInWithAppleButton(
-                onRequest: { request in
-                    let nonce = randomNonceString()
-                    currentNonce = nonce
-                    request.requestedScopes = [.fullName, .email]
-                    request.nonce = sha256(nonce)
-            }, onCompletion: { result in
-                switch result {
-                    case .success(let authResults):
-                        switch authResults.credential {
-                        case let appleIDCredential as ASAuthorizationAppleIDCredential:
-                            
-                            guard let nonce = currentNonce else {
-                                fatalError("Invalid state: A login callback was received, but no login request was sent.")
-                            }
-                            guard let appleIDToken = appleIDCredential.identityToken else {
-                                fatalError("Invalid state: A login callback was received, but no login request was sent.")
-                            }
-                            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
-                                return
-                            }
-                            
-                            let credential = OAuthProvider.credential(withProviderID: "apple.com",idToken: idTokenString,rawNonce: nonce)
-                            Auth.auth().signIn(with: credential) { (authResult, error) in
-                                if (error != nil) {
-                                    print(error?.localizedDescription as Any)
-                                    return
-                                }
-                                print("signed in")
-                                self.userSession.loginUser(email: email, password: password)
-                            }
-                            
-                            print("\(String(describing: Auth.auth().currentUser?.uid))")
-                        default:
-                            break                            
-                        }
-                    default:
-                        break
-                                    }
-            }
-                )
+//            SignInWithAppleButton(
+//                onRequest: { request in
+//                    let nonce = randomNonceString()
+//                    currentNonce = nonce
+//                    request.requestedScopes = [.fullName, .email]
+//                    request.nonce = sha256(nonce)
+//            }, onCompletion: { result in
+//                switch result {
+//                    case .success(let authResults):
+//                        switch authResults.credential {
+//                        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+//
+//                            guard let nonce = currentNonce else {
+//                                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+//                            }
+//                            guard let appleIDToken = appleIDCredential.identityToken else {
+//                                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+//                            }
+//                            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+//                                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+//                                return
+//                            }
+//
+//                            let credential = OAuthProvider.credential(withProviderID: "apple.com",idToken: idTokenString,rawNonce: nonce)
+//                            Auth.auth().signIn(with: credential) { (authResult, error) in
+//                                if (error != nil) {
+//                                    print(error?.localizedDescription as Any)
+//                                    return
+//                                }
+//                                print("signed in")
+//                                self.userSession.loginUser(email: email, password: password)
+//                            }
+//
+//                            print("\(String(describing: Auth.auth().currentUser?.uid))")
+//                        default:
+//                            break
+//                        }
+//                    default:
+//                        break
+//                                    }
+//            }
+//                )
                 
 
             HStack{
