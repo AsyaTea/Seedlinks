@@ -9,6 +9,13 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
+enum ViewVisibility: CaseIterable {
+  case visible, // view is fully visible
+       invisible, // view is hidden but takes up space
+       gone // view is fully removed from the view hierarchy
+}
+
+
 var localizeAnonymous: String = "Anonymous"
 
 struct MapView: View {
@@ -21,6 +28,7 @@ struct MapView: View {
     @State var messageID : String = ""
     
     @State var prova : Bool = false
+    
     
     func getRadius(bLat : Double, bLong: Double) -> Double {
         let myCoord = CLLocation(latitude: locationManager.lastLocation?.coordinate.latitude ?? 0.0,longitude: locationManager.lastLocation?.coordinate.longitude ?? 0.0)
@@ -49,13 +57,12 @@ struct MapView: View {
                                                     dbManager: dbManager,
                                                     title : clickedMessage?.message ?? "default",
                                                     name: (clickedMessage?.anonymous ?? false ? NSLocalizedString(localizeAnonymous, comment: "") : clickedMessage?.author ?? ""),
-                                                    messageID: message.id)
+                                                    messageID: message.id, visibility: ViewVisibility.visible)
+                                    .visibility(.visible)
+                                    
                                 
                             }
-                            else {
-                                // VEDERE A CHE SERVE
-                                PlaceAnnotationViewHidden(locationManager: locationManager, dbManager: dbManager)
-                            }
+
                             
                             //Se la distanza tra me e il bottone singolo è < 2km -> abilitalo
                             Button {
@@ -124,6 +131,9 @@ struct MapView: View {
                 }
             }
         }
+        .onTapGesture {
+            locationManager.didTapOnPin = false
+        }
     }
 }
 
@@ -154,10 +164,11 @@ struct PlaceAnnotationView: View {
     let name: String
     let messageID : String
     @State var textHeight: CGFloat = 0
+    @State var visibility: ViewVisibility
     
     //    let id :  MicheleCarro
     var body: some View {
-        
+        if locationManager.didTapOnPin == true {
         ZStack{
             RoundedRectangle(cornerRadius:10)
                 .foregroundColor(Color("TabBar"))
@@ -192,7 +203,7 @@ struct PlaceAnnotationView: View {
                 self.textHeight = value
             }
         }
-        .opacity(locationManager.didTapOnPin ? 1 : 0.5)
+//        .opacity(locationManager.didTapOnPin ? 1 : 0.5)
         .frame(width: 300, height: 80)
         .contextMenu{
             Button(role: .destructive ,action: {
@@ -207,30 +218,28 @@ struct PlaceAnnotationView: View {
                 }
             })
         }
+        } else {
+            visibility(.gone)
+        }
     }
 }
 
-struct PlaceAnnotationViewHidden: View {
-    
-    @ObservedObject var locationManager : LocationManager
-    @ObservedObject var dbManager : DatabaseManager
-    
-    var body: some View {
-        
-        ZStack{
-            VStack{
-                Text("")
-                    .fontWeight(.bold)
-                Text("")
-                    .font(.callout)
-            }
-        }
-        .opacity(locationManager.didTapOnPin ? 1 : 0.5)
-    }
-}
 struct CustomButton: Identifiable{
     let id: String
     
+}
+
+extension View {
+    
+      @ViewBuilder func visibility(_ visibility: ViewVisibility) -> some View {
+          if visibility != .gone {
+              if visibility == .visible {
+                self
+              } else {
+                hidden()
+              }
+          }
+      }
 }
 
 //struct ContentView_Previews: PreviewProvider {
@@ -239,3 +248,4 @@ struct CustomButton: Identifiable{
 //    }
 //}
 
+ 

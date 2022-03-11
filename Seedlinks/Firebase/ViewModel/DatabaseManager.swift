@@ -105,7 +105,7 @@ class DatabaseManager: ObservableObject {
 //                        self.userList.sort {
 //                            $0.publicationDate > $1.publicationDate
 //                        }
-                        print(self.userList)
+                
                      
                     }
                 } else {
