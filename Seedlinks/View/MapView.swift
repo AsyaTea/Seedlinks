@@ -71,10 +71,7 @@ struct MapView: View {
                             clickedMessage = dbManager.message
                             
                         } label: {
-                            
-                          
-                            
-                            
+                                                                                                          
                             ZStack{
                                 if getRadius(bLat: message.coordinate.latitude , bLong: message.coordinate.longitude ) >= 300.0  {
                                     Circle()

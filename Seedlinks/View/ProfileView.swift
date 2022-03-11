@@ -105,11 +105,11 @@ struct ProfileView: View {
                     .font(.system(size: 22))
                     .fontWeight(.semibold)
                 Spacer()
-                Button(action: {
-                    MessageListView(userSession: userSession, dbManager: dbManager, locationManager: locationManager).orderByDistance()
-                }, label: {
-                    Text("Filtralo")
-                })
+//                Button(action: {
+//                    MessageListView(userSession: userSession, dbManager: dbManager, locationManager: locationManager).orderByDistance()
+//                }, label: {
+//                    Text("Filtralo")
+//                })
                 Menu{
                     Picker(selection: $dbManager.selectedCategory,label:EmptyView()){
                         ForEach(dbManager.filtering, id: \.self) {
