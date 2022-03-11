@@ -30,8 +30,6 @@ struct MapView: View {
         return distanceInMeters
     }
     
-    
-    
     var buttonColor: Color {
         return prova ? .green : .gray
     }
@@ -45,17 +43,18 @@ struct MapView: View {
                     content: {
                         
                         VStack{
-                         if  clickedMessage == message {
-                        
-                        PlaceAnnotationView(locationManager: locationManager,
-                                            dbManager: dbManager,
-                                            title : clickedMessage?.message ?? "default",
-                                            name: (clickedMessage?.anonymous ?? false ? NSLocalizedString(localizeAnonymous, comment: "") : clickedMessage?.author ?? ""),
-                                            messageID: message.id)
-                        
-                    }
+                            if  clickedMessage == message {
+                                
+                                PlaceAnnotationView(locationManager: locationManager,
+                                                    dbManager: dbManager,
+                                                    title : clickedMessage?.message ?? "default",
+                                                    name: (clickedMessage?.anonymous ?? false ? NSLocalizedString(localizeAnonymous, comment: "") : clickedMessage?.author ?? ""),
+                                                    messageID: message.id)
+                                
+                            }
                             else {
-                                PlaceAnnotationViewHidden(locationManager: locationManager, dbManager: dbManager, title: "", name: "", messageID: "")
+                                // VEDERE A CHE SERVE
+                                PlaceAnnotationViewHidden(locationManager: locationManager, dbManager: dbManager)
                             }
                             
                             //Se la distanza tra me e il bottone singolo è < 2km -> abilitalo
@@ -93,8 +92,19 @@ struct MapView: View {
                         
                     }
                 )
-            }).ignoresSafeArea()
+            })
+                .ignoresSafeArea()
                 .accentColor(.blue)
+            
+            // MARK: Centra il messaggio quando lo clicco
+                .onChange(of: clickedMessage) {
+                    newValue in
+                    if let result = newValue {
+                        locationManager.region.center = result.coordinate
+                        locationManager.didTapOnPin = true
+                    }
+                } .animation(.spring())
+            
             VStack{
                 Spacer()
                 HStack{
@@ -153,10 +163,10 @@ struct PlaceAnnotationView: View {
                 .foregroundColor(Color("TabBar"))
                 .frame(width: UIScreen.main.bounds.width * 0.81, height: textHeight+65,alignment: .leading)
                 .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.green, lineWidth: 2)
-                    )
-                
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.green, lineWidth: 2)
+                )
+            
             VStack{
                 Text(name)
                     .fontWeight(.bold)
@@ -182,7 +192,7 @@ struct PlaceAnnotationView: View {
                 self.textHeight = value
             }
         }
-        .opacity(locationManager.didTapOnPin ? 1 : 0)
+        .opacity(locationManager.didTapOnPin ? 1 : 0.5)
         .frame(width: 300, height: 80)
         .contextMenu{
             Button(role: .destructive ,action: {
@@ -201,62 +211,21 @@ struct PlaceAnnotationView: View {
 }
 
 struct PlaceAnnotationViewHidden: View {
+    
     @ObservedObject var locationManager : LocationManager
     @ObservedObject var dbManager : DatabaseManager
-    let title: String
-    let name: String
-    let messageID : String
-    @State var textHeight: CGFloat = 0
     
-    //    let id :  String
     var body: some View {
         
         ZStack{
-            //            RoundedRectangle(cornerRadius:10)
-            //                .foregroundColor(Color("TabBar"))
-            //                        .frame(width: UIScreen.main.bounds.width * 0.81, height: textHeight+65,alignment: .leading)
             VStack{
                 Text("")
                     .fontWeight(.bold)
                 Text("")
                     .font(.callout)
-                //                .padding(3)
-                // .background(Color("TabBar"))
-                //                    .cornerRadius(10)
-                //                                .overlay(
-                //                                    GeometryReader { proxy in
-                //                                        Color
-                //                                            .clear
-                //                                            .preference(key: ContentLengthPreference.self,
-                //                                                        value: proxy.size.height) // <-- this
-                //                                    }
-                //                                )
-                //            }
-                
-                
-            }
-            .padding()
-            .onPreferenceChange(ContentLengthPreference.self) { value in // <-- this
-                DispatchQueue.main.async {
-                    self.textHeight = value
-                }
-            }
-            .opacity(locationManager.didTapOnPin ? 1 : 0)
-            .frame(width: 300, height: 80)
-            .contextMenu{
-                Button(role: .destructive ,action: {
-                    print("reporting message")
-                    dbManager.message.reportCount += 1
-                    dbManager.reportedMessage(messageID: messageID)
-                }, label:
-                        {
-                    HStack{
-                        Text("Report")
-                        Image(systemName: "exclamationmark.bubble.fill")
-                    }
-                })
             }
         }
+        .opacity(locationManager.didTapOnPin ? 1 : 0.5)
     }
 }
 struct CustomButton: Identifiable{
@@ -269,3 +238,4 @@ struct CustomButton: Identifiable{
 //        MapView()
 //    }
 //}
+
