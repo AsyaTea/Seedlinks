@@ -137,10 +137,22 @@
 "Sign in" = "Вход";
 
 /* No comment provided by engineer. */
+"Sort" = "Сортировка";
+
+/* No comment provided by engineer. */
 "terms and conditions." = "Правила и условия";
 
 /* No comment provided by engineer. */
 "Terms of Service" = "Правила сервиса";
+
+/* No comment provided by engineer. */
+"Start exploring!" = "Начать открытия";
+
+/* No comment provided by engineer. */
+"Stay connected and read messages left by others." = "Оставайтесь на связи и читайте послания других пользователей";
+
+/* No comment provided by engineer. */
+"This message will not be visible by other users" = "Это сообщение не будет видно другим пользователям";
 
 /* No comment provided by engineer. */
 "Use your email to create an account" = "Используйте ваш email для создания аккаунта";
