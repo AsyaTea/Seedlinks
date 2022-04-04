@@ -1,6 +1,6 @@
 
 # Seedlinks
-Seedlinks is an iOS social app to share your thoughts around the globe. This project was developed in team during the Apple Developer Accademy with [Asya Tealdi](https://github.com/AsyaTea), [Francesco Puzone](https://github.com/morbuen), [Raffaele Colantonio](https://github.com/Rafas02).
+Seedlinks is an iOS social app to share your thoughts around the globe. This project was developed in team during the Apple Developer Academy with [Asya Tealdi](https://github.com/AsyaTea), [Francesco Puzone](https://github.com/morbuen), [Raffaele Colantonio](https://github.com/Rafas02).
 
 ## Features
 Explore the **world** and read other people's thoughts. Join the community and publish your own messages or advices.
